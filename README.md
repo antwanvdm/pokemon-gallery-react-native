@@ -7,10 +7,13 @@ user-friendly to start developing a mobile application.
 
 My personal goal was to get more invested in React Native (and Expo) and master
 the most important criteria. To do so, I created this app featuring Pokémon using
-the popular [Pokémon API](https://pokeapi.co/).
+the popular [Pokémon API](https://pokeapi.co/). I actually created it in web React
+before, just to get more into React. Once finished I ported it to React Native
+and added a lot of features to make it a cool app.
 
 ## Features
 The following features are part of the app:
+
 - List view of Pokémon. Data is re-downloaded every 7 days to prevent overload.
   After the initial download, data is stored locally
 - Every Pokémon can be added as favorite
@@ -35,7 +38,40 @@ The following features are part of the app:
 - Within the setting screen you can also manually test if notifications work
 - When pressing the list or map items while being on that view, you will go back
   to the original view (top of list, or zoomed out Pokémon)
+- The app contains some smooth animations on the Pokémon cards to smoothen the
+  experience
 - Re-opening the app will always remember favorites, notes, dark mode and language
+
+## Technical highlights
+Some implementation were pretty cool and worth highlighting with some in-depth
+technical description:
+
+- Multilingual implementation is pretty cool. I learned that React Native has no
+  problem with Japanese, Chinese and Arabic. The latter even enabled RTL views
+  on some Android components. I used the famous [i18n library](https://www.npmjs.com/package/i18n-js)
+  and combined it with some custom code to have a `t()` wrapper available
+- Using the [reanimated](https://docs.expo.dev/versions/latest/sdk/reanimated/)
+  library works pretty smooth. My main concern with animation would be that the
+  code would require a lot of overhead, but this library handles it very smooth
+- It was my first time using the [Context API](https://react.dev/reference/react/useContext)
+  and I like it. Using a main provider on top of you components give you the 
+  flexibility to handle data centrally, as well as communicating with your AsyncStorage
+- Google Maps doesn't support a native Dark Mode (Apple Maps does!), which challenged
+  me to implement [custom map styles](https://mapstyle.withgoogle.com/). Pretty easy
+  to create and implemented, as it's JSON-based
+- Using Icons gives you multiple options. I ended up using the expo package with an 
+  [easy interface](https://icons.expo.fyi/) to find my icons
+- When actually building my app I needed real keys for Google Maps and Firebase
+  (notifications). While the cloud console is easy to use (once your creditcard is
+  connected..), it still costs some effort to get it running (see [Deployment](#deployment))
+- Notifications were probably the most complex in the whole app. Specifically
+  configuring the background tasks was difficult. I'm very happy it turned out good,
+  even though I'm still confused why it doesn't work with the app killed
+- The performance was also a thing for the Flatlist. It's a list with 251 items,
+  which could eventually become more. Updating 1 detail in 1 component shouldn't
+  update every instance of the component. I eventually used the React Memo 
+  functionality (`export default memo(PokemonCard, areEqual);`) to always check if a
+  property is the same, and else prevent the re-render (see PokemonCard.js)
 
 ## Run it yourself
 To get this project up & running on your own laptop, follow these steps:
@@ -50,7 +86,8 @@ To get this project up & running on your own laptop, follow these steps:
 One of the most important goals was to actually release an app. I didn't choose 
 to use the Google Play Store as it's just a personal app, but I did end up with
 and APK-build installed on my own device. The processes required are mostly the
-same regarding permissions and API-keys.
+same regarding permissions and API-keys. I've used the [EAS tool](https://docs.expo.dev/build/setup/)
+from Expo to configure and publish the app.
 
 2 files are therefore not pushed to git, but would require the following content:
 
