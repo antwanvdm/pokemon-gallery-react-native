@@ -1,0 +1,16 @@
+{
+  "languages": {
+    "en": "English",
+    "nl-NL": "Nederlands",
+    "fr-FR": "Français",
+    "de-DE": "Deutsch",
+    "es-ES": "Español",
+    "it-IT": "Italiano",
+    "ja-JP": "日本語",
+    "zh-CN": "中文",
+    "ar": "عربي"
+  },
+  "tasks": {
+    "backgroundLocation": "background-location-task"
+  }
+}

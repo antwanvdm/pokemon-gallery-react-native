@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Galleria Pokémon",
+    "tabTitle": "Galleria",
+    "filters": {
+      "title": "Filtra risultati",
+      "showFavorites": "Mostra preferiti",
+      "typeAll": "Tutti i tipi",
+      "backToOverview": "Torna alla panoramica"
+    },
+    "loading": "Caricamento dei Pokémon..."
+  },
+  "detailModal": {
+    "addFavorite": "Aggiungi ai preferiti",
+    "removeFavorite": "Rimuovi dai preferiti",
+    "unlockNotesButton": "Sblocca appunti",
+    "unlockNotesPlaceholder": "Premi il pulsante per sbloccare e modificare i tuoi appunti",
+    "close": "Chiudi"
+  },
+  "locations": {
+    "title": "Posizioni dei Pokémon",
+    "tabTitle": "Posizioni",
+    "noAccess": "Non hai concesso l'accesso alla posizione, quindi questo non funzionerà!",
+    "locationLoadingTitle": "Caricamento posizione!",
+    "locationLoadingMessage": "L'app sta ancora cercando di recuperare la tua posizione attuale, abbi un po' di pazienza!",
+    "outOfReachTitle": "Avvicinati!",
+    "outOfReachMessage": "Non ti trovi entro 100 metri da questo Pokémon, avvicinati!"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "tabTitle": "Impostazioni",
+    "darkMode": "Modalità scura",
+    "notifyPokemon": "Avvisa per Pokemon vicini",
+    "language": "Lingua",
+    "clear": "Cancella archivio",
+    "clearAreYouSure": "Sei sicuro? Tutti i tuoi dati personali saranno rimossi.",
+    "clearYes": "Sì!",
+    "clearNo": "Annulla",
+    "clearSuccess": "Cancellazione dei dati completata",
+    "download": "Scarica nuovamente i dati dei Pokémon",
+    "testNotification": "Notifica di prova",
+    "downloadLoading": "Caricamento dati in corso..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "I Pokémon sono vicini a te!",
+      "description": "Sbrigati, i seguenti Pokémon sono pronti a mostrare il loro potenziale brillante"
+    }
+  },
+  "offline": {
+    "title": "Sei offline!",
+    "map": "Attualmente sei offline, quindi non puoi utilizzare la mappa. Riprova quando la tua connessione internet sarà nuovamente disponibile.",
+    "mapNotification": "Attualmente sei offline, quindi non puoi utilizzare la mappa. Trova i tuoi Pokémon quando la tua connessione internet sarà nuovamente disponibile."
+  }
+}

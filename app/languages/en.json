@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Pokémon Gallery",
+    "tabTitle": "Gallery",
+    "filters": {
+      "title": "Filter results",
+      "showFavorites": "Show favorites",
+      "typeAll": "All types",
+      "backToOverview": "Back to overview"
+    },
+    "loading": "Loading Pokémon..."
+  },
+  "detailModal": {
+    "addFavorite": "Add favorite",
+    "removeFavorite": "Remove favorite",
+    "unlockNotesButton": "Unlock notes",
+    "unlockNotesPlaceholder": "Press the button to unlock and edit your notes",
+    "close": "Close"
+  },
+  "locations": {
+    "title": "Pokémon Locations",
+    "tabTitle": "Locations",
+    "noAccess": "You didn't grant access to location so this won't work!",
+    "locationLoadingTitle": "Location loading!",
+    "locationLoadingMessage": "The app is still busy retrieving your current location, have a little patience!",
+    "outOfReachTitle": "Move closer!",
+    "outOfReachMessage": "You are not within 100 meters of this Pokémon, move closer!"
+  },
+  "settings": {
+    "title": "Settings",
+    "tabTitle": "Settings",
+    "darkMode": "Dark mode",
+    "notifyPokemon": "Notify for close Pokemon",
+    "language": "Language",
+    "clear": "Clear storage",
+    "clearAreYouSure": "Are you sure? All your personal data will be removed.",
+    "clearYes": "Yes!",
+    "clearNo": "Cancel",
+    "clearSuccess": "Clearing data is successful",
+    "download": "Download Pokémon data again",
+    "testNotification": "Test notification",
+    "downloadLoading": "Loading data..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Pokemon are close to you!",
+      "description": "Hurry up, the following Pokémon are ready to show their shiny potential"
+    }
+  },
+  "offline": {
+    "title": "You are offline!",
+    "map": "You are currently offline so unable to use the map, try again when your internet connection is back up",
+    "mapNotification": "You are currently offline so unable to use the map, find your Pokémon when your internet connection is back up"
+  }
+}

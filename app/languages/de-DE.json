@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Pokémon Galerie",
+    "tabTitle": "Galerie",
+    "filters": {
+      "title": "Filtere Ergebnisse",
+      "showFavorites": "Favoriten anzeigen",
+      "typeAll": "Alle Typen",
+      "backToOverview": "Zurück zur Übersicht"
+    },
+    "loading": "Pokémon werden geladen..."
+  },
+  "detailModal": {
+    "addFavorite": "Zu Favoriten hinzufügen",
+    "removeFavorite": "Aus Favoriten entfernen",
+    "unlockNotesButton": "Notizen entsperren",
+    "unlockNotesPlaceholder": "Drücken Sie die Taste, um Ihre Notizen zu entsperren und zu bearbeiten",
+    "close": "Schließen"
+  },
+  "locations": {
+    "title": "Pokémon Standorte",
+    "tabTitle": "Standorte",
+    "noAccess": "Du hast den Zugriff auf den Standort nicht gewährt, daher funktioniert dies nicht!",
+    "locationLoadingTitle": "Standort wird geladen!",
+    "locationLoadingMessage": "Die App ist noch damit beschäftigt, deinen aktuellen Standort abzurufen. Bitte hab ein wenig Geduld!",
+    "outOfReachTitle": "Komm näher!",
+    "outOfReachMessage": "Du befindest dich nicht innerhalb von 100 Metern von diesem Pokémon, komm näher!"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "tabTitle": "Einstellungen",
+    "darkMode": "Dunkler Modus",
+    "notifyPokemon": "Benachrichtigung für nahe Pokemon",
+    "language": "Sprache",
+    "clear": "Speicher löschen",
+    "clearAreYouSure": "Bist du sicher? Alle deine persönlichen Daten werden entfernt.",
+    "clearYes": "Ja!",
+    "clearNo": "Abbrechen",
+    "clearSuccess": "Löschen der Daten erfolgreich",
+    "download": "Pokémon-Daten erneut herunterladen",
+    "testNotification": "Testbenachrichtigung",
+    "downloadLoading": "Daten werden geladen..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Pokémon sind in deiner Nähe!",
+      "description": "Schnell, die folgenden Pokémon sind bereit, ihr glänzendes Potenzial zu zeigen"
+    }
+  },
+  "offline": {
+    "title": "Du bist offline!",
+    "map": "Du bist momentan offline, daher kannst du die Karte nicht nutzen. Versuche es erneut, wenn deine Internetverbindung wieder verfügbar ist.",
+    "mapNotification": "Du bist momentan offline, daher kannst du die Karte nicht nutzen. Finde deine Pokémon, wenn deine Internetverbindung wieder verfügbar ist."
+  }
+}

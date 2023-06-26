@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "ポケモンギャラリー",
+    "tabTitle": "ギャラリー",
+    "filters": {
+      "title": "結果のフィルタリング",
+      "showFavorites": "お気に入りを表示",
+      "typeAll": "全てのタイプ",
+      "backToOverview": "概要に戻る"
+    },
+    "loading": "ポケモンを読み込んでいます..."
+  },
+  "detailModal": {
+    "addFavorite": "お気に入りに追加",
+    "removeFavorite": "お気に入りから削除",
+    "unlockNotesButton": "ノートのロック解除",
+    "unlockNotesPlaceholder": "ボタンを押してノートをロック解除し、編集します",
+    "close": "閉じる"
+  },
+  "locations": {
+    "title": "ポケモンの位置情報",
+    "tabTitle": "位置情報",
+    "noAccess": "位置情報へのアクセスが許可されていないため、機能しません！",
+    "locationLoadingTitle": "位置を読み込んでいます！",
+    "locationLoadingMessage": "アプリはまだ現在の位置を取得中です。少々お待ちください！",
+    "outOfReachTitle": "もっと近づいてください！",
+    "outOfReachMessage": "このポケモンから100メートル以内にいません。もっと近くに移動してください！"
+  },
+  "settings": {
+    "title": "設定",
+    "tabTitle": "設定",
+    "darkMode": "ダークモード",
+    "notifyPokemon": "近くのポケモンに通知する",
+    "language": "言語",
+    "clear": "ストレージをクリア",
+    "clearAreYouSure": "本当によろしいですか？すべての個人データが削除されます。",
+    "clearYes": "はい！",
+    "clearNo": "キャンセル",
+    "clearSuccess": "データのクリアが成功しました",
+    "download": "ポケモンデータを再度ダウンロード",
+    "testNotification": "テスト通知",
+    "downloadLoading": "データを読み込んでいます..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "ポケモンが近くにいます！",
+      "description": "急いでください、以下のポケモンは輝く可能性を示す準備ができています"
+    }
+  },
+  "offline": {
+    "title": "オフラインです！",
+    "map": "現在オフラインですので、マップを使用することができません。インターネット接続が復旧したら再試行してください。",
+    "mapNotification": "現在オフラインですので、マップを使用することができません。インターネット接続が復旧したらポケモンを探してください。"
+  }
+}

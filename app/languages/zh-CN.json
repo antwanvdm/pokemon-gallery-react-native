@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "宝可梦图库",
+    "tabTitle": "图库",
+    "filters": {
+      "title": "筛选结果",
+      "showFavorites": "显示收藏",
+      "typeAll": "所有类型",
+      "backToOverview": "返回概览"
+    },
+    "loading": "正在加载宝可梦..."
+  },
+  "detailModal": {
+    "addFavorite": "添加收藏",
+    "removeFavorite": "移除收藏",
+    "unlockNotesButton": "解锁笔记",
+    "unlockNotesPlaceholder": "按下按钮以解锁并编辑您的笔记",
+    "close": "关闭"
+  },
+  "locations": {
+    "title": "宝可梦位置",
+    "tabTitle": "位置",
+    "noAccess": "您未授权位置访问，这将无法工作！",
+    "locationLoadingTitle": "位置加载中！",
+    "locationLoadingMessage": "应用程序仍在忙于获取您的当前位置，请稍等片刻！",
+    "outOfReachTitle": "靠近一点！",
+    "outOfReachMessage": "您距离该宝可梦超过100米，请靠近！"
+  },
+  "settings": {
+    "title": "设置",
+    "tabTitle": "设置",
+    "darkMode": "夜间模式",
+    "notifyPokemon": "通知附近的宝可梦",
+    "language": "语言",
+    "clear": "清除存储",
+    "clearAreYouSure": "您确定吗？这将删除所有个人数据。",
+    "clearYes": "是的！",
+    "clearNo": "取消",
+    "clearSuccess": "数据清除成功",
+    "download": "重新下载宝可梦数据",
+    "testNotification": "测试通知",
+    "downloadLoading": "正在加载数据..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "附近有宝可梦！",
+      "description": "赶快，以下宝可梦准备展示它们的闪光潜力"
+    }
+  },
+  "offline": {
+    "title": "您处于离线状态！",
+    "map": "您当前处于离线状态，无法使用地图。请在您的互联网连接恢复后再试。",
+    "mapNotification": "您当前处于离线状态，无法使用地图。请在您的互联网连接恢复后寻找您的宝可梦。"
+  }
+}

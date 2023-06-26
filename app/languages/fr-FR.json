@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Galerie Pokémon",
+    "tabTitle": "Galerie",
+    "filters": {
+      "title": "Filtrer les résultats",
+      "showFavorites": "Afficher les favoris",
+      "typeAll": "Tous les types",
+      "backToOverview": "Retour à l'aperçu"
+    },
+    "loading": "Chargement des Pokémon..."
+  },
+  "detailModal": {
+    "addFavorite": "Ajouter aux favoris",
+    "removeFavorite": "Supprimer des favoris",
+    "unlockNotesButton": "Déverrouiller les notes",
+    "unlockNotesPlaceholder": "Appuyez sur le bouton pour déverrouiller et modifier vos notes",
+    "close": "Fermer"
+  },
+  "locations": {
+    "title": "Emplacements des Pokémon",
+    "tabTitle": "Emplacements",
+    "noAccess": "Vous n'avez pas accordé l'accès à la localisation, cela ne fonctionnera pas !",
+    "locationLoadingTitle": "Chargement de la localisation !",
+    "locationLoadingMessage": "L'application est toujours en train de récupérer votre position actuelle, veuillez patienter un peu !",
+    "outOfReachTitle": "Approchez-vous !",
+    "outOfReachMessage": "Vous n'êtes pas à moins de 100 mètres de ce Pokémon, approchez-vous !"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "tabTitle": "Paramètres",
+    "darkMode": "Mode sombre",
+    "notifyPokemon": "Notifier pour les Pokemon proches",
+    "language": "Langue",
+    "clear": "Effacer le stockage",
+    "clearAreYouSure": "Êtes-vous sûr ? Toutes vos données personnelles seront supprimées.",
+    "clearYes": "Oui !",
+    "clearNo": "Annuler",
+    "clearSuccess": "Les données ont été effacées avec succès",
+    "download": "Télécharger à nouveau les données des Pokémon",
+    "testNotification": "Notification de test",
+    "downloadLoading": "Chargement des données..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Des Pokémon sont proches de vous !",
+      "description": "Dépêchez-vous, les Pokémon suivants sont prêts à montrer leur potentiel brillant"
+    }
+  },
+  "offline": {
+    "title": "Vous êtes hors ligne !",
+    "map": "Vous êtes actuellement hors ligne, donc vous ne pouvez pas utiliser la carte. Réessayez lorsque votre connexion internet sera rétablie.",
+    "mapNotification": "Vous êtes actuellement hors ligne, donc vous ne pouvez pas utiliser la carte. Trouvez vos Pokémon lorsque votre connexion internet sera rétablie."
+  }
+}

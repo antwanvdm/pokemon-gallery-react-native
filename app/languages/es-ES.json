@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Galería de Pokémon",
+    "tabTitle": "Galería",
+    "filters": {
+      "title": "Filtrar resultados",
+      "showFavorites": "Mostrar favoritos",
+      "typeAll": "Todos los tipos",
+      "backToOverview": "Volver a la vista general"
+    },
+    "loading": "Cargando Pokémon..."
+  },
+  "detailModal": {
+    "addFavorite": "Agregar a favoritos",
+    "removeFavorite": "Eliminar de favoritos",
+    "unlockNotesButton": "Desbloquear notas",
+    "unlockNotesPlaceholder": "Presiona el botón para desbloquear y editar tus notas",
+    "close": "Cerrar"
+  },
+  "locations": {
+    "title": "Ubicaciones de Pokémon",
+    "tabTitle": "Ubicaciones",
+    "noAccess": "¡No has otorgado acceso a la ubicación, por lo que esto no funcionará!",
+    "locationLoadingTitle": "¡Cargando ubicación!",
+    "locationLoadingMessage": "La aplicación todavía está ocupada recuperando tu ubicación actual, ten un poco de paciencia.",
+    "outOfReachTitle": "¡Acércate!",
+    "outOfReachMessage": "No te encuentras a menos de 100 metros de este Pokémon, ¡acércate!"
+  },
+  "settings": {
+    "title": "Configuración",
+    "tabTitle": "Configuración",
+    "darkMode": "Modo oscuro",
+    "notifyPokemon": "Notificar para Pokemon cercanos",
+    "language": "Idioma",
+    "clear": "Borrar almacenamiento",
+    "clearAreYouSure": "¿Estás seguro? Se eliminarán todos tus datos personales.",
+    "clearYes": "¡Sí!",
+    "clearNo": "Cancelar",
+    "clearSuccess": "Borrado de datos exitoso",
+    "download": "Volver a descargar datos de Pokémon",
+    "testNotification": "Notificación de prueba",
+    "downloadLoading": "Cargando datos..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "¡Los Pokémon están cerca de ti!",
+      "description": "Apúrate, los siguientes Pokémon están listos para mostrar su potencial brillante"
+    }
+  },
+  "offline": {
+    "title": "¡Estás sin conexión!",
+    "map": "Actualmente estás sin conexión, por lo que no puedes usar el mapa. Inténtalo de nuevo cuando tu conexión a internet esté disponible.",
+    "mapNotification": "Actualmente estás sin conexión, por lo que no puedes usar el mapa. Encuentra tus Pokémon cuando tu conexión a internet esté disponible."
+  }
+}

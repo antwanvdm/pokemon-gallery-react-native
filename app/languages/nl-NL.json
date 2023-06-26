@@ -1,0 +1,55 @@
+{
+  "gallery": {
+    "title": "Pokémon Lijst",
+    "tabTitle": "Lijst",
+    "filters": {
+      "title": "Filter resultaten",
+      "showFavorites": "Toon favorieten",
+      "typeAll": "Alle types",
+      "backToOverview": "Terug naar overzicht"
+    },
+    "loading": "Pokémon inladen..."
+  },
+  "detailModal": {
+    "addFavorite": "Voeg favoriet toe",
+    "removeFavorite": "Verwijder favoriet",
+    "unlockNotesButton": "Ontgrendel notities",
+    "unlockNotesPlaceholder": "Druk op de knop om je notities te ontgrendelen en bewerken",
+    "close": "Sluiten"
+  },
+  "locations": {
+    "title": "Pokémon Locaties",
+    "tabTitle": "Locaties",
+    "noAccess": "Je hebt geen toestemming gegeven tot locatiegegevens, daarmee kan deze feature helaas niet werken!",
+    "locationLoadingTitle": "Locatie laden!",
+    "locationLoadingMessage": "De app is nog steeds bezig om je huidige locatie op te halen, heb even geduld!",
+    "outOfReachTitle": "Kom dichterbij!",
+    "outOfReachMessage": "Je bent niet binnen 100 meter van deze Pokémon, zorg dat je dichterbij komt!"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "tabTitle": "Instellingen",
+    "darkMode": "Donkere modus",
+    "notifyPokemon": "Notificatie voor nabije Pokemon",
+    "language": "Taal",
+    "clear": "Verwijder data",
+    "clearAreYouSure": "Weet je het zeker? Al je persoonlijke data wordt hiermee verwijderd.",
+    "clearYes": "Ja!",
+    "clearNo": "Annuleer",
+    "clearSuccess": "Alle data is succesvol verwijderd",
+    "download": "Download Pokémon data opnieuw",
+    "testNotification": "Test notificatie",
+    "downloadLoading": "Data inladen..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Pokemon zijn dichtbij!",
+      "description": "Haast je, de volgende Pokémon staan klaar om hun shiny potentieel te tonen"
+    }
+  },
+  "offline": {
+    "title": "Je bent offline!",
+    "map": "Je bent momenteel offline, dus je kunt de kaart niet gebruiken. Probeer het opnieuw wanneer je internetverbinding weer beschikbaar is.",
+    "mapNotification": "Je bent momenteel offline, dus je kunt de kaart niet gebruiken. Vind je Pokémon wanneer je internetverbinding weer beschikbaar is."
+  }
+}
