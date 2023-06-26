@@ -72,6 +72,10 @@ technical description:
   update every instance of the component. I eventually used the React Memo 
   functionality (`export default memo(PokemonCard, areEqual);`) to always check if a
   property is the same, and else prevent the re-render (see PokemonCard.js)
+- For the styling I decided to use [NativeWind](https://www.nativewind.dev/). As
+  someone who loves TailWind, this definitely made me happy and gave me a solid
+  developer experience. Only downside are some (community) components that are not 
+  completely optimised to tailwind, so you might need some custom styling
 
 ## Run it yourself
 To get this project up & running on your own laptop, follow these steps:
