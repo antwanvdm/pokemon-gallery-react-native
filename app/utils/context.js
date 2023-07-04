@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getPokemon, getTypes } from './pokemonData';
 import { getLocales } from 'expo-localization';
 import NetInfo from '@react-native-community/netinfo';
+import { Appearance } from 'react-native';
 
 const AppContext = createContext();
 
@@ -14,7 +15,7 @@ const AppContext = createContext();
 const AppContextProvider = ({children}) => {
   const firstUpdate = useRef({theme: true, notifications: true, language: true, favorites: true, notes: true});
   const [isOnline, setIsOnline] = useState(true);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(Appearance.getColorScheme() ?? 'light');
   const [notifications, setNotifications] = useState({});
   let locale = getLocales()[0];
   const [language, setLanguage] = useState(locale.languageTag);
