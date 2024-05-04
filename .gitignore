@@ -18,5 +18,4 @@ web-build/
 .idea
 
 # private keys are part of these files
-app.json
 google-services.json

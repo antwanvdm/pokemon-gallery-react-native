@@ -76,6 +76,9 @@ technical description:
   someone who loves TailWind, this definitely made me happy and gave me a solid
   developer experience. Only downside are some (community) components that are not 
   completely optimised to tailwind, so you might need some custom styling
+- Released the app via the [EAS CLI tool](https://docs.expo.dev/build/setup/). It
+  required registering, publishing and working with [EAS secrets](https://docs.expo.dev/build-reference/variables/#using-secrets-in-environment-variables).
+  Also I needed to setup a Google Cloud API to be able to use the Maps in a build.
 
 ## Run it yourself
 To get this project up & running on your own laptop, follow these steps:
