@@ -1,6 +1,6 @@
-import { Alert, Dimensions, Image } from 'react-native';
+import { Alert, Dimensions, Image, Platform } from 'react-native';
 import * as Location from 'expo-location';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { AppContext } from '../../utils/context';
 import DetailModal from '../detail/DetailModal';
@@ -93,7 +93,9 @@ const PokemonLocations = ({pokemonIds}) => {
 
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
   const redrawMarker = (pokemonId) => {
-    markers.current[pokemonId].redraw();
+    if (Platform.OS === 'android') {
+      markers.current[pokemonId].redraw();
+    }
   };
 
   return (
@@ -105,9 +107,9 @@ const PokemonLocations = ({pokemonIds}) => {
         }}
         region={region}
         customMapStyle={mapStyle}
+        userInterfaceStyle={theme}
         showsUserLocation={true}
         ref={ref => map.current = ref}
-        provider={PROVIDER_GOOGLE}
         moveOnMarkerPress={false}>
         <>
           {pokemonList.map((pokemon) => <Marker
