@@ -24,7 +24,9 @@
     "locationLoadingTitle": "位置加载中！",
     "locationLoadingMessage": "应用程序仍在忙于获取您的当前位置，请稍等片刻！",
     "outOfReachTitle": "靠近一点！",
-    "outOfReachMessage": "您距离该宝可梦超过100米，请靠近！"
+    "outOfReachMessage": "您距离该宝可梦超过100米，请靠近！",
+    "ourOfReachRoute": "导航到 %{name}",
+    "ourOfReachCancel": "返回地图"
   },
   "settings": {
     "title": "设置",

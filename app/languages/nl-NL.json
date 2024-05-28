@@ -24,7 +24,9 @@
     "locationLoadingTitle": "Locatie laden!",
     "locationLoadingMessage": "De app is nog steeds bezig om je huidige locatie op te halen, heb even geduld!",
     "outOfReachTitle": "Kom dichterbij!",
-    "outOfReachMessage": "Je bent niet binnen 100 meter van deze Pokémon, zorg dat je dichterbij komt!"
+    "outOfReachMessage": "Je bent niet binnen 100 meter van deze Pokémon, zorg dat je dichterbij komt!",
+    "ourOfReachRoute": "Navigeer naar %{name}",
+    "ourOfReachCancel": "Ga terug naar de kaart"
   },
   "settings": {
     "title": "Instellingen",

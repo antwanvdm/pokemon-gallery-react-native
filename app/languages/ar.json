@@ -24,7 +24,9 @@
     "locationLoadingTitle": "جاري تحميل الموقع!",
     "locationLoadingMessage": "التطبيق مازال يعمل على استرداد موقعك الحالي، يرجى الانتظار قليلاً!",
     "outOfReachTitle": "تحرك قربًا!",
-    "outOfReachMessage": "أنت لست على بُعد 100 متر من هذا البوكيمون، تحرك قربًا!"
+    "outOfReachMessage": "أنت لست على بُعد 100 متر من هذا البوكيمون، تحرك قربًا!",
+    "ourOfReachRoute": "التنقل إلى %{name}",
+    "ourOfReachCancel": "العودة إلى الخريطة"
   },
   "settings": {
     "title": "الإعدادات",

@@ -1,6 +1,8 @@
 import { Alert, Dimensions, Image, Platform } from 'react-native';
+import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 import { useState, useEffect, useContext, useRef } from 'react';
 import { AppContext } from '../../utils/context';
 import DetailModal from '../detail/DetailModal';
@@ -27,6 +29,7 @@ const PokemonLocations = ({pokemonIds}) => {
   });
   //Save the map in a ref, because it's a one time object which shouldn't affect re-rendering
   const [location, setLocation] = useState(null);
+  const [destinationPokemonLocation, setDestinationPokemonLocation] = useState(null);
   const [activePokemon, setActivePokemon] = useState(null);
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
 
@@ -74,21 +77,38 @@ const PokemonLocations = ({pokemonIds}) => {
     }
 
     if (haversine(pokemon.coordinate, location.coords) > 100) {
-      Alert.alert(t('locations.outOfReachTitle', language), t('locations.outOfReachMessage', language));
+      Alert.alert(t('locations.outOfReachTitle', language), t('locations.outOfReachMessage', language), [
+        {
+          text: t('locations.ourOfReachRoute', language, {name: pokemon.names[language] ?? pokemon.names['en']}),
+          onPress: () => setDestinationPokemonLocation(pokemon.coordinate),
+        },
+        {
+          text: t('locations.ourOfReachCancel', language),
+          style: 'cancel',
+        }
+      ]);
       return;
     }
     setActivePokemon(pokemon);
   };
+
   const handleModalClosed = () => {
     setActivePokemon(null);
   };
 
-  const focusToOverview = () => {
+  const focusToOverview = (removeRoute) => {
     map.current.fitToCoordinates(pokemonList.map((pokemon) => pokemon.coordinate), {edgePadding: {top: 20, right: 20, bottom: 100, left: 20}});
+    if (removeRoute === true) {
+      setDestinationPokemonLocation(null);
+    }
   };
 
   const focusToLocation = () => {
     map.current.animateToRegion({latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.003, longitudeDelta: 0.003});
+  };
+
+  const focusToRoute = (result) => {
+    map.current.fitToCoordinates(result.coordinates, {edgePadding: {top: 40, right: 50, bottom: 220, left: 50}});
   };
 
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
@@ -123,8 +143,19 @@ const PokemonLocations = ({pokemonIds}) => {
             <Image fadeDuration={0} source={{uri: pokemon.images.thumb}} style={{height: 35, width: 35}} onLoadEnd={() => redrawMarker(pokemon.id)}/>
           </Marker>)}
         </>
+        {location && destinationPokemonLocation ? (
+          <MapViewDirections
+            origin={location.coords}
+            destination={destinationPokemonLocation}
+            mode="WALKING"
+            strokeWidth={3}
+            strokeColor={theme === 'dark' ? 'white' : 'black'}
+            apikey={Constants.expoConfig.extra.googleMapsDirection.apiKey}
+            onReady={(result) => focusToRoute(result)}
+          />
+        ) : <></>}
       </MapView>
-      <MapNavigation location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview}/>
+      <MapNavigation location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview} hasRoute={destinationPokemonLocation !== null}/>
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
     </>
   );

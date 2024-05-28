@@ -24,7 +24,7 @@ export default {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF'
       },
-      permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_BACKGROUND_LOCATION', 'USE_BIOMETRIC', 'USE_FINGERPRINT'],
+      permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_BACKGROUND_LOCATION', 'USE_BIOMETRIC', 'USE_FINGERPRINT', 'FOREGROUND_SERVICE', 'FOREGROUND_SERVICE_LOCATION'],
       package: 'com.antwanvdm.pokemongalleryreactnative',
       googleServicesFile: process.env.GOOGLE_SERVICES_JSON,
       config: {
@@ -33,12 +33,24 @@ export default {
         }
       }
     },
+    plugins: [
+      [
+        "expo-location",
+        {
+          isIosBackgroundLocationEnabled: true,
+          isAndroidBackgroundLocationEnabled: true
+        }
+      ]
+    ],
     web: {
       favicon: './assets/favicon.png'
     },
     extra: {
       eas: {
         projectId: '45cd942b-7ecb-4fc9-a68b-a287c5a4ddb0'
+      },
+      googleMapsDirection: {
+        apiKey: process.env.GOOGLE_MAPS_DIRECTIONS_API_KEY
       }
     }
   }

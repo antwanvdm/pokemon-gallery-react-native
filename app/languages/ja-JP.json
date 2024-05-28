@@ -24,7 +24,9 @@
     "locationLoadingTitle": "位置を読み込んでいます！",
     "locationLoadingMessage": "アプリはまだ現在の位置を取得中です。少々お待ちください！",
     "outOfReachTitle": "もっと近づいてください！",
-    "outOfReachMessage": "このポケモンから100メートル以内にいません。もっと近くに移動してください！"
+    "outOfReachMessage": "このポケモンから100メートル以内にいません。もっと近くに移動してください！",
+    "ourOfReachRoute": "%{name} へのルート",
+    "ourOfReachCancel": "マップに戻る"
   },
   "settings": {
     "title": "設定",

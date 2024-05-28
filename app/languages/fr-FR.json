@@ -24,7 +24,9 @@
     "locationLoadingTitle": "Chargement de la localisation !",
     "locationLoadingMessage": "L'application est toujours en train de récupérer votre position actuelle, veuillez patienter un peu !",
     "outOfReachTitle": "Approchez-vous !",
-    "outOfReachMessage": "Vous n'êtes pas à moins de 100 mètres de ce Pokémon, approchez-vous !"
+    "outOfReachMessage": "Vous n'êtes pas à moins de 100 mètres de ce Pokémon, approchez-vous !",
+    "ourOfReachRoute": "Naviguer vers %{name}",
+    "ourOfReachCancel": "Revenir à la carte"
   },
   "settings": {
     "title": "Paramètres",

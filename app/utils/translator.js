@@ -26,11 +26,12 @@ i18n.enableFallback = true;
 /**
  * @param {string} key
  * @param {string} language
+ * @param {Object} [values]
  * @returns {string}
  */
-const t = (key, language) => {
+const t = (key, language, values) => {
   i18n.locale = language;
-  return i18n.t(key);
+  return i18n.t(key, values ?? {});
 };
 
 export { t };
