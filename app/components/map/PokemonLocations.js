@@ -116,6 +116,7 @@ const PokemonLocations = ({pokemonIds}) => {
   };
 
   const focusToRoute = (result) => {
+    console.log(Math.round(result.duration)); //TODO: Show total expected minutes to walk
     map.current.fitToCoordinates(result.coordinates, {edgePadding: {top: 40, right: 50, bottom: 220, left: 50}});
     setActiveRoute(result.legs[0].steps);
   };
@@ -138,6 +139,7 @@ const PokemonLocations = ({pokemonIds}) => {
         customMapStyle={mapStyle}
         userInterfaceStyle={theme}
         showsUserLocation={true}
+        showsMyLocationButton={false}
         ref={ref => map.current = ref}
         moveOnMarkerPress={false}>
         <>

@@ -20,6 +20,8 @@
   "locations": {
     "title": "مواقع بوكيمون",
     "tabTitle": "المواقع",
+    "iconAllPokemon": "كل البوكيمون",
+    "iconMyLocation": "موقعي",
     "noAccess": "لم تمنح الوصول إلى الموقع، لذا لن يعمل هذا!",
     "locationLoadingTitle": "جاري تحميل الموقع!",
     "locationLoadingMessage": "التطبيق مازال يعمل على استرداد موقعك الحالي، يرجى الانتظار قليلاً!",

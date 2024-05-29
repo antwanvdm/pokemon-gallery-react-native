@@ -20,6 +20,8 @@
   "locations": {
     "title": "Ubicaciones de Pokémon",
     "tabTitle": "Ubicaciones",
+    "iconAllPokemon": "Todos los Pokémon",
+    "iconMyLocation": "Mi Ubicación",
     "noAccess": "¡No has otorgado acceso a la ubicación, por lo que esto no funcionará!",
     "locationLoadingTitle": "¡Cargando ubicación!",
     "locationLoadingMessage": "La aplicación todavía está ocupada recuperando tu ubicación actual, ten un poco de paciencia.",

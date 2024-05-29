@@ -9,7 +9,7 @@ import { AppContext } from '../../utils/context';
 const RouteDirections = ({routeSteps, pokemon, onClose}) => {
   const {language, theme} = useContext(AppContext);
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ['10%', '50%', '100%'], []);
+  const snapPoints = useMemo(() => ['20%', '50%', '100%'], []);
   const iconColor = theme === 'dark' ? 'white' : 'black';
 
   const maneuverIcons = {

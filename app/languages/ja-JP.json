@@ -20,6 +20,8 @@
   "locations": {
     "title": "ポケモンの位置情報",
     "tabTitle": "位置情報",
+    "iconAllPokemon": "すべてのポケモン",
+    "iconMyLocation": "現在地",
     "noAccess": "位置情報へのアクセスが許可されていないため、機能しません！",
     "locationLoadingTitle": "位置を読み込んでいます！",
     "locationLoadingMessage": "アプリはまだ現在の位置を取得中です。少々お待ちください！",

@@ -28,6 +28,9 @@ The following features are part of the app:
 - You can view a Pokémon directly on the map from the listview
 - Within the map you can focus on your own location or focus on the overview of
   all Pokémon together
+- Within the map you can press a Pokémon. When the Pokémon is close (100 meters
+  max) you get the details. If it's further, you get the option to navigate to
+  the Pokémon with Google Maps walking directions
 - Within the settings you can switch to dark mode
 - Within the settings you can switch to 9 different languages
 - Within the setting you can manually clear the storage or re-download data
@@ -64,6 +67,13 @@ technical description:
 - When actually building my app I needed real keys for Google Maps and Firebase
   (notifications). While the cloud console is easy to use (once your creditcard is
   connected..), it still costs some effort to get it running (see [Deployment](#deployment))
+- Building the route directions functionality required me to have a default API key from
+  the Google Cloud console to do API calls. Building the View was more difficult as I
+  wanted to have the BottomSheet like in the native Google Maps app. I ended up using the
+  [BottomSheet package](https://ui.gorhom.dev/components/bottom-sheet/), combined with
+  [WebView](https://github.com/react-native-webview/react-native-webview) and
+  [AutoHeightWebView](https://www.npmjs.com/package/react-native-autoheight-webview) to
+  display the HTML instructions from the API
 - Notifications were probably the most complex in the whole app. Specifically
   configuring the background tasks was difficult. I'm very happy it turned out good,
   even though I'm still confused why it doesn't work with the app killed

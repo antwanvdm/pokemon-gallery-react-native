@@ -20,6 +20,8 @@
   "locations": {
     "title": "Pokémon Locaties",
     "tabTitle": "Locaties",
+    "iconAllPokemon": "Alle Pokémon",
+    "iconMyLocation": "Mijn Locatie",
     "noAccess": "Je hebt geen toestemming gegeven tot locatiegegevens, daarmee kan deze feature helaas niet werken!",
     "locationLoadingTitle": "Locatie laden!",
     "locationLoadingMessage": "De app is nog steeds bezig om je huidige locatie op te halen, heb even geduld!",
