@@ -1,5 +1,6 @@
 import { AppContextProvider } from './app/utils/context';
 import Navigation from './app/Navigation';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 /**
  * App is just the starting point. It exposes the ExpoStatusBar & directly loads the actual main file (Navigation)
@@ -11,7 +12,9 @@ import Navigation from './app/Navigation';
 const App = () => {
   return (
     <AppContextProvider>
-      <Navigation/>
+      <GestureHandlerRootView style={{flex: 1}}>
+        <Navigation/>
+      </GestureHandlerRootView>
     </AppContextProvider>
   );
 };

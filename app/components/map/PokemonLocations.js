@@ -11,6 +11,7 @@ import { t } from '../../utils/translator';
 import mapStyleDark from './mapStyleDark.json';
 import mapStyleLight from './mapStyleLight.json';
 import MapNavigation from './MapNavigation';
+import RouteDirections from './RouteDirections';
 
 /**
  * @param {Array<number>} pokemonIds
@@ -29,7 +30,8 @@ const PokemonLocations = ({pokemonIds}) => {
   });
   //Save the map in a ref, because it's a one time object which shouldn't affect re-rendering
   const [location, setLocation] = useState(null);
-  const [destinationPokemonLocation, setDestinationPokemonLocation] = useState(null);
+  const [destinationPokemon, setDestinationPokemon] = useState(null);
+  const [activeRoute, setActiveRoute] = useState(null);
   const [activePokemon, setActivePokemon] = useState(null);
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
 
@@ -69,6 +71,11 @@ const PokemonLocations = ({pokemonIds}) => {
     setMapStyle(theme === 'dark' ? mapStyleDark : mapStyleLight);
   }, [theme]);
 
+  //When language or theme changes, the route should be removed because text/style doesn't update
+  useEffect(() => {
+    focusToOverview(true);
+  }, [language, theme]);
+
   //Update the current item for the detail modal, only if the Pokémon is in reach (100 meters)
   const markerPressed = (pokemon) => {
     if (location === null) {
@@ -80,7 +87,7 @@ const PokemonLocations = ({pokemonIds}) => {
       Alert.alert(t('locations.outOfReachTitle', language), t('locations.outOfReachMessage', language), [
         {
           text: t('locations.ourOfReachRoute', language, {name: pokemon.names[language] ?? pokemon.names['en']}),
-          onPress: () => setDestinationPokemonLocation(pokemon.coordinate),
+          onPress: () => setDestinationPokemon(pokemon),
         },
         {
           text: t('locations.ourOfReachCancel', language),
@@ -99,7 +106,8 @@ const PokemonLocations = ({pokemonIds}) => {
   const focusToOverview = (removeRoute) => {
     map.current.fitToCoordinates(pokemonList.map((pokemon) => pokemon.coordinate), {edgePadding: {top: 20, right: 20, bottom: 100, left: 20}});
     if (removeRoute === true) {
-      setDestinationPokemonLocation(null);
+      setDestinationPokemon(null);
+      setActiveRoute(null);
     }
   };
 
@@ -109,6 +117,7 @@ const PokemonLocations = ({pokemonIds}) => {
 
   const focusToRoute = (result) => {
     map.current.fitToCoordinates(result.coordinates, {edgePadding: {top: 40, right: 50, bottom: 220, left: 50}});
+    setActiveRoute(result.legs[0].steps);
   };
 
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
@@ -143,19 +152,23 @@ const PokemonLocations = ({pokemonIds}) => {
             <Image fadeDuration={0} source={{uri: pokemon.images.thumb}} style={{height: 35, width: 35}} onLoadEnd={() => redrawMarker(pokemon.id)}/>
           </Marker>)}
         </>
-        {location && destinationPokemonLocation ? (
-          <MapViewDirections
-            origin={location.coords}
-            destination={destinationPokemonLocation}
-            mode="WALKING"
-            strokeWidth={3}
-            strokeColor={theme === 'dark' ? 'white' : 'black'}
-            apikey={Constants.expoConfig.extra.googleMapsDirection.apiKey}
-            onReady={(result) => focusToRoute(result)}
-          />
+        {location && destinationPokemon ? (
+          <>
+            <MapViewDirections
+              origin={location.coords}
+              destination={destinationPokemon.coordinate}
+              mode="WALKING"
+              strokeWidth={3}
+              language={language}
+              strokeColor={theme === 'dark' ? 'white' : 'black'}
+              apikey={Constants.expoConfig.extra.googleMapsDirection.apiKey}
+              onReady={(result) => focusToRoute(result)}
+            />
+          </>
         ) : <></>}
       </MapView>
-      <MapNavigation location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview} hasRoute={destinationPokemonLocation !== null}/>
+      <MapNavigation location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview}/>
+      {activeRoute && destinationPokemon ? (<RouteDirections routeSteps={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
     </>
   );
