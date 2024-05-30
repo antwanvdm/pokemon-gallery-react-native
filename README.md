@@ -1,9 +1,10 @@
 # Pokémon Gallery - React Native
+
 This project covers an app I've built with React native. During our programming
 courses at the education we changed our "Mobile development" course from native
-(Java on Android) to React Native. Biggest reason was to comply more with our 
-overall program (a lot of Javascript development), as well as making it more 
-user-friendly to start developing a mobile application.
+(Java on Android) to React Native. Biggest reason was to comply more with our
+overall program and work field (a lot of Javascript development), as well as making
+it more user-friendly to start developing a mobile application.
 
 My personal goal was to get more invested in React Native (and Expo) and master
 the most important criteria. To do so, I created this app featuring Pokémon using
@@ -12,6 +13,7 @@ before, just to get more into React. Once finished I ported it to React Native
 and added a lot of features to make it a cool app.
 
 ## Features
+
 The following features are part of the app:
 
 - List view of Pokémon. Data is re-downloaded every 7 days to prevent overload.
@@ -20,7 +22,7 @@ The following features are part of the app:
 - Every Pokémon can be viewed in detail to discover the Shiny version
 - In the detailview you can add personal notes for the Pokémon. They can be
   unlocked with biometric authentication (or a passcode if not available,
-  looking at you iOS :))
+  looking at you iOS simulator :))
 - Notes can also be edited, deleted or shared to other platforms (WhatsApp, etc)
 - A map view with all Pokémon pointed at a location. Currently, this is always
   fixed in the centre of Rotterdam, The Netherlands. If data refreshed on a new
@@ -31,7 +33,7 @@ The following features are part of the app:
 - Within the map you can press a Pokémon. When the Pokémon is close (100 meters
   max) you get the details. If it's further, you get the option to navigate to
   the Pokémon with Google Maps walking directions
-- Within the settings you can switch to dark mode
+- Within the settings you can switch to dark or light mode
 - Within the settings you can switch to 9 different languages
 - Within the setting you can manually clear the storage or re-download data
 - Within the settings you can switch on notifications for close-by Pokémon. Once
@@ -46,6 +48,7 @@ The following features are part of the app:
 - Re-opening the app will always remember favorites, notes, dark mode and language
 
 ## Technical highlights
+
 Some implementation were pretty cool and worth highlighting with some in-depth
 technical description:
 
@@ -57,12 +60,12 @@ technical description:
   library works pretty smooth. My main concern with animation would be that the
   code would require a lot of overhead, but this library handles it very smooth
 - It was my first time using the [Context API](https://react.dev/reference/react/useContext)
-  and I like it. Using a main provider on top of you components give you the 
+  and I like it. Using a main provider on top of you components give you the
   flexibility to handle data centrally, as well as communicating with your AsyncStorage
 - Google Maps doesn't support a native Dark Mode (Apple Maps does!), which challenged
   me to implement [custom map styles](https://mapstyle.withgoogle.com/). Pretty easy
   to create and implemented, as it's JSON-based
-- Using Icons gives you multiple options. I ended up using the expo package with an 
+- Using Icons gives you multiple options. I ended up using the expo package with an
   [easy interface](https://icons.expo.fyi/) to find my icons
 - When actually building my app I needed real keys for Google Maps and Firebase
   (notifications). While the cloud console is easy to use (once your creditcard is
@@ -76,89 +79,60 @@ technical description:
   display the HTML instructions from the API
 - Notifications were probably the most complex in the whole app. Specifically
   configuring the background tasks was difficult. I'm very happy it turned out good,
-  even though I'm still confused why it doesn't work with the app killed
+  even though I'm still confused why it doesn't work with the app killed. I combined
+  [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/) with
+  [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) (make sure to
+  configure the right permissions in the config)
 - The performance was also a thing for the Flatlist. It's a list with 251 items,
   which could eventually become more. Updating 1 detail in 1 component shouldn't
-  update every instance of the component. I eventually used the React Memo 
+  update every instance of the component. I eventually used the React Memo
   functionality (`export default memo(PokemonCard, areEqual);`) to always check if a
   property is the same, and else prevent the re-render (see PokemonCard.js)
 - For the styling I decided to use [NativeWind](https://www.nativewind.dev/). As
   someone who loves TailWind, this definitely made me happy and gave me a solid
-  developer experience. Only downside are some (community) components that are not 
+  developer experience. Only downside are some (community) components that are not
   completely optimised to tailwind, so you might need some custom styling
 - Released the app via the [EAS CLI tool](https://docs.expo.dev/build/setup/). It
   required registering, publishing and working with [EAS secrets](https://docs.expo.dev/build-reference/variables/#using-secrets-in-environment-variables).
-  Also I needed to setup a Google Cloud API to be able to use the Maps in a build.
+  I also needed to set up a Google Cloud API to be able to use the Maps in a build.
 
-## Run it yourself
+## Run it yourself with Expo Go
+
 To get this project up & running on your own laptop, follow these steps:
+
 - Git clone the project
-- Create an app.json with the contents mentioned below. You can remove the
-  SECRET stuff as it's not relevant while working in the Expo Go app
+- Create an `.env` file with the contents mentioned below
+
+```dotenv
+GOOGLE_MAPS_API_KEY=YOUR_KEY
+GOOGLE_MAPS_DIRECTIONS_API_KEY=YOUR_KEY
+```
+
 - Run `npm install`
 - Run `npm run start`
 - Have fun!
 
 ## Deployment
-One of the most important goals was to actually release an app. I didn't choose 
+
+One of the most important goals was to actually release an app. I didn't choose
 to use the Google Play Store as it's just a personal app, but I did end up with
 and APK-build installed on my own device. The processes required are mostly the
 same regarding permissions and API-keys. I've used the [EAS tool](https://docs.expo.dev/build/setup/)
-from Expo to configure and publish the app.
+from Expo to build and download the app.
 
-2 files are therefore not pushed to git, but would require the following content:
+If you want to create a build with EAS, you need:
 
-- app.json:
+- A `google-services.json` generated from your Google Cloud console (see the bottom
+  of this file how it looks)
+- Change the projectId in the `app.config.js` to your own Expo project ID
+- Run the following 2 commands, before you run `eas build -p android --profile preview`:
 
-```json
-{
-  "expo": {
-    "name": "Pokémon Gallery",
-    "slug": "pokemon-gallery-react-native",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_BACKGROUND_LOCATION", "USE_BIOMETRIC", "USE_FINGERPRINT"],
-      "package": "com.antwanvdm.pokemongalleryreactnative",
-      "googleServicesFile": "./google-services.json",
-      "config": {
-        "googleMaps": {
-          "apiKey": "SECRET"
-        }
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "SECRET"
-      }
-    }
-  }
-}
+```bash
+eas secret:push --scope project --env-file .env
+eas secret:create --scope project --name GOOGLE_SERVICES_JSON --type file --value .google-services.json
 ```
 
-- google-services.json
+Example of google-services.json (SECRET values are present when you download your own)
 
 ```json
 {
