@@ -8,13 +8,14 @@ import { t } from '../../utils/translator';
  * @constructor
  */
 const ClearStorage = () => {
-  const {language, setFavorites, setPokemonListStoreDate, setNotes} = useContext(AppContext);
+  const {language, setFavorites, setPokemonListStoreDate, setNotes, setUserMapPhotos} = useContext(AppContext);
 
   //Bye data!
   const clearAll = () => {
     setPokemonListStoreDate(0);
     setFavorites([]);
     setNotes({});
+    setUserMapPhotos([]);
     Alert.alert(t('settings.clear', language), t('settings.clearSuccess', language));
   };
 

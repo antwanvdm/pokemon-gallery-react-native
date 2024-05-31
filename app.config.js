@@ -17,14 +17,15 @@ export default {
       '**/*'
     ],
     ios: {
-      'supportsTablet': false
+      'supportsTablet': false,
+      "bundleIdentifier": "com.antwanvdm.pokemongalleryreactnative"
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF'
       },
-      permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_BACKGROUND_LOCATION', 'USE_BIOMETRIC', 'USE_FINGERPRINT', 'FOREGROUND_SERVICE', 'FOREGROUND_SERVICE_LOCATION'],
+      permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_BACKGROUND_LOCATION', 'USE_BIOMETRIC', 'USE_FINGERPRINT', 'FOREGROUND_SERVICE', 'FOREGROUND_SERVICE_LOCATION', 'CAMERA_ROLL', 'MEDIA_LIBRARY'],
       package: 'com.antwanvdm.pokemongalleryreactnative',
       googleServicesFile: process.env.GOOGLE_SERVICES_JSON,
       config: {
@@ -39,6 +40,12 @@ export default {
         {
           isIosBackgroundLocationEnabled: true,
           isAndroidBackgroundLocationEnabled: true
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          isAccessMediaLocationEnabled: true
         }
       ]
     ],

@@ -33,6 +33,9 @@ The following features are part of the app:
 - Within the map you can press a Pokémon. When the Pokémon is close (100 meters
   max) you get the details. If it's further, you get the option to navigate to
   the Pokémon with Google Maps walking directions
+- Within the map you can place your own photos while adventuring. Photos will be
+  placed on the location you took the photo. You can view and delete the photo
+  as well
 - Within the settings you can switch to dark or light mode
 - Within the settings you can switch to 9 different languages
 - Within the setting you can manually clear the storage or re-download data
@@ -77,9 +80,16 @@ technical description:
   [WebView](https://github.com/react-native-webview/react-native-webview) and
   [AutoHeightWebView](https://www.npmjs.com/package/react-native-autoheight-webview) to
   display the HTML instructions from the API
+- While adventuring you can take your own photos with the camera, and they are placed on 
+  the map. I used [Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
+  combined with the [Media Library](https://docs.expo.dev/versions/latest/sdk/media-library/)
+  package to get it done. There's still 2 issues. You can't solely move the photo to its
+  dedicated folder without losing reference to the asset. And you can't delete the image 
+  completely from the gallery (it gets restored after a few second, probably due to Cloud
+  sync with Google Photos)
 - Notifications were probably the most complex in the whole app. Specifically
   configuring the background tasks was difficult. I'm very happy it turned out good,
-  even though I'm still confused why it doesn't work with the app killed. I combined
+  even though I'm still confused why it's not consistent with the app killed. I combined
   [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/) with
   [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) (make sure to
   configure the right permissions in the config)

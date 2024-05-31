@@ -10,8 +10,10 @@ import haversine from 'haversine-distance';
 import { t } from '../../utils/translator';
 import mapStyleDark from './mapStyleDark.json';
 import mapStyleLight from './mapStyleLight.json';
-import MapNavigation from './MapNavigation';
+import MapActions from './MapActions';
 import RouteDirections from './RouteDirections';
+import { MaterialIcons } from '@expo/vector-icons';
+import UserPhotoModal from './UserPhotoModal';
 
 /**
  * @param {Array<number>} pokemonIds
@@ -20,8 +22,8 @@ import RouteDirections from './RouteDirections';
  */
 const PokemonLocations = ({pokemonIds}) => {
   const map = useRef(null);
-  const markers = useRef({});
-  const {theme, language, pokemonList} = useContext(AppContext);
+  const markers = useRef({pokemon: {}, photos: {}});
+  const {theme, language, pokemonList, userMapPhotos} = useContext(AppContext);
   const [region, setRegion] = useState({
     latitude: 51.91736823911433,
     longitude: 4.484781721396927,
@@ -33,6 +35,7 @@ const PokemonLocations = ({pokemonIds}) => {
   const [destinationPokemon, setDestinationPokemon] = useState(null);
   const [activeRoute, setActiveRoute] = useState(null);
   const [activePokemon, setActivePokemon] = useState(null);
+  const [activeUserMapPhoto, setActiveUserMapPhoto] = useState(null);
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
 
   const getUserLocation = async () => {
@@ -66,9 +69,12 @@ const PokemonLocations = ({pokemonIds}) => {
     }
   }, [pokemonIds]);
 
-  //Change mapStyle based on theme change
+  //Change mapStyle & photo markers based on theme change
   useEffect(() => {
     setMapStyle(theme === 'dark' ? mapStyleDark : mapStyleLight);
+    if (Platform.OS === 'android') {
+      Object.values(markers.current.photos).forEach((marker) => marker.redraw());
+    }
   }, [theme]);
 
   //When language or theme changes, the route should be removed because text/style doesn't update
@@ -124,8 +130,12 @@ const PokemonLocations = ({pokemonIds}) => {
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
   const redrawMarker = (pokemonId) => {
     if (Platform.OS === 'android') {
-      markers.current[pokemonId].redraw();
+      markers.current.pokemon[pokemonId].redraw();
     }
+  };
+
+  const userPhotoModalClosed = () => {
+    setActiveUserMapPhoto(null);
   };
 
   return (
@@ -147,11 +157,23 @@ const PokemonLocations = ({pokemonIds}) => {
             identifier={`p-${pokemon.id}`}
             key={pokemon.id}
             coordinate={pokemon.coordinate}
-            ref={(ref) => markers.current[pokemon.id] = ref}
+            ref={(ref) => markers.current.pokemon[pokemon.id] = ref}
             onPress={(e) => markerPressed(pokemon, e)}
             tracksInfoWindowChanges={false}
             tracksViewChanges={false}>
             <Image fadeDuration={0} source={{uri: pokemon.images.thumb}} style={{height: 35, width: 35}} onLoadEnd={() => redrawMarker(pokemon.id)}/>
+          </Marker>)}
+        </>
+        <>
+          {userMapPhotos.map((userMapPhoto) => <Marker
+            identifier={`p-${userMapPhoto.id}`}
+            key={userMapPhoto.id}
+            coordinate={userMapPhoto.location}
+            ref={(ref) => markers.current.photos[userMapPhoto.id] = ref}
+            onPress={() => setActiveUserMapPhoto(userMapPhoto)}
+            tracksInfoWindowChanges={false}
+            tracksViewChanges={false}>
+            <MaterialIcons name="linked-camera" size={24} color={theme === 'dark' ? 'yellow' : 'blue'}/>
           </Marker>)}
         </>
         {location && destinationPokemon ? (
@@ -169,9 +191,10 @@ const PokemonLocations = ({pokemonIds}) => {
           </>
         ) : <></>}
       </MapView>
-      <MapNavigation location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview}/>
+      <MapActions location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview}/>
       {activeRoute && destinationPokemon ? (<RouteDirections routeSteps={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
+      <UserPhotoModal userPhoto={activeUserMapPhoto} closeCallback={userPhotoModalClosed}/>
     </>
   );
 };

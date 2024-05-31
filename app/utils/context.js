@@ -13,7 +13,7 @@ const AppContext = createContext();
  * @constructor
  */
 const AppContextProvider = ({children}) => {
-  const firstUpdate = useRef({theme: true, notifications: true, language: true, favorites: true, notes: true});
+  const firstUpdate = useRef({theme: true, notifications: true, language: true, favorites: true, notes: true, userMapPhotos: true});
   const [isOnline, setIsOnline] = useState(true);
   const [theme, setTheme] = useState(Appearance.getColorScheme() ?? 'light');
   const [notifications, setNotifications] = useState({});
@@ -24,6 +24,7 @@ const AppContextProvider = ({children}) => {
   const [pokemonListStoreDate, setPokemonListStoreDate] = useState(0);
   const [favorites, setFavorites] = useState([]);
   const [notes, setNotes] = useState({});
+  const [userMapPhotos, setUserMapPhotos] = useState([]);
 
   //Load all the information from async storage
   useEffect(() => {
@@ -77,6 +78,11 @@ const AppContextProvider = ({children}) => {
       const lsNotesPokemon = await AsyncStorage.getItem('notesPokemon');
       if (lsNotesPokemon !== null) {
         setNotes(JSON.parse(lsNotesPokemon));
+      }
+
+      const lsUserMapPhotos = await AsyncStorage.getItem('userMapPhotos');
+      if (lsUserMapPhotos !== null) {
+        setUserMapPhotos(JSON.parse(lsUserMapPhotos));
       }
     })();
 
@@ -144,6 +150,18 @@ const AppContextProvider = ({children}) => {
     })();
   }, [notes]);
 
+  //Store userMapPhotos on change, except the first time!!
+  useEffect(() => {
+    if (firstUpdate.current.userMapPhotos) {
+      firstUpdate.current.userMapPhotos = false;
+      return;
+    }
+
+    (async () => {
+      AsyncStorage.setItem('userMapPhotos', JSON.stringify(userMapPhotos));
+    })();
+  }, [userMapPhotos]);
+
   //Store pokemonTypes on change
   useEffect(() => {
     (async () => {
@@ -175,6 +193,7 @@ const AppContextProvider = ({children}) => {
       language, setLanguage,
       favorites, setFavorites,
       notes, setNotes,
+      userMapPhotos, setUserMapPhotos,
       pokemonTypes, setPokemonTypes,
       pokemonList, setPokemonList,
       pokemonListStoreDate, setPokemonListStoreDate

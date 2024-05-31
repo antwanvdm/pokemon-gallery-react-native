@@ -42,7 +42,9 @@
     "react-native-screens": "~3.31.1",
     "react-native-shadow-2": "^7.0.8",
     "react-native-svg": "15.2.0",
-    "react-native-webview": "13.8.6"
+    "react-native-webview": "13.8.6",
+    "expo-image-picker": "~15.0.5",
+    "expo-media-library": "~16.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
