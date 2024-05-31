@@ -29,6 +29,7 @@ const Tasks = () => {
   const [notification, setNotification] = useState(false);
   const notificationResponseListener = useRef();
   const navigation = useNavigation();
+  const lastNotificationPokemonIds = useRef('');
 
   //Handle push notification listeners, only when clicked on the notification
   useEffect(() => {
@@ -90,12 +91,14 @@ const Tasks = () => {
 
   registerTasks(async (locations) => {
     const closeByPokemon = pokemonList.filter((pokemon) => haversine(locations[0].coords, pokemon.coordinate) < 150);
-    if (closeByPokemon.length > 0) {
+    const pokemonIdsString = JSON.stringify(closeByPokemon.map(pokemon => pokemon.id));
+    if (closeByPokemon.length > 0 && lastNotificationPokemonIds.current !== pokemonIdsString) {
       if (Device.isDevice) {
         await schedulePushNotification(closeByPokemon, language);
       } else {
         console.log(closeByPokemon);
       }
+      lastNotificationPokemonIds.current = pokemonIdsString;
     }
   });
 
