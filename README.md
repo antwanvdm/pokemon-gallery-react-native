@@ -36,6 +36,7 @@ The following features are part of the app:
 - Within the map you can place your own photos while adventuring. Photos will be
   placed on the location you took the photo. You can view and delete the photo
   as well
+- Within the map view you toggle the Pokémon and/or photos on the map
 - Within the settings you can switch to dark or light mode
 - Within the settings you can switch to 9 different languages
 - Within the setting you can manually clear the storage or re-download data
