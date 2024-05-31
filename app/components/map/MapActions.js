@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
 import { useContext } from 'react';
@@ -50,8 +50,8 @@ const MapActions = ({location, focusToOverview, focusToLocation, imageCallback})
   };
 
   return (
-    <>
-      <View className="flex-1 flex-row absolute top-1.5 justify-center w-full gap-1.5">
+    <ScrollView horizontal={true} className="max-w-full absolute top-1.5 flex-1">
+      <View className="flex-1 flex-row justify-center gap-1.5 px-1.5">
         <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500'}`} onPress={focusToOverview}>
           <Feather name="map" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
           <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t('locations.iconAllPokemon', language)}</Text>
@@ -69,7 +69,7 @@ const MapActions = ({location, focusToOverview, focusToLocation, imageCallback})
           <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t('locations.iconTakePhoto', language)}</Text>
         </Pressable>
       </View>
-    </>
+    </ScrollView>
   );
 };
 
