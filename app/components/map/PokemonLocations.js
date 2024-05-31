@@ -37,6 +37,8 @@ const PokemonLocations = ({pokemonIds}) => {
   const [activePokemon, setActivePokemon] = useState(null);
   const [activeUserMapPhoto, setActiveUserMapPhoto] = useState(null);
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
+  const [showPokemon, setShowPokemon] = useState(true);
+  const [showPhotos, setShowPhotos] = useState(true);
 
   const getUserLocation = async () => {
     let {status} = await Location.requestForegroundPermissionsAsync();
@@ -153,7 +155,7 @@ const PokemonLocations = ({pokemonIds}) => {
         ref={ref => map.current = ref}
         moveOnMarkerPress={false}>
         <>
-          {pokemonList.map((pokemon) => <Marker
+          {showPokemon && pokemonList.map((pokemon) => <Marker
             identifier={`p-${pokemon.id}`}
             key={pokemon.id}
             coordinate={pokemon.coordinate}
@@ -165,7 +167,7 @@ const PokemonLocations = ({pokemonIds}) => {
           </Marker>)}
         </>
         <>
-          {userMapPhotos.map((userMapPhoto) => <Marker
+          {showPhotos && userMapPhotos.map((userMapPhoto) => <Marker
             identifier={`p-${userMapPhoto.id}`}
             key={userMapPhoto.id}
             coordinate={userMapPhoto.location}
@@ -191,7 +193,14 @@ const PokemonLocations = ({pokemonIds}) => {
           </>
         ) : <></>}
       </MapView>
-      <MapActions location={location} focusToLocation={focusToLocation} focusToOverview={focusToOverview}/>
+      <MapActions
+        location={location}
+        focusToLocation={focusToLocation}
+        focusToOverview={focusToOverview}
+        showPokemon={showPokemon}
+        showPhotos={showPhotos}
+        togglePokemon={() => setShowPokemon(!showPokemon)}
+        togglePhotos={() => setShowPhotos(!showPhotos)}/>
       {activeRoute && destinationPokemon ? (<RouteDirections routeSteps={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
       <UserPhotoModal userPhoto={activeUserMapPhoto} closeCallback={userPhotoModalClosed}/>

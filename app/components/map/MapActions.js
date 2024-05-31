@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { Feather } from '@expo/vector-icons';
+import { Feather, FontAwesome6, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useContext } from 'react';
 import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
@@ -10,11 +10,14 @@ import * as MediaLibrary from 'expo-media-library';
  * @param {null|Object} location
  * @param {function} focusToOverview
  * @param {function} focusToLocation
- * @param {function} imageCallback
+ * @param {boolean} showPokemon
+ * @param {boolean} showPhotos
+ * @param {function} togglePokemon
+ * @param {function} togglePhotos
  * @returns {JSX.Element}
  * @constructor
  */
-const MapActions = ({location, focusToOverview, focusToLocation, imageCallback}) => {
+const MapActions = ({location, focusToOverview, focusToLocation, showPokemon, showPhotos, togglePokemon, togglePhotos}) => {
   const {theme, language, setUserMapPhotos} = useContext(AppContext);
 
   const pickImage = async () => {
@@ -53,13 +56,13 @@ const MapActions = ({location, focusToOverview, focusToLocation, imageCallback})
     <ScrollView horizontal={true} className="max-w-full absolute top-1.5 flex-1">
       <View className="flex-1 flex-row justify-center gap-1.5 px-1.5">
         <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500'}`} onPress={focusToOverview}>
-          <Feather name="map" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
+          <MaterialCommunityIcons name="pokemon-go" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
           <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t('locations.iconAllPokemon', language)}</Text>
         </Pressable>
         <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${location === null ? 'bg-gray-300' : (theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500')}`}
                    onPress={focusToLocation}
                    disabled={location === null}>
-          <Feather name="map-pin" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
+          <MaterialIcons name="my-location" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
           <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t('locations.iconMyLocation', language)}</Text>
         </Pressable>
         <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${location === null ? 'bg-gray-300' : (theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500')}`}
@@ -67,6 +70,14 @@ const MapActions = ({location, focusToOverview, focusToLocation, imageCallback})
                    disabled={location === null}>
           <Feather name="camera" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
           <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t('locations.iconTakePhoto', language)}</Text>
+        </Pressable>
+        <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500'}`} onPress={togglePokemon}>
+          <MaterialIcons name="catching-pokemon" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
+          <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t(`locations.${showPokemon ? 'iconPokemonHide' : 'iconPokemonShow'}`, language)}</Text>
+        </Pressable>
+        <Pressable className={`p-2 self-center rounded-2xl items-center flex-row ${theme === 'dark' ? 'bg-gray-50' : 'bg-gray-500'}`} onPress={togglePhotos}>
+          <FontAwesome6 name="camera-rotate" size={18} color={theme === 'dark' ? 'black' : 'white'}/>
+          <Text className={`ml-1.5 font-bold ${theme === 'dark' ? 'text-black' : 'text-white'}`}>{t(`locations.${showPhotos ? 'iconPhotosHide' : 'iconPhotosShow'}`, language)}</Text>
         </Pressable>
       </View>
     </ScrollView>
