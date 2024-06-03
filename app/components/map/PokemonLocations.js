@@ -203,7 +203,7 @@ const PokemonLocations = ({pokemonIds}) => {
         togglePhotos={() => setShowPhotos(!showPhotos)}/>
       {activeRoute && destinationPokemon ? (<RouteDirections routeSteps={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
-      <UserPhotoModal userPhoto={activeUserMapPhoto} closeCallback={userPhotoModalClosed}/>
+      <UserPhotoModal userPhoto={activeUserMapPhoto} onDelete={(id) => delete markers.current.photos[id]} closeCallback={userPhotoModalClosed}/>
     </>
   );
 };

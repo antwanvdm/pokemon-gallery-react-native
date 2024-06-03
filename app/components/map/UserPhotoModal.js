@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from '../../utils/context';
 import * as MediaLibrary from 'expo-media-library';
 
-const UserPhotoModal = ({userPhoto, closeCallback}) => {
+const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
   const {theme, language, userMapPhotos, setUserMapPhotos} = useContext(AppContext);
 
   /**
@@ -21,6 +21,7 @@ const UserPhotoModal = ({userPhoto, closeCallback}) => {
     // console.log(assetRemoval);
     if (albumAssetRemoval) {
       setUserMapPhotos(userMapPhotos.filter((asset) => asset.id !== userPhoto.id));
+      onDelete(userPhoto.id);
       closeCallback();
     }
   };
