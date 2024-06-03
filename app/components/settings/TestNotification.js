@@ -17,9 +17,8 @@ const TestNotification = () => {
   //Faking how the background service should work. Can test both the connection to close by Pokémon, as well the actual notification
   const sendNotification = async () => {
     setIsLoading(true);
-    console.log('Loading location');
     let location = await Location.getCurrentPositionAsync({});
-    console.log('Getting close by Pokemon');
+
     const closeByPokemon = pokemonList.filter((pokemon) => haversine(location.coords, pokemon.coordinate) < 150);
     const pokemonString = closeByPokemon.map(pokemon => pokemon.names[language] ?? pokemon.names['en']).join(', ');
     console.log('pokemonString, ready to send notifications', pokemonString);

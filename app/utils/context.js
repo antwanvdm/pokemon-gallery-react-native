@@ -44,6 +44,21 @@ const AppContextProvider = ({children}) => {
         setLanguage(currentLanguage);
       }
 
+      const lsFavPokemon = await AsyncStorage.getItem('favoritePokemon');
+      if (lsFavPokemon !== null) {
+        setFavorites(JSON.parse(lsFavPokemon));
+      }
+
+      const lsNotesPokemon = await AsyncStorage.getItem('notesPokemon');
+      if (lsNotesPokemon !== null) {
+        setNotes(JSON.parse(lsNotesPokemon));
+      }
+
+      const lsUserMapPhotos = await AsyncStorage.getItem('userMapPhotos');
+      if (lsUserMapPhotos !== null) {
+        setUserMapPhotos(JSON.parse(lsUserMapPhotos));
+      }
+
       let lsPokemonStoreDate = await AsyncStorage.getItem('pokemonListStoreDate');
       if (lsPokemonStoreDate !== null) {
         lsPokemonStoreDate = parseInt(lsPokemonStoreDate);
@@ -64,25 +79,10 @@ const AppContextProvider = ({children}) => {
       }
 
       //Reload all data from API once a week has passed
-      if (lsPokemonStoreDate === null || Date.now() > (lsPokemonStoreDate + (1000 * 60 * 60 * 24))) {
+      if (lsPokemonStoreDate === null || Date.now() > (lsPokemonStoreDate + (1000 * 60 * 60 * 24 * 7))) {
         console.log('a week has passed, reload all data please');
         let pokemonList = await getPokemon();
         setPokemonList(pokemonList);
-      }
-
-      const lsFavPokemon = await AsyncStorage.getItem('favoritePokemon');
-      if (lsFavPokemon !== null) {
-        setFavorites(JSON.parse(lsFavPokemon));
-      }
-
-      const lsNotesPokemon = await AsyncStorage.getItem('notesPokemon');
-      if (lsNotesPokemon !== null) {
-        setNotes(JSON.parse(lsNotesPokemon));
-      }
-
-      const lsUserMapPhotos = await AsyncStorage.getItem('userMapPhotos');
-      if (lsUserMapPhotos !== null) {
-        setUserMapPhotos(JSON.parse(lsUserMapPhotos));
       }
     })();
 
@@ -175,9 +175,7 @@ const AppContextProvider = ({children}) => {
   useEffect(() => {
     (async () => {
       if (pokemonList.length > 0) {
-        console.log('SAVE!!');
-        if (Date.now() > (pokemonListStoreDate + (1000 * 60 * 60 * 24))) {
-          console.log('SAVE DATE!!');
+        if (Date.now() > (pokemonListStoreDate + (1000 * 60 * 60 * 24 * 7))) {
           AsyncStorage.setItem('pokemonListStoreDate', (Date.now()).toString());
         }
         AsyncStorage.setItem('pokemonList', JSON.stringify(pokemonList));
