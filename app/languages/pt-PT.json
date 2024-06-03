@@ -1,0 +1,67 @@
+{
+  "gallery": {
+    "title": "Galeria de Pokémon",
+    "tabTitle": "Galeria",
+    "filters": {
+      "title": "Filtrar resultados",
+      "showFavorites": "Mostrar favoritos",
+      "typeAll": "Todos os tipos",
+      "backToOverview": "Voltar para visão geral"
+    },
+    "loading": "Carregando Pokémon..."
+  },
+  "detailModal": {
+    "addFavorite": "Adicionar aos favoritos",
+    "removeFavorite": "Remover dos favoritos",
+    "unlockNotesButton": "Desbloquear notas",
+    "unlockNotesPlaceholder": "Pressione o botão para desbloquear e editar suas notas",
+    "close": "Fechar"
+  },
+  "locations": {
+    "title": "Locais de Pokémon",
+    "tabTitle": "Locais",
+    "iconAllPokemon": "Todos os Pokémon",
+    "iconMyLocation": "Minha localização",
+    "iconTakePhoto": "Tirar foto",
+    "iconPokemonShow": "Mostrar Pokémon",
+    "iconPokemonHide": "Ocultar Pokémon",
+    "iconPhotosShow": "Mostrar fotos",
+    "iconPhotosHide": "Ocultar fotos",
+    "deletePhoto": "Excluir foto",
+    "noAccess": "Você precisa de acesso à localização para esta funcionalidade, habilite-a nas configurações do aplicativo!",
+    "cameraDenied": "Você precisa de acesso à câmera para esta funcionalidade, habilite-o nas configurações do aplicativo!",
+    "libraryDenied": "Você precisa de acesso à biblioteca de mídia para esta funcionalidade, habilite-o nas configurações do aplicativo!",
+    "locationLoadingTitle": "Carregando localização!",
+    "locationLoadingMessage": "O aplicativo ainda está tentando obter sua localização atual, tenha um pouco de paciência!",
+    "outOfReachTitle": "Aproxime-se!",
+    "outOfReachMessage": "Você não está a menos de 100 metros deste Pokémon, aproxime-se!",
+    "ourOfReachRoute": "Navegar para %{name}",
+    "ourOfReachCancel": "Voltar ao mapa"
+  },
+  "settings": {
+    "title": "Configurações",
+    "tabTitle": "Configurações",
+    "darkMode": "Modo escuro",
+    "notifyPokemon": "Notificar sobre Pokémon próximos",
+    "language": "Idioma",
+    "clear": "Limpar armazenamento",
+    "clearAreYouSure": "Você tem certeza? Todos os seus dados pessoais serão removidos.",
+    "clearYes": "Sim!",
+    "clearNo": "Cancelar",
+    "clearSuccess": "Dados limpos com sucesso",
+    "download": "Baixar dados do Pokémon novamente",
+    "testNotification": "Teste de notificação",
+    "downloadLoading": "Carregando dados..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Pokémon estão perto de você!",
+      "description": "Apressa-te, os seguintes Pokémon estão prontos para mostrar seu potencial brilhante"
+    }
+  },
+  "offline": {
+    "title": "Você está offline!",
+    "map": "Você está atualmente offline, portanto não pode usar o mapa. Tente novamente quando sua conexão com a internet estiver restabelecida",
+    "mapNotification": "Você está atualmente offline, portanto não pode usar o mapa. Encontre seu Pokémon quando sua conexão com a internet estiver restabelecida"
+  }
+}

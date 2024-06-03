@@ -26,6 +26,7 @@ const getPokemon = async () => {
       names: {
         'en': pokemonSpecies.names.find((specieName) => specieName.language.name === 'en').name,
         'ja-JP': pokemonSpecies.names.find((specieName) => specieName.language.name === 'ja').name,
+        'ko-KR': pokemonSpecies.names.find((specieName) => specieName.language.name === 'ko').name,
         'fr-FR': pokemonSpecies.names.find((specieName) => specieName.language.name === 'fr').name,
         'es-ES': pokemonSpecies.names.find((specieName) => specieName.language.name === 'es').name,
         'de-DE': pokemonSpecies.names.find((specieName) => specieName.language.name === 'de').name,
@@ -73,6 +74,7 @@ const getTypes = async () => {
       names: {
         'en': typeData.names.find((typeName) => typeName.language.name === 'en').name,
         'ja-JP': typeData.names.find((typeName) => typeName.language.name === 'ja').name,
+        'ko-KR': typeData.names.find((typeName) => typeName.language.name === 'ko').name,
         'fr-FR': typeData.names.find((typeName) => typeName.language.name === 'fr').name,
         'es-ES': typeData.names.find((typeName) => typeName.language.name === 'es').name,
         'de-DE': typeData.names.find((typeName) => typeName.language.name === 'de').name,

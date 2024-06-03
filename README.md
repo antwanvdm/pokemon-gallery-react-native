@@ -38,7 +38,7 @@ The following features are part of the app:
   as well
 - Within the map view you toggle the Pokémon and/or photos on the map
 - Within the settings you can switch to dark or light mode
-- Within the settings you can switch to 9 different languages
+- Within the settings you can switch to 15 different languages
 - Within the setting you can manually clear the storage or re-download data
 - Within the settings you can switch on notifications for close-by Pokémon. Once
   walking (with the app in the background) you will receive notifications if

@@ -1,0 +1,67 @@
+{
+  "gallery": {
+    "title": "포켓몬 갤러리",
+    "tabTitle": "갤러리",
+    "filters": {
+      "title": "결과 필터링",
+      "showFavorites": "즐겨찾기 표시",
+      "typeAll": "모든 유형",
+      "backToOverview": "개요로 돌아가기"
+    },
+    "loading": "포켓몬 로딩 중..."
+  },
+  "detailModal": {
+    "addFavorite": "즐겨찾기에 추가",
+    "removeFavorite": "즐겨찾기에서 제거",
+    "unlockNotesButton": "노트 잠금 해제",
+    "unlockNotesPlaceholder": "버튼을 눌러 노트를 잠금 해제하고 편집하세요",
+    "close": "닫기"
+  },
+  "locations": {
+    "title": "포켓몬 위치",
+    "tabTitle": "위치",
+    "iconAllPokemon": "모든 포켓몬",
+    "iconMyLocation": "내 위치",
+    "iconTakePhoto": "사진 찍기",
+    "iconPokemonShow": "포켓몬 표시",
+    "iconPokemonHide": "포켓몬 숨기기",
+    "iconPhotosShow": "사진 표시",
+    "iconPhotosHide": "사진 숨기기",
+    "deletePhoto": "사진 삭제",
+    "noAccess": "이 기능을 사용하려면 위치 접근 권한이 필요합니다. 앱 설정에서 이를 활성화하세요!",
+    "cameraDenied": "이 기능을 사용하려면 카메라 접근 권한이 필요합니다. 앱 설정에서 이를 활성화하세요!",
+    "libraryDenied": "이 기능을 사용하려면 미디어 라이브러리 접근 권한이 필요합니다. 앱 설정에서 이를 활성화하세요!",
+    "locationLoadingTitle": "위치 로딩 중!",
+    "locationLoadingMessage": "앱이 현재 위치를 검색 중입니다. 잠시만 기다려주세요!",
+    "outOfReachTitle": "더 가까이 가세요!",
+    "outOfReachMessage": "이 포켓몬에서 100미터 내에 있지 않습니다. 더 가까이 가세요!",
+    "ourOfReachRoute": "%{name}로 이동",
+    "ourOfReachCancel": "지도으로 돌아가기"
+  },
+  "settings": {
+    "title": "설정",
+    "tabTitle": "설정",
+    "darkMode": "다크 모드",
+    "notifyPokemon": "근처 포켓몬 알림",
+    "language": "언어",
+    "clear": "저장소 정리",
+    "clearAreYouSure": "확실합니까? 모든 개인 데이터가 삭제됩니다.",
+    "clearYes": "예!",
+    "clearNo": "취소",
+    "clearSuccess": "데이터 정리가 성공적으로 완료되었습니다",
+    "download": "포켓몬 데이터를 다시 다운로드",
+    "testNotification": "알림 테스트",
+    "downloadLoading": "데이터 로딩 중..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "포켓몬이 가까이에 있습니다!",
+      "description": "서둘러요, 다음 포켓몬들이 빛나는 잠재력을 보여줄 준비가 되었습니다"
+    }
+  },
+  "offline": {
+    "title": "오프라인 상태입니다!",
+    "map": "현재 오프라인 상태이므로 지도를 사용할 수 없습니다. 인터넷 연결이 복구되면 다시 시도하세요",
+    "mapNotification": "현재 오프라인 상태이므로 지도를 사용할 수 없습니다. 인터넷 연결이 복구되면 포켓몬을 찾으세요"
+  }
+}

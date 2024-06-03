@@ -1,0 +1,67 @@
+{
+  "gallery": {
+    "title": "Pokémon Galerisi",
+    "tabTitle": "Galeri",
+    "filters": {
+      "title": "Sonuçları Filtrele",
+      "showFavorites": "Favorileri Göster",
+      "typeAll": "Tüm Türler",
+      "backToOverview": "Genel Bakışa Geri Dön"
+    },
+    "loading": "Pokémon Yükleniyor..."
+  },
+  "detailModal": {
+    "addFavorite": "Favorilere Ekle",
+    "removeFavorite": "Favorilerden Kaldır",
+    "unlockNotesButton": "Notları Kilitle",
+    "unlockNotesPlaceholder": "Notlarınızı kilitlemek ve düzenlemek için düğmeye basın",
+    "close": "Kapat"
+  },
+  "locations": {
+    "title": "Pokémon Konumları",
+    "tabTitle": "Konumlar",
+    "iconAllPokemon": "Tüm Pokémonlar",
+    "iconMyLocation": "Benim Konumum",
+    "iconTakePhoto": "Fotoğraf Çek",
+    "iconPokemonShow": "Pokémonları Göster",
+    "iconPokemonHide": "Pokémonları Gizle",
+    "iconPhotosShow": "Fotoğrafları Göster",
+    "iconPhotosHide": "Fotoğrafları Gizle",
+    "deletePhoto": "Fotoğrafı Sil",
+    "noAccess": "Bu özellik için konum erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
+    "cameraDenied": "Bu özellik için kamera erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
+    "libraryDenied": "Bu özellik için ortam kitaplığı erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
+    "locationLoadingTitle": "Konum Yükleniyor!",
+    "locationLoadingMessage": "Uygulama hala güncel konumunuzu almakla meşgul, biraz sabırlı olun!",
+    "outOfReachTitle": "Daha Yakına Gelin!",
+    "outOfReachMessage": "Bu Pokémon'un 100 metre içinde değilsiniz, daha yakına gelin!",
+    "ourOfReachRoute": "%{name} rotasına git",
+    "ourOfReachCancel": "Haritaya geri dön"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "tabTitle": "Ayarlar",
+    "darkMode": "Karanlık Mod",
+    "notifyPokemon": "Yakın Pokémon Bildirimi",
+    "language": "Dil",
+    "clear": "Depolamayı Temizle",
+    "clearAreYouSure": "Emin misiniz? Tüm kişisel verileriniz silinecek.",
+    "clearYes": "Evet!",
+    "clearNo": "İptal",
+    "clearSuccess": "Veri temizleme başarılı",
+    "download": "Pokémon verilerini yeniden indir",
+    "testNotification": "Bildirim Testi",
+    "downloadLoading": "Veri Yükleniyor..."
+  },
+  "notifications": {
+    "closeByPokemon": {
+      "title": "Pokémonlar yakınında!",
+      "description": "Acele edin, aşağıdaki Pokémonlar parlak potansiyellerini göstermeye hazır"
+    }
+  },
+  "offline": {
+    "title": "Çevrimdışısınız!",
+    "map": "Şu anda çevrimdışısınız, bu nedenle haritayı kullanamıyorsunuz, internet bağlantınız tekrar geldiğinde tekrar deneyin",
+    "mapNotification": "Şu anda çevrimdışısınız, bu nedenle haritayı kullanamıyorsunuz, internet bağlantınız tekrar geldiğinde Pokémon'unuzu bulun"
+  }
+}
