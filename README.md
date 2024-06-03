@@ -49,7 +49,10 @@ The following features are part of the app:
   to the original view (top of list, or zoomed out Pokémon)
 - The app contains some smooth animations on the Pokémon cards to smoothen the
   experience
-- Re-opening the app will always remember favorites, notes, dark mode and language
+- Re-opening the app will always remember favorites, notes, dark mode, user
+  photos and language
+- When offline you every action that requires internet will be disabled visually
+  for a user, or give a notification
 
 ## Technical highlights
 
@@ -71,6 +74,9 @@ technical description:
   to create and implemented, as it's JSON-based
 - Using Icons gives you multiple options. I ended up using the expo package with an
   [easy interface](https://icons.expo.fyi/) to find my icons
+- For offline mode I used the [NetInfo](https://github.com/react-native-netinfo/react-native-netinfo)
+  package. Most important was handling every UI element/action to have a solid offline
+  experience
 - When actually building my app I needed real keys for Google Maps and Firebase
   (notifications). While the cloud console is easy to use (once your creditcard is
   connected..), it still costs some effort to get it running (see [Deployment](#deployment))
