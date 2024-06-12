@@ -36,6 +36,7 @@
     "outOfReachTitle": "और करीब जाएं!",
     "outOfReachMessage": "आप इस पोकेमॉन के 100 मीटर के भीतर नहीं हैं, और करीब जाएं!",
     "ourOfReachRoute": "%{name} की ओर नेविगेट करें",
+    "ourOfReachTravelTime": "कुल यात्रा समय: %{time}",
     "ourOfReachCancel": "मानचित्र पर वापस जाएं"
   },
   "settings": {

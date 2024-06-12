@@ -36,6 +36,7 @@
     "outOfReachTitle": "Daha Yakına Gelin!",
     "outOfReachMessage": "Bu Pokémon'un 100 metre içinde değilsiniz, daha yakına gelin!",
     "ourOfReachRoute": "%{name} rotasına git",
+    "ourOfReachTravelTime": "Toplam seyahat süresi: %{time}",
     "ourOfReachCancel": "Haritaya geri dön"
   },
   "settings": {

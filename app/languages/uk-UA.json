@@ -36,6 +36,7 @@
     "outOfReachTitle": "Підійдіть ближче!",
     "outOfReachMessage": "Ви не перебуваєте в межах 100 метрів від цього Pokémon, підійдіть ближче!",
     "ourOfReachRoute": "Навігація до %{name}",
+    "ourOfReachTravelTime": "Загальний час подорожі: %{time}",
     "ourOfReachCancel": "Повернутися до карти"
   },
   "settings": {

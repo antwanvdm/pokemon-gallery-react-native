@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Text, ActivityIndicator, View, FlatList } from 'react-native';
 import PokemonCard from './PokemonCard';
 import { AppContext } from '../../utils/context';
@@ -59,7 +59,7 @@ const PokemonGallery = ({filters, navigation}) => {
     }
   };
 
-  const renderPokemonCard = ({item, index}) => {
+  const renderPokemonCard = useCallback(({item, index}) => {
     return (
       <PokemonCard
         listIndex={index}
@@ -70,7 +70,7 @@ const PokemonGallery = ({filters, navigation}) => {
         favoriteHandler={favoriteClicked}
       />
     );
-  };
+  }, []);
 
   //Render the view based on the state of the available data
   if (!isLoaded) {

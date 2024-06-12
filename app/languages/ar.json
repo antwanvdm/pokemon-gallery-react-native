@@ -36,6 +36,7 @@
     "outOfReachTitle": "تحرك قربًا!",
     "outOfReachMessage": "أنت لست على بُعد 100 متر من هذا البوكيمون، تحرك قربًا!",
     "ourOfReachRoute": "التنقل إلى %{name}",
+    "ourOfReachTravelTime": "إجمالي وقت السفر: %{time}",
     "ourOfReachCancel": "العودة إلى الخريطة"
   },
   "settings": {

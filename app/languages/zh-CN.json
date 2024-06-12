@@ -36,6 +36,7 @@
     "outOfReachTitle": "靠近一点！",
     "outOfReachMessage": "您距离该宝可梦超过100米，请靠近！",
     "ourOfReachRoute": "导航到 %{name}",
+    "ourOfReachTravelTime": "总旅行时间：%{time}",
     "ourOfReachCancel": "返回地图"
   },
   "settings": {

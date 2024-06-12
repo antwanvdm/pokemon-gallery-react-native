@@ -20,3 +20,7 @@ web-build/
 # private keys are part of these files
 .env
 google-services.json
+
+#builds
+ios/
+android/

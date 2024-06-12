@@ -1,12 +1,13 @@
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useContext, useMemo, useRef } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import BottomSheet, { BottomSheetFlatList, BottomSheetView } from '@gorhom/bottom-sheet';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import { t } from '../../utils/translator';
 import { AppContext } from '../../utils/context';
+import { formatMinutes } from '../../utils/numbers';
 
-const RouteDirections = ({routeSteps, pokemon, onClose}) => {
+const RouteDirections = ({activeRoute, pokemon, onClose}) => {
   const {language, theme} = useContext(AppContext);
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['20%', '50%', '100%'], []);
@@ -35,7 +36,6 @@ const RouteDirections = ({routeSteps, pokemon, onClose}) => {
     []
   );
 
-  // renders
   return (
     <View className="flex-1 w-full absolute bottom-0">
       <View className="flex-1 p-40">
@@ -48,15 +48,21 @@ const RouteDirections = ({routeSteps, pokemon, onClose}) => {
           enablePanDownToClose={true}
         >
           <BottomSheetView>
-            <View className="flex-row justify-between px-6 items-center">
+            <View className="flex-row justify-between px-6 pb-1.5 items-center">
               <Text className={`text-xl font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t('locations.ourOfReachRoute', language, {name: pokemon.names[language] ?? pokemon.names['en']})}</Text>
               <Pressable className="self-center rounded-2xl items-center" onPress={onClose}>
                 <MaterialIcons name="close" size={32} color={theme === 'dark' ? 'white' : 'black'}/>
               </Pressable>
             </View>
           </BottomSheetView>
+          <BottomSheetView>
+            <View className="flex-row pl-6 pb-3 items-center">
+              <MaterialIcons name="directions-walk" size={18} color={iconColor}/>
+              <Text className={`ml-5 font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t('locations.ourOfReachTravelTime', language, {time: formatMinutes(activeRoute.minutes)})}</Text>
+            </View>
+          </BottomSheetView>
           <BottomSheetFlatList
-            data={routeSteps}
+            data={activeRoute.steps}
             keyExtractor={(item, index) => index}
             renderItem={renderItem}/>
         </BottomSheet>

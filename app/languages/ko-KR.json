@@ -36,6 +36,7 @@
     "outOfReachTitle": "더 가까이 가세요!",
     "outOfReachMessage": "이 포켓몬에서 100미터 내에 있지 않습니다. 더 가까이 가세요!",
     "ourOfReachRoute": "%{name}로 이동",
+    "ourOfReachTravelTime": "총 여행 시간: %{time}",
     "ourOfReachCancel": "지도으로 돌아가기"
   },
   "settings": {

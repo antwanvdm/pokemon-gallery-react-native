@@ -124,9 +124,8 @@ const PokemonLocations = ({pokemonIds}) => {
   };
 
   const focusToRoute = (result) => {
-    console.log(Math.round(result.duration)); //TODO: Show total expected minutes to walk
     map.current.fitToCoordinates(result.coordinates, {edgePadding: {top: 40, right: 50, bottom: 220, left: 50}});
-    setActiveRoute(result.legs[0].steps);
+    setActiveRoute({steps: result.legs[0].steps, minutes: Math.round(result.duration)});
   };
 
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
@@ -186,6 +185,8 @@ const PokemonLocations = ({pokemonIds}) => {
               mode="WALKING"
               strokeWidth={3}
               language={language}
+              tappable={false}
+              resetOnChange={false}
               strokeColor={theme === 'dark' ? 'white' : 'black'}
               apikey={Constants.expoConfig.extra.googleMapsDirection.apiKey}
               onReady={(result) => focusToRoute(result)}
@@ -201,7 +202,7 @@ const PokemonLocations = ({pokemonIds}) => {
         showPhotos={showPhotos}
         togglePokemon={() => setShowPokemon(!showPokemon)}
         togglePhotos={() => setShowPhotos(!showPhotos)}/>
-      {activeRoute && destinationPokemon ? (<RouteDirections routeSteps={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
+      {activeRoute && destinationPokemon ? (<RouteDirections activeRoute={activeRoute} pokemon={destinationPokemon} onClose={() => focusToOverview(true)}/>) : <></>}
       <DetailModal pokemon={activePokemon} closeCallback={handleModalClosed}/>
       <UserPhotoModal userPhoto={activeUserMapPhoto} onDelete={(id) => delete markers.current.photos[id]} closeCallback={userPhotoModalClosed}/>
     </>

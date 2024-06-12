@@ -36,6 +36,7 @@
     "outOfReachTitle": "もっと近づいてください！",
     "outOfReachMessage": "このポケモンから100メートル以内にいません。もっと近くに移動してください！",
     "ourOfReachRoute": "%{name} へのルート",
+    "ourOfReachTravelTime": "総旅行時間: %{time}",
     "ourOfReachCancel": "マップに戻る"
   },
   "settings": {

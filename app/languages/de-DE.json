@@ -36,6 +36,7 @@
     "outOfReachTitle": "Komm näher!",
     "outOfReachMessage": "Du befindest dich nicht innerhalb von 100 Metern von diesem Pokémon, komm näher!",
     "ourOfReachRoute": "Navigiere zu %{name}",
+    "ourOfReachTravelTime": "Gesamtreisezeit: %{time}",
     "ourOfReachCancel": "Zurück zur Karte"
   },
   "settings": {

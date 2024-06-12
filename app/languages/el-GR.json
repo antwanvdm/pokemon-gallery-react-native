@@ -36,6 +36,7 @@
     "outOfReachTitle": "Μετακινηθείτε πιο κοντά!",
     "outOfReachMessage": "Δεν είστε εντός 100 μέτρων από αυτό το Pokémon, μετακινηθείτε πιο κοντά!",
     "ourOfReachRoute": "Πλοήγηση προς %{name}",
+    "ourOfReachTravelTime": "Συνολικός χρόνος ταξιδιού: %{time}",
     "ourOfReachCancel": "Επιστροφή στον χάρτη"
   },
   "settings": {
