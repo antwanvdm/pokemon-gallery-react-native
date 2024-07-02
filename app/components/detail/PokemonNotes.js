@@ -1,9 +1,10 @@
 import { KeyboardAvoidingView, Pressable, Share, Text, TextInput, View } from 'react-native';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { UserDataContext } from '../../utils/context/UserData';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @param {boolean} isOpen
@@ -12,7 +13,8 @@ import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
  * @constructor
  */
 const PokemonNotes = ({isOpen, pokemonId}) => {
-  const {language, notes, setNotes} = useContext(AppContext);
+  const {notes, setNotes} = useContext(UserDataContext);
+  const {language} = useContext(SettingsContext);
   const inputRef = useRef(null);
   const [inputText, setInputText] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);

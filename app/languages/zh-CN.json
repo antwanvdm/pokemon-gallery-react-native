@@ -52,7 +52,9 @@
     "clearSuccess": "数据清除成功",
     "download": "重新下载宝可梦数据",
     "testNotification": "测试通知",
-    "downloadLoading": "正在加载数据..."
+    "downloadLoading": "正在加载数据...",
+    "createTables": "创建数据库表",
+    "dropTables": "删除数据库表"
   },
   "notifications": {
     "closeByPokemon": {

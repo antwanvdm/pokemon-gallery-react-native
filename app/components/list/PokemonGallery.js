@@ -1,11 +1,13 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Text, ActivityIndicator, View, FlatList } from 'react-native';
 import PokemonCard from './PokemonCard';
-import { AppContext } from '../../utils/context';
 import DetailModal from '../detail/DetailModal';
 import { applyPokemonFilters } from '../../utils/pokemonData';
 import { t } from '../../utils/translator';
 import { useScrollToTop } from '@react-navigation/native';
+import { SettingsContext } from '../../utils/context/Settings';
+import { AppDataContext } from '../../utils/context/AppData';
+import { UserDataContext } from '../../utils/context/UserData';
 
 /**
  * @param {Object} filters
@@ -15,7 +17,9 @@ import { useScrollToTop } from '@react-navigation/native';
  */
 const PokemonGallery = ({filters, navigation}) => {
   const listRef = useRef();
-  const {theme, language, favorites, setFavorites, pokemonList} = useContext(AppContext);
+  const {pokemonList} = useContext(AppDataContext);
+  const {favorites, setFavorites} = useContext(UserDataContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isLoaded, setIsLoaded] = useState(false);
   const [pokemonFilteredList, setPokemonFilteredList] = useState([]);
   const [activePokemon, setActivePokemon] = useState(null);

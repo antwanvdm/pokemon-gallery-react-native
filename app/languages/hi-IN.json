@@ -52,7 +52,9 @@
     "clearSuccess": "डेटा साफ करना सफल रहा",
     "download": "पोकेमॉन डेटा फिर से डाउनलोड करें",
     "testNotification": "सूचना का परीक्षण करें",
-    "downloadLoading": "डेटा लोड हो रहा है..."
+    "downloadLoading": "डेटा लोड हो रहा है...",
+    "createTables": "डेटाबेस टेबल बनाएं",
+    "dropTables": "डेटाबेस टेबल हटाएं"
   },
   "notifications": {
     "closeByPokemon": {

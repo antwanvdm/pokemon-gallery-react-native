@@ -4,9 +4,9 @@ import { View, Pressable, Text } from 'react-native';
 import ReactNativeModal from 'react-native-modal';
 import FavoriteFilter from './FavoriteFilter';
 import TypeFilter from './TypeFilter';
-import { AppContext } from '../../../utils/context';
 import { Shadow } from 'react-native-shadow-2';
 import { t } from '../../../utils/translator';
+import { SettingsContext } from '../../../utils/context/Settings';
 
 /**
  * @param {function} onChange
@@ -14,7 +14,7 @@ import { t } from '../../../utils/translator';
  * @constructor
  */
 const Filters = ({onChange}) => {
-  const {theme, language} = useContext(AppContext);
+  const {theme, language} = useContext(SettingsContext);
   const [filters, setFilters] = useState({
     favorites: false,
     type: 'all',

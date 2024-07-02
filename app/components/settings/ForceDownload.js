@@ -1,24 +1,44 @@
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import { useContext, useState } from 'react';
-import { AppContext } from '../../utils/context';
-import { getPokemon, getTypes } from '../../utils/pokemonData';
+import { loadPokemon, loadTypes } from '../../utils/pokemonData';
 import { t } from '../../utils/translator';
+import { SettingsContext } from '../../utils/context/Settings';
+import { AppDataContext } from '../../utils/context/AppData';
+import { OnlineContext } from '../../utils/context/Online';
+import { addPokemon, addType, createTables, deletePokemon, deleteTypes, dropTables, getPokemon, getTypes } from '../../utils/database';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const ForceDownload = () => {
-  const {theme, setPokemonList, setPokemonTypes, language, isOnline} = useContext(AppContext);
+  const {setPokemonList, setPokemonTypes} = useContext(AppDataContext);
+  const {isOnline} = useContext(OnlineContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isLoading, setIsLoading] = useState(false);
 
+  //TODO SOMETHING GOES WRONG HERE!!!!!
   const downloadPokemon = async () => {
     setIsLoading(true);
+    await dropTables();
+    await createTables();
+
+    let loadedTypes = await loadTypes();
+    for (const type of loadedTypes) {
+      await addType(type);
+    }
+
+    let loadedPokemon = await loadPokemon();
+    for (const pokemon of loadedPokemon) {
+      await addPokemon(pokemon);
+    }
+
+    let typesList = await getTypes();
     let pokemonList = await getPokemon();
-    let pokemonTypes = await getTypes();
+
     setIsLoading(false);
+    setPokemonTypes(typesList);
     setPokemonList(pokemonList);
-    setPokemonTypes(pokemonTypes);
   };
 
   return (

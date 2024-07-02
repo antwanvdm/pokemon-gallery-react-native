@@ -3,11 +3,13 @@ import { Image, Pressable, Text, View } from 'react-native';
 import { Shadow } from 'react-native-shadow-2';
 import { t } from '../../utils/translator';
 import { useContext } from 'react';
-import { AppContext } from '../../utils/context';
 import * as MediaLibrary from 'expo-media-library';
+import { SettingsContext } from '../../utils/context/Settings';
+import { UserDataContext } from '../../utils/context/UserData';
 
 const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
-  const {theme, language, userMapPhotos, setUserMapPhotos} = useContext(AppContext);
+  const {userMapPhotos, setUserMapPhotos} = useContext(UserDataContext);
+  const {theme, language} = useContext(SettingsContext);
 
   /**
    * TODO: Monitor expo go documentation/issues as image still is not actually removed from device (and gets backup on Google Photos..)

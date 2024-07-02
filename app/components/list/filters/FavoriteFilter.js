@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Switch, Text, View } from 'react-native';
-import { AppContext } from '../../../utils/context';
 import { t } from '../../../utils/translator';
+import { SettingsContext } from '../../../utils/context/Settings';
 
 /**
  * @param {function} onChange
@@ -10,7 +10,7 @@ import { t } from '../../../utils/translator';
  * @constructor
  */
 const FavoriteFilter = ({onChange, status}) => {
-  const {theme, language} = useContext(AppContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isEnabled, setIsEnabled] = useState(status);
 
   //Simple call to the change handler

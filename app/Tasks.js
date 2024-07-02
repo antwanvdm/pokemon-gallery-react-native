@@ -4,12 +4,14 @@ import Constants from 'expo-constants';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import { useState, useRef, useContext, useEffect } from 'react';
-import { AppContext } from './utils/context';
 import haversine from 'haversine-distance';
 import * as Location from 'expo-location';
 import { useNavigation } from '@react-navigation/native';
 import { t } from './utils/translator';
 import { Alert, Platform } from 'react-native';
+import { SettingsContext } from './utils/context/Settings';
+import { AppDataContext } from './utils/context/AppData';
+import { OnlineContext } from './utils/context/Online';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -24,7 +26,9 @@ Notifications.setNotificationHandler({
  * @constructor
  */
 const Tasks = () => {
-  const {pokemonList, notifications, language, isOnline} = useContext(AppContext);
+  const {pokemonList} = useContext(AppDataContext);
+  const {isOnline} = useContext(OnlineContext);
+  const {notifications, language} = useContext(SettingsContext);
   const [expoPushToken, setExpoPushToken] = useState('');
   const [notification, setNotification] = useState(false);
   const notificationResponseListener = useRef();

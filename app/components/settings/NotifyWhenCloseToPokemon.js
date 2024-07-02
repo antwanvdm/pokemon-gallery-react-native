@@ -1,14 +1,14 @@
 import { Switch, Text, View } from 'react-native';
 import { useContext, useState } from 'react';
-import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const NotifyWhenCloseToPokemon = () => {
-  const {theme, notifications, setNotifications, language} = useContext(AppContext);
+  const {theme, notifications, setNotifications, language} = useContext(SettingsContext);
   const [isEnabled, setIsEnabled] = useState(notifications?.allClosePokemon || false);
 
   //Simple call to the change handler to overwrite notification setting in context

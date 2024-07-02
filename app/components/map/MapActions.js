@@ -2,9 +2,10 @@ import { Pressable, ScrollView, Text, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Feather, FontAwesome6, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useContext } from 'react';
-import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
 import * as MediaLibrary from 'expo-media-library';
+import { SettingsContext } from '../../utils/context/Settings';
+import { UserDataContext } from '../../utils/context/UserData';
 
 /**
  * @param {null|Object} location
@@ -18,7 +19,8 @@ import * as MediaLibrary from 'expo-media-library';
  * @constructor
  */
 const MapActions = ({location, focusToOverview, focusToLocation, showPokemon, showPhotos, togglePokemon, togglePhotos}) => {
-  const {theme, language, setUserMapPhotos} = useContext(AppContext);
+  const {setUserMapPhotos} = useContext(UserDataContext);
+  const {theme, language} = useContext(SettingsContext);
 
   const pickImage = async () => {
     let permissionCamera = await ImagePicker.requestCameraPermissionsAsync();

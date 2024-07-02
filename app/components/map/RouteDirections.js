@@ -4,11 +4,11 @@ import BottomSheet, { BottomSheetFlatList, BottomSheetView } from '@gorhom/botto
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import { t } from '../../utils/translator';
-import { AppContext } from '../../utils/context';
 import { formatMinutes } from '../../utils/numbers';
+import { SettingsContext } from '../../utils/context/Settings';
 
 const RouteDirections = ({activeRoute, pokemon, onClose}) => {
-  const {language, theme} = useContext(AppContext);
+  const {language, theme} = useContext(SettingsContext);
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['20%', '50%', '100%'], []);
   const iconColor = theme === 'dark' ? 'white' : 'black';
@@ -29,6 +29,7 @@ const RouteDirections = ({activeRoute, pokemon, onClose}) => {
         {item.maneuver ? maneuverIcons[item.maneuver] ?? <MaterialIcons name={item.maneuver} size={32} color={iconColor}/> : <MaterialCommunityIcons name="routes" size={32} color={iconColor}/>}
         <AutoHeightWebView
           className="ml-4 w-full"
+          style={{opacity: 0.99, minHeight: 1}}
           customStyle={`* { word-wrap: break-word; overflow-wrap: break-word; color: ${theme === 'dark' ? 'white' : 'black'}; body { font-size: 120%; padding-right: 15px; user-select: none; }`}
           source={{html: `<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></head><body>${item.html_instructions}</body></html>`}}/>
       </View>

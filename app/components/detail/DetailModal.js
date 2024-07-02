@@ -1,10 +1,11 @@
 import { Text, View, Image, Pressable } from 'react-native';
 import ReactNativeModal from 'react-native-modal';
-import { AppContext } from '../../utils/context';
 import { useContext, useEffect, useState } from 'react';
 import { Shadow } from 'react-native-shadow-2';
 import { t } from '../../utils/translator';
 import PokemonNotes from './PokemonNotes';
+import { SettingsContext } from '../../utils/context/Settings';
+import { UserDataContext } from '../../utils/context/UserData';
 
 /**
  * @param {Object} pokemon
@@ -13,7 +14,8 @@ import PokemonNotes from './PokemonNotes';
  * @constructor
  */
 const DetailModal = ({pokemon, closeCallback}) => {
-  const {theme, language, favorites, setFavorites} = useContext(AppContext);
+  const {favorites, setFavorites} = useContext(UserDataContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isFavorite, setIsFavorite] = useState(favorites.includes(pokemon?.id));
   const [isOpen, setIsOpen] = useState(false);
 
@@ -58,7 +60,7 @@ const DetailModal = ({pokemon, closeCallback}) => {
                 {pokemon.names[language] ?? pokemon.names['en']} (#{pokemon.id})
               </Text>
               <Image
-                source={{uri: pokemon.images.shiny}}
+                source={{uri: pokemon.image_shiny}}
                 style={{width: 180, height: 180}}
               />
               <Pressable className={`w-full mt-4 p-3 bg-green-700 rounded-2xl ${isFavorite ? 'bg-orange-700' : ''}`} onPress={favoritePressed}>

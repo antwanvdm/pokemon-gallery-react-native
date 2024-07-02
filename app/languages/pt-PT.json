@@ -52,7 +52,9 @@
     "clearSuccess": "Dados limpos com sucesso",
     "download": "Baixar dados do Pokémon novamente",
     "testNotification": "Teste de notificação",
-    "downloadLoading": "Carregando dados..."
+    "downloadLoading": "Carregando dados...",
+    "createTables": "Criar tabelas de banco de dados",
+    "dropTables": "Excluir tabelas de banco de dados"
   },
   "notifications": {
     "closeByPokemon": {

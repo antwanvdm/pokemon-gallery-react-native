@@ -1,17 +1,19 @@
-import { AppContext } from '../../utils/context';
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import { t } from '../../utils/translator';
 import { useContext, useState } from 'react';
 import * as Notifications from 'expo-notifications';
 import haversine from 'haversine-distance';
 import * as Location from 'expo-location';
+import { SettingsContext } from '../../utils/context/Settings';
+import { AppDataContext } from '../../utils/context/AppData';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const TestNotification = () => {
-  const {theme, pokemonList, language} = useContext(AppContext);
+  const {pokemonList} = useContext(AppDataContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isLoading, setIsLoading] = useState(false);
 
   //Faking how the background service should work. Can test both the connection to close by Pokémon, as well the actual notification

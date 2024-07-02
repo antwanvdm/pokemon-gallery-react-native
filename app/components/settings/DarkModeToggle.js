@@ -1,14 +1,14 @@
 import { Switch, Text, View } from 'react-native';
 import { useContext, useState } from 'react';
-import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const DarkModeToggle = () => {
-  const {theme, setTheme, language} = useContext(AppContext);
+  const {theme, setTheme, language} = useContext(SettingsContext);
   const [isEnabled, setIsEnabled] = useState(theme === 'dark');
 
   //Simple call to the change handler to overwrite active theme in context

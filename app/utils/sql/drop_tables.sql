@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS pokemon_type;
+DROP TABLE IF EXISTS types_names;
+DROP TABLE IF EXISTS types;
+DROP TABLE IF EXISTS pokemon_names;
+DROP TABLE IF EXISTS pokemon;

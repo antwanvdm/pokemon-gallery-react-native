@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { AppContext } from '../../../utils/context';
 import { t } from '../../../utils/translator';
+import { SettingsContext } from '../../../utils/context/Settings';
+import { AppDataContext } from '../../../utils/context/AppData';
 
 /**
  * @param {function} onChange
@@ -12,7 +13,8 @@ import { t } from '../../../utils/translator';
  */
 const TypeFilter = ({onChange, type}) => {
   //Set state variables
-  const {theme, language, pokemonTypes} = useContext(AppContext);
+  const {theme, language} = useContext(SettingsContext);
+  const {pokemonTypes} = useContext(AppDataContext);
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeType, setActiveType] = useState(type);
   const [open, setOpen] = useState(false);
@@ -31,7 +33,7 @@ const TypeFilter = ({onChange, type}) => {
 
   let allTypes = [{label: t('gallery.filters.typeAll', language), value: 'all'}];
   for (let pokemonType of pokemonTypes) {
-    allTypes.push({label: pokemonType.names[language] ?? pokemonType.names['en'], value: pokemonType.name});
+    allTypes.push({label: pokemonType.names[language] ?? pokemonType.names['en'], value: pokemonType.id});
   }
 
   if (isLoaded) {

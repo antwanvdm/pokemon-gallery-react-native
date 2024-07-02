@@ -52,7 +52,9 @@
     "clearSuccess": "データのクリアが成功しました",
     "download": "ポケモンデータを再度ダウンロード",
     "testNotification": "テスト通知",
-    "downloadLoading": "データを読み込んでいます..."
+    "downloadLoading": "データを読み込んでいます...",
+    "createTables": "データベーステーブルを作成する",
+    "dropTables": "データベーステーブルを削除する"
   },
   "notifications": {
     "closeByPokemon": {

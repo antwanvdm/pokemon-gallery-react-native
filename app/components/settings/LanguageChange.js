@@ -1,16 +1,16 @@
 import { Text, View } from 'react-native';
 import { useContext, useState } from 'react';
-import { AppContext } from '../../utils/context';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { t } from '../../utils/translator';
 import config from '../../config.json';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const LanguageChange = () => {
-  const {theme, language, setLanguage} = useContext(AppContext);
+  const {theme, language, setLanguage} = useContext(SettingsContext);
   const [open, setOpen] = useState(false);
 
   return (

@@ -52,7 +52,9 @@
     "clearSuccess": "Alle data is succesvol verwijderd",
     "download": "Download Pokémon data opnieuw",
     "testNotification": "Test notificatie",
-    "downloadLoading": "Data inladen..."
+    "downloadLoading": "Data inladen...",
+    "createTables": "Databasetabellen maken",
+    "dropTables": "Databasetabellen verwijderen"
   },
   "notifications": {
     "closeByPokemon": {

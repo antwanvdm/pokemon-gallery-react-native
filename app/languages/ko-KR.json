@@ -52,7 +52,9 @@
     "clearSuccess": "데이터 정리가 성공적으로 완료되었습니다",
     "download": "포켓몬 데이터를 다시 다운로드",
     "testNotification": "알림 테스트",
-    "downloadLoading": "데이터 로딩 중..."
+    "downloadLoading": "데이터 로딩 중...",
+    "createTables": "데이터베이스 테이블 생성",
+    "dropTables": "데이터베이스 테이블 삭제"
   },
   "notifications": {
     "closeByPokemon": {

@@ -52,7 +52,9 @@
     "clearSuccess": "Очищення даних успішно",
     "download": "Завантажити дані Pokémon знову",
     "testNotification": "Тестове повідомлення",
-    "downloadLoading": "Завантаження даних..."
+    "downloadLoading": "Завантаження даних...",
+    "createTables": "Створити таблиці бази даних",
+    "dropTables": "Видалити таблиці бази даних"
   },
   "notifications": {
     "closeByPokemon": {

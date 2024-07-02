@@ -52,7 +52,9 @@
     "clearSuccess": "Η εκκαθάριση των δεδομένων ήταν επιτυχής",
     "download": "Λήψη δεδομένων Pokémon ξανά",
     "testNotification": "Δοκιμαστική ειδοποίηση",
-    "downloadLoading": "Φόρτωση δεδομένων..."
+    "downloadLoading": "Φόρτωση δεδομένων...",
+    "createTables": "Δημιουργία πινάκων βάσης δεδομένων",
+    "dropTables": "Διαγραφή πινάκων βάσης δεδομένων"
   },
   "notifications": {
     "closeByPokemon": {

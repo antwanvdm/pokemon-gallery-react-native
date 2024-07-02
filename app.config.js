@@ -47,6 +47,12 @@ export default {
         {
           isAccessMediaLocationEnabled: true
         }
+      ],
+      [
+        "expo-asset",
+        {
+          assets: ["app/utils/sql"]
+        }
       ]
     ],
     web: {

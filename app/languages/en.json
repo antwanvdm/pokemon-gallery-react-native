@@ -52,7 +52,9 @@
     "clearSuccess": "Clearing data is successful",
     "download": "Download Pokémon data again",
     "testNotification": "Test notification",
-    "downloadLoading": "Loading data..."
+    "downloadLoading": "Loading data...",
+    "createTables": "Create database tables",
+    "dropTables": "Drop database tables"
   },
   "notifications": {
     "closeByPokemon": {

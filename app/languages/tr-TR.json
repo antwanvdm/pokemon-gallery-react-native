@@ -52,7 +52,9 @@
     "clearSuccess": "Veri temizleme başarılı",
     "download": "Pokémon verilerini yeniden indir",
     "testNotification": "Bildirim Testi",
-    "downloadLoading": "Veri Yükleniyor..."
+    "downloadLoading": "Veri Yükleniyor...",
+    "createTables": "Veritabanı tablolarını oluştur",
+    "dropTables": "Veritabanı tablolarını sil"
   },
   "notifications": {
     "closeByPokemon": {

@@ -4,12 +4,13 @@ import SettingsScreen from './screens/SettingsScreen';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapScreen from './screens/MapScreen';
-import { AppContext } from './utils/context';
 import { useContext } from 'react';
 import { t } from './utils/translator';
 import Tasks from './Tasks';
 import { Alert } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { SettingsContext } from './utils/context/Settings';
+import { OnlineContext } from './utils/context/Online';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +21,8 @@ const Tab = createBottomTabNavigator();
  * @constructor
  */
 const Navigation = () => {
-  const {theme, language, isOnline} = useContext(AppContext);
+  const {theme, language} = useContext(SettingsContext);
+  const {isOnline} = useContext(OnlineContext);
   const navigationTheme = theme === 'dark' ? DarkTheme : DefaultTheme;
 
   return (

@@ -1,4 +1,4 @@
-import { AppContextProvider } from './app/utils/context';
+import ContextWrapper from './app/utils/context';
 import Navigation from './app/Navigation';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -11,11 +11,11 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
  */
 const App = () => {
   return (
-    <AppContextProvider>
+    <ContextWrapper>
       <GestureHandlerRootView style={{flex: 1}}>
         <Navigation/>
       </GestureHandlerRootView>
-    </AppContextProvider>
+    </ContextWrapper>
   );
 };
 

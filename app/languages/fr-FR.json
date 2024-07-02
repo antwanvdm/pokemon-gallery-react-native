@@ -52,7 +52,9 @@
     "clearSuccess": "Les données ont été effacées avec succès",
     "download": "Télécharger à nouveau les données des Pokémon",
     "testNotification": "Notification de test",
-    "downloadLoading": "Chargement des données..."
+    "downloadLoading": "Chargement des données...",
+    "createTables": "Créer des tables de base de données",
+    "dropTables": "Supprimer des tables de base de données"
   },
   "notifications": {
     "closeByPokemon": {

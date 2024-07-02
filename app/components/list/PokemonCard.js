@@ -1,9 +1,11 @@
 import Animated, { ZoomIn, ZoomInRotate } from 'react-native-reanimated';
 import { memo, useContext, useEffect, useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
-import { AppContext } from '../../utils/context';
 import { Shadow } from 'react-native-shadow-2';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
+import { OnlineContext } from '../../utils/context/Online';
+import { UserDataContext } from '../../utils/context/UserData';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @param {Object} pokemon
@@ -17,7 +19,9 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
  */
 const PokemonCard = ({pokemon, favorite, mapClickHandler, shinyDetailHandler, favoriteHandler, listIndex}) => {
   //Set state variables
-  const {theme, language, favorites, isOnline} = useContext(AppContext);
+  const {favorites} = useContext(UserDataContext);
+  const {isOnline} = useContext(OnlineContext);
+  const {theme, language} = useContext(SettingsContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
 
   //Update favorite state on card if it changes
@@ -46,7 +50,7 @@ const PokemonCard = ({pokemon, favorite, mapClickHandler, shinyDetailHandler, fa
             {pokemon.names[language] ?? pokemon.names['en']} (#{pokemon.id})
           </Text>
           <Animated.Image
-            source={{uri: pokemon.images.default}}
+            source={{uri: pokemon.image_default}}
             className="mb-1.5 self-center"
             style={{width: 150, height: 150}}
             entering={enterZoomInRotate(500, 500)}

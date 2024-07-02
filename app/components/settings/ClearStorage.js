@@ -1,18 +1,20 @@
 import { Alert, Pressable, Text, View } from 'react-native';
 import { useContext } from 'react';
-import { AppContext } from '../../utils/context';
 import { t } from '../../utils/translator';
+import { SettingsContext } from '../../utils/context/Settings';
+import { UserDataContext } from '../../utils/context/UserData';
+import { AppDataContext } from '../../utils/context/AppData';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const ClearStorage = () => {
-  const {language, setFavorites, setPokemonListStoreDate, setNotes, setUserMapPhotos} = useContext(AppContext);
+  const {setFavorites, setNotes, setUserMapPhotos} = useContext(UserDataContext);
+  const {language} = useContext(SettingsContext);
 
   //Bye data!
   const clearAll = () => {
-    setPokemonListStoreDate(0);
     setFavorites([]);
     setNotes({});
     setUserMapPhotos([]);

@@ -52,7 +52,9 @@
     "clearSuccess": "Löschen der Daten erfolgreich",
     "download": "Pokémon-Daten erneut herunterladen",
     "testNotification": "Testbenachrichtigung",
-    "downloadLoading": "Daten werden geladen..."
+    "downloadLoading": "Daten werden geladen...",
+    "createTables": "Datenbanktabellen erstellen",
+    "dropTables": "Datenbanktabellen löschen"
   },
   "notifications": {
     "closeByPokemon": {

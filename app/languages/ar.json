@@ -52,7 +52,9 @@
     "clearSuccess": "تم مسح البيانات بنجاح",
     "download": "تنزيل بيانات بوكيمون مرة أخرى",
     "testNotification": "اختبار الإشعار",
-    "downloadLoading": "جارٍ تحميل البيانات..."
+    "downloadLoading": "جارٍ تحميل البيانات...",
+    "createTables": "إنشاء جداول قاعدة البيانات",
+    "dropTables": "حذف جداول قاعدة البيانات"
   },
   "notifications": {
     "closeByPokemon": {

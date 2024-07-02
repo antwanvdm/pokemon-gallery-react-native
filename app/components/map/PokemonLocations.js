@@ -1,10 +1,8 @@
 import { Alert, Dimensions, Image, Platform } from 'react-native';
 import Constants from 'expo-constants';
-import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useState, useEffect, useContext, useRef } from 'react';
-import { AppContext } from '../../utils/context';
 import DetailModal from '../detail/DetailModal';
 import haversine from 'haversine-distance';
 import { t } from '../../utils/translator';
@@ -14,6 +12,11 @@ import MapActions from './MapActions';
 import RouteDirections from './RouteDirections';
 import { MaterialIcons } from '@expo/vector-icons';
 import UserPhotoModal from './UserPhotoModal';
+import { WebSocketContext } from '../../utils/context/WebSocket';
+import { LocationContext } from '../../utils/context/Location';
+import { AppDataContext } from '../../utils/context/AppData';
+import { UserDataContext } from '../../utils/context/UserData';
+import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @param {Array<number>} pokemonIds
@@ -23,7 +26,11 @@ import UserPhotoModal from './UserPhotoModal';
 const PokemonLocations = ({pokemonIds}) => {
   const map = useRef(null);
   const markers = useRef({pokemon: {}, photos: {}});
-  const {theme, language, pokemonList, userMapPhotos} = useContext(AppContext);
+  const {pokemonList} = useContext(AppDataContext);
+  const {userMapPhotos} = useContext(UserDataContext);
+  const {location} = useContext(LocationContext);
+  const {spawnPokemon} = useContext(WebSocketContext);
+  const {theme, language} = useContext(SettingsContext);
   const [region, setRegion] = useState({
     latitude: 51.91736823911433,
     longitude: 4.484781721396927,
@@ -31,7 +38,6 @@ const PokemonLocations = ({pokemonIds}) => {
     longitudeDelta: 0.0421,
   });
   //Save the map in a ref, because it's a one time object which shouldn't affect re-rendering
-  const [location, setLocation] = useState(null);
   const [destinationPokemon, setDestinationPokemon] = useState(null);
   const [activeRoute, setActiveRoute] = useState(null);
   const [activePokemon, setActivePokemon] = useState(null);
@@ -39,26 +45,6 @@ const PokemonLocations = ({pokemonIds}) => {
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
   const [showPokemon, setShowPokemon] = useState(true);
   const [showPhotos, setShowPhotos] = useState(true);
-
-  const getUserLocation = async () => {
-    let {status} = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      Alert.alert(t('locations.noAccess', language));
-      return;
-    }
-
-    try {
-      //Before this moment I used getCurrentPositionAsync, which had timeout issues. This seems to be stable AND updates my actual location :)
-      await Location.watchPositionAsync({}, (location) => setLocation(location));
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  //Set the current user location
-  useEffect(() => {
-    getUserLocation();
-  }, []);
 
   //If a new Pokémon was clicked from the list view, snap to this location
   useEffect(() => {
@@ -112,7 +98,7 @@ const PokemonLocations = ({pokemonIds}) => {
   };
 
   const focusToOverview = (removeRoute) => {
-    map.current.fitToCoordinates(pokemonList.map((pokemon) => pokemon.coordinate), {edgePadding: {top: 20, right: 20, bottom: 100, left: 20}});
+    map.current.fitToCoordinates(spawnPokemon.map((pokemon) => pokemon.coordinate), {edgePadding: {top: 20, right: 20, bottom: 100, left: 20}});
     if (removeRoute === true) {
       setDestinationPokemon(null);
       setActiveRoute(null);
@@ -146,6 +132,7 @@ const PokemonLocations = ({pokemonIds}) => {
           width: Dimensions.get('window').width,
           height: Dimensions.get('window').height
         }}
+        initialRegion={region}
         region={region}
         customMapStyle={mapStyle}
         userInterfaceStyle={theme}
@@ -154,15 +141,15 @@ const PokemonLocations = ({pokemonIds}) => {
         ref={ref => map.current = ref}
         moveOnMarkerPress={false}>
         <>
-          {showPokemon && pokemonList.map((pokemon) => <Marker
-            identifier={`p-${pokemon.id}`}
-            key={pokemon.id}
+          {showPokemon && spawnPokemon.map((pokemon) => <Marker
+            identifier={`p-${pokemon.spawnId}`}
+            key={pokemon.spawnId}
             coordinate={pokemon.coordinate}
-            ref={(ref) => markers.current.pokemon[pokemon.id] = ref}
+            ref={(ref) => markers.current.pokemon[pokemon.spawnId] = ref}
             onPress={(e) => markerPressed(pokemon, e)}
             tracksInfoWindowChanges={false}
             tracksViewChanges={false}>
-            <Image fadeDuration={0} source={{uri: pokemon.images.thumb}} style={{height: 35, width: 35}} onLoadEnd={() => redrawMarker(pokemon.id)}/>
+            <Image fadeDuration={0} source={{uri: pokemon.image_thumb}} style={{height: 45, width: 45}} onLoadEnd={() => redrawMarker(pokemon.spawnId)}/>
           </Marker>)}
         </>
         <>
