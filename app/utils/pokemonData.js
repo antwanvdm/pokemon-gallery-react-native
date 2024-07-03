@@ -1,3 +1,5 @@
+import { addPokemon, addType, createTables } from './database';
+
 /**
  * Retrieve all Pokémon from the webservice
  *
@@ -16,6 +18,25 @@ const loadPokemon = async () => {
 const loadTypes = async () => {
   const result = await fetch('https://adventure-go.antwan.eu/api/pokemon-types/get');
   return await result.json();
+};
+
+/**
+ * First app load, create DB & load server data into the DB
+ *
+ * @returns {Promise<void>}
+ */
+const firstAppLoad = async () => {
+  await createTables();
+
+  let loadedTypes = await loadTypes();
+  for (const type of loadedTypes) {
+    await addType(type);
+  }
+
+  let loadedPokemon = await loadPokemon();
+  for (const pokemon of loadedPokemon) {
+    await addPokemon(pokemon, loadedTypes);
+  }
 };
 
 /**
@@ -45,5 +66,6 @@ const applyPokemonFilters = (pokemonList, filters, favorites) => {
 export {
   loadPokemon,
   loadTypes,
+  firstAppLoad,
   applyPokemonFilters,
 };

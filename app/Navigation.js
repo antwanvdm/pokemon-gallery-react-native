@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './screens/HomeScreen';
+import GalleryScreen from './screens/GalleryScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import MapScreen from './screens/MapScreen';
 import { useContext } from 'react';
 import { t } from './utils/translator';
@@ -11,6 +11,8 @@ import { Alert } from 'react-native';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { SettingsContext } from './utils/context/Settings';
 import { OnlineContext } from './utils/context/Online';
+import { AppDataContext } from './utils/context/AppData';
+import CaughtScreen from './screens/CaughtScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +23,7 @@ const Tab = createBottomTabNavigator();
  * @constructor
  */
 const Navigation = () => {
+  const {dataIsLoaded} = useContext(AppDataContext);
   const {theme, language} = useContext(SettingsContext);
   const {isOnline} = useContext(OnlineContext);
   const navigationTheme = theme === 'dark' ? DarkTheme : DefaultTheme;
@@ -30,7 +33,7 @@ const Navigation = () => {
       <NavigationContainer theme={navigationTheme}>
         <Tasks/>
         <Tab.Navigator backBehavior="history">
-          <Tab.Screen name="gallery" component={HomeScreen} options={{
+          <Tab.Screen name="gallery" component={GalleryScreen} options={{
             title: t('gallery.title', language),
             headerTitleAlign: 'center',
             tabBarItemStyle: {paddingBottom: 5},
@@ -39,12 +42,25 @@ const Navigation = () => {
               <MaterialCommunityIcons name="view-list" color={color} size={size}/>
             ),
           }}/>
+          <Tab.Screen name="caught" component={CaughtScreen} options={{
+            title: t('caught.title', language),
+            headerTitleAlign: 'center',
+            tabBarItemStyle: {paddingBottom: 5},
+            tabBarLabel: t('caught.tabTitle', language),
+            tabBarIcon: ({color, size}) => (
+              <MaterialIcons name="catching-pokemon" color={color} size={size}/>
+            ),
+          }}/>
           <Tab.Screen name="locations"
                       component={MapScreen}
                       listeners={({navigation}) => ({
                         tabPress: (e) => {
                           if (!isOnline) {
                             Alert.alert(t('offline.title', language), t('offline.map', language));
+                            e.preventDefault();
+                          }
+                          if (!dataIsLoaded) {
+                            Alert.alert(t('gallery.notLoadedTitle', language), t('gallery.notLoadedDescription', language));
                             e.preventDefault();
                           }
                           navigation.setParams({pokemonIds: null});

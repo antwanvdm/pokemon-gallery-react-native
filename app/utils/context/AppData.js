@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
-import { loadPokemon, loadTypes } from '../pokemonData';
-import { addPokemon, addType, checkTableExists, createTables, getPokemon, getTypes } from '../database';
+import { firstAppLoad } from '../pokemonData';
+import { checkTableExists, getPokemon, getTypes } from '../database';
 
 const AppDataContext = createContext();
 
@@ -10,25 +10,15 @@ const AppDataContext = createContext();
  * @constructor
  */
 const AppDataContextProvider = ({children}) => {
+  const [dataIsLoaded, setDataIsLoaded] = useState(false);
   const [pokemonTypes, setPokemonTypes] = useState([]);
   const [pokemonList, setPokemonList] = useState([]);
 
   //Load all the information from async storage
   useEffect(() => {
     (async () => {
-      //TODO move this???
       if ((await checkTableExists('pokemon')) === false && (await checkTableExists('types')) === false) {
-        await createTables();
-
-        let loadedTypes = await loadTypes();
-        for (const type of loadedTypes) {
-          await addType(type);
-        }
-
-        let loadedPokemon = await loadPokemon();
-        for (const pokemon of loadedPokemon) {
-          await addPokemon(pokemon);
-        }
+        await firstAppLoad();
       }
 
       let typesList = await getTypes();
@@ -36,11 +26,13 @@ const AppDataContextProvider = ({children}) => {
 
       let pokemonList = await getPokemon();
       setPokemonList(pokemonList);
+      setDataIsLoaded(true);
     })();
   }, []);
 
   return (
     <AppDataContext.Provider value={{
+      dataIsLoaded,
       pokemonTypes, setPokemonTypes,
       pokemonList, setPokemonList
     }}>

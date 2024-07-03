@@ -91,7 +91,6 @@ export async function addPokemon(pokemon, allTypes) {
       }
     }
 
-    console.log(result.lastInsertRowId, result.changes);
   } catch (e) {
     console.log(e);
   } finally {

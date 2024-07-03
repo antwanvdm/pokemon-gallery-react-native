@@ -28,7 +28,7 @@ const DetailModal = ({pokemon, closeCallback}) => {
   //Let's update our local favorites when one is clicked
   const favoritePressed = () => {
     if (isFavorite) {
-      setFavorites(favorites.filter((id) => id !== pokemon.id));
+      setFavorites((currentFavorites) => currentFavorites.filter((id) => id !== pokemon.id));
       setIsFavorite(false);
     } else {
       setFavorites((currentFavorites) => [...currentFavorites, pokemon.id]);

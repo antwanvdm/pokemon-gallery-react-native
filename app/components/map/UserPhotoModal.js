@@ -22,7 +22,7 @@ const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
     console.log(albumAssetRemoval);
     // console.log(assetRemoval);
     if (albumAssetRemoval) {
-      setUserMapPhotos(userMapPhotos.filter((asset) => asset.id !== userPhoto.id));
+      setUserMapPhotos((currentPhotos) => currentPhotos.filter((asset) => asset.id !== userPhoto.id));
       onDelete(userPhoto.id);
       closeCallback();
     }

@@ -4,11 +4,10 @@ import PokemonGallery from '../components/list/PokemonGallery';
 import { useState } from 'react';
 
 /**
- * @param {Object} navigation
  * @returns {JSX.Element}
  * @constructor
  */
-const HomeScreen = ({navigation}) => {
+const GalleryScreen = () => {
   //Set state variables
   const [filters, setFilters] = useState({});
 
@@ -20,9 +19,9 @@ const HomeScreen = ({navigation}) => {
   return (
     <View className="flex-1">
       <Filters onChange={filtersChanged}/>
-      <PokemonGallery filters={filters} navigation={navigation}/>
+      <PokemonGallery filters={filters}/>
     </View>
   );
 };
 
-export default HomeScreen;
+export default GalleryScreen;

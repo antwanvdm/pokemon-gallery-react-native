@@ -1,11 +1,11 @@
 import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import { useContext, useState } from 'react';
-import { loadPokemon, loadTypes } from '../../utils/pokemonData';
+import { firstAppLoad } from '../../utils/pokemonData';
 import { t } from '../../utils/translator';
 import { SettingsContext } from '../../utils/context/Settings';
 import { AppDataContext } from '../../utils/context/AppData';
 import { OnlineContext } from '../../utils/context/Online';
-import { addPokemon, addType, createTables, deletePokemon, deleteTypes, dropTables, getPokemon, getTypes } from '../../utils/database';
+import { dropTables, getPokemon, getTypes } from '../../utils/database';
 
 /**
  * @returns {JSX.Element}
@@ -21,17 +21,7 @@ const ForceDownload = () => {
   const downloadPokemon = async () => {
     setIsLoading(true);
     await dropTables();
-    await createTables();
-
-    let loadedTypes = await loadTypes();
-    for (const type of loadedTypes) {
-      await addType(type);
-    }
-
-    let loadedPokemon = await loadPokemon();
-    for (const pokemon of loadedPokemon) {
-      await addPokemon(pokemon);
-    }
+    await firstAppLoad();
 
     let typesList = await getTypes();
     let pokemonList = await getPokemon();

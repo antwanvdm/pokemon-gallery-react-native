@@ -9,8 +9,9 @@ const UserDataContext = createContext();
  * @constructor
  */
 const UserDataContextProvider = ({children}) => {
-  const firstUpdate = useRef({favorites: true, notes: true, userMapPhotos: true});
+  const firstUpdate = useRef({favorites: true, catches: true, notes: true, userMapPhotos: true});
   const [favorites, setFavorites] = useState([]);
+  const [catches, setCatches] = useState([]);
   const [notes, setNotes] = useState({});
   const [userMapPhotos, setUserMapPhotos] = useState([]);
 
@@ -20,6 +21,11 @@ const UserDataContextProvider = ({children}) => {
       const lsFavPokemon = await AsyncStorage.getItem('favoritePokemon');
       if (lsFavPokemon !== null) {
         setFavorites(JSON.parse(lsFavPokemon));
+      }
+
+      const lsCaughtPokemon = await AsyncStorage.getItem('caughtPokemon');
+      if (lsCaughtPokemon !== null) {
+        setCatches(JSON.parse(lsCaughtPokemon));
       }
 
       const lsNotesPokemon = await AsyncStorage.getItem('notesPokemon');
@@ -45,6 +51,18 @@ const UserDataContextProvider = ({children}) => {
       AsyncStorage.setItem('favoritePokemon', JSON.stringify(favorites));
     })();
   }, [favorites]);
+
+  //Store catches on change, except the first time!!
+  useEffect(() => {
+    if (firstUpdate.current.catches) {
+      firstUpdate.current.catches = false;
+      return;
+    }
+
+    (async () => {
+      AsyncStorage.setItem('caughtPokemon', JSON.stringify(catches));
+    })();
+  }, [catches]);
 
   //Store notes on change, except the first time!!
   useEffect(() => {
@@ -73,6 +91,7 @@ const UserDataContextProvider = ({children}) => {
   return (
     <UserDataContext.Provider value={{
       favorites, setFavorites,
+      catches, setCatches,
       notes, setNotes,
       userMapPhotos, setUserMapPhotos,
     }}>

@@ -4,7 +4,7 @@ import PokemonCard from './PokemonCard';
 import DetailModal from '../detail/DetailModal';
 import { applyPokemonFilters } from '../../utils/pokemonData';
 import { t } from '../../utils/translator';
-import { useScrollToTop } from '@react-navigation/native';
+import { useNavigation, useScrollToTop } from '@react-navigation/native';
 import { SettingsContext } from '../../utils/context/Settings';
 import { AppDataContext } from '../../utils/context/AppData';
 import { UserDataContext } from '../../utils/context/UserData';
@@ -15,7 +15,8 @@ import { UserDataContext } from '../../utils/context/UserData';
  * @returns {JSX.Element}
  * @constructor
  */
-const PokemonGallery = ({filters, navigation}) => {
+const PokemonGallery = ({filters}) => {
+  const navigation = useNavigation();
   const listRef = useRef();
   const {pokemonList} = useContext(AppDataContext);
   const {favorites, setFavorites} = useContext(UserDataContext);
@@ -57,7 +58,7 @@ const PokemonGallery = ({filters, navigation}) => {
   //Let's update our local favorites when one is clicked
   const favoriteClicked = (isCurrentFavorite, pokemonId) => {
     if (isCurrentFavorite) {
-      setFavorites(favorites.filter((id) => id !== pokemonId));
+      setFavorites((currentFavorites) => currentFavorites.filter((id) => id !== pokemonId));
     } else {
       setFavorites((currentFavorites) => [...currentFavorites, pokemonId]);
     }

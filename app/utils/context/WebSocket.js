@@ -7,10 +7,10 @@ import { AppDataContext } from './AppData';
 const WebSocketContext = createContext();
 
 const WebSocketContextProvider = ({children}) => {
-  const {pokemonList} = useContext(AppDataContext);
+  const {pokemonList, dataIsLoaded} = useContext(AppDataContext);
   const {location} = useContext(LocationContext);
   const [spawnPokemon, setSpawnPokemon] = useState([]);
-  const ws = useRef(new WebSocket('wss://adventure-go.antwan.eu'));
+  const ws = useRef();
   const socketId = useRef(uuidv4());
 
   //OK....
@@ -20,8 +20,22 @@ const WebSocketContextProvider = ({children}) => {
   }, [pokemonList]);
 
   useEffect(() => {
+    //Prevent start of websocket if data is unavailable
+    if (dataIsLoaded === false) {
+      return;
+    }
+    ws.current = new WebSocket('wss://adventure-go.antwan.eu');
+
     ws.current.onopen = () => {
       console.log('open');
+      if (location) {
+        ws.current.send(JSON.stringify({
+          id: socketId.current,
+          type: 'POSITION',
+          lat: location.coords.latitude,
+          lng: location.coords.longitude
+        }));
+      }
     };
 
     ws.current.onerror = (error) => {
@@ -54,7 +68,6 @@ const WebSocketContextProvider = ({children}) => {
           pokemon.spawnId = s._id;
           return pokemon;
         });
-        // console.log(newList.map((sp) => sp.spawnId));
         setSpawnPokemon(newList);
       }
     };
@@ -64,10 +77,10 @@ const WebSocketContextProvider = ({children}) => {
         ws.current.close();
       }
     };
-  }, []);
+  }, [dataIsLoaded]);
 
   useEffect(() => {
-    if (location !== null && ws.current.readyState === WebSocket.OPEN) {
+    if (dataIsLoaded === true && location !== null && ws.current.readyState === WebSocket.OPEN) {
       ws.current.send(JSON.stringify({
         id: socketId.current,
         type: 'POSITION',
