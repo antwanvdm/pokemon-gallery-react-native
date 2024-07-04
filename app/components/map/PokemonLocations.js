@@ -1,6 +1,6 @@
-import { Alert, Dimensions, Image, Platform } from 'react-native';
+import { Alert, Dimensions, Image, Platform, View, Text } from 'react-native';
 import Constants from 'expo-constants';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Callout, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useState, useEffect, useContext, useRef } from 'react';
 import DetailModal from '../detail/DetailModal';
@@ -17,17 +17,20 @@ import { LocationContext } from '../../utils/context/Location';
 import { AppDataContext } from '../../utils/context/AppData';
 import { UserDataContext } from '../../utils/context/UserData';
 import { SettingsContext } from '../../utils/context/Settings';
+import { dateFormatted } from '../../utils/strings';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 /**
- * @param {Array<number>} pokemonIds
  * @returns {JSX.Element}
  * @constructor
  */
-const PokemonLocations = ({pokemonIds}) => {
+const PokemonLocations = () => {
+  const {params} = useRoute();
+  const {setParams} = useNavigation();
   const map = useRef(null);
-  const markers = useRef({pokemon: {}, photos: {}});
+  const markers = useRef({pokemon: {}, photos: {}, activeCaughtPokemon: null});
   const {pokemonList} = useContext(AppDataContext);
-  const {userMapPhotos} = useContext(UserDataContext);
+  const {userMapPhotos, catches, setCatches} = useContext(UserDataContext);
   const {location} = useContext(LocationContext);
   const {spawnPokemon} = useContext(WebSocketContext);
   const {theme, language} = useContext(SettingsContext);
@@ -42,20 +45,22 @@ const PokemonLocations = ({pokemonIds}) => {
   const [activeRoute, setActiveRoute] = useState(null);
   const [activePokemon, setActivePokemon] = useState(null);
   const [activeUserMapPhoto, setActiveUserMapPhoto] = useState(null);
+  const [activeCaughtPokemon, setActiveCaughtPokemon] = useState(null);
   const [mapStyle, setMapStyle] = useState(theme === 'dark' ? mapStyleDark : mapStyleLight);
   const [showPokemon, setShowPokemon] = useState(true);
   const [showPhotos, setShowPhotos] = useState(true);
 
   //If a new Pokémon was clicked from the list view, snap to this location
   useEffect(() => {
-    if (pokemonIds) {
-      const pokemonMarkerIds = pokemonList.filter(pokemon => pokemonIds.includes(pokemon.id)).map(pokemon => `p-${pokemon.id}`);
+    if (params?.caughtPokemon) {
+      setActiveCaughtPokemon(params.caughtPokemon);
       //I need a timeout, else the first time the map will be zoomed out a lot.
-      setTimeout(() => map.current.fitToSuppliedMarkers(pokemonMarkerIds, {edgePadding: {top: 20, right: 150, bottom: 100, left: 150}}), 80);
+      setTimeout(() => map.current.animateToRegion({latitude: params.caughtPokemon.location.latitude, longitude: params.caughtPokemon.location.longitude, latitudeDelta: 0.001, longitudeDelta: 0.001}), 80);
     } else {
-      focusToOverview();
+      setActiveCaughtPokemon(null);
+      focusToLocation();
     }
-  }, [pokemonIds]);
+  }, [params]);
 
   //Change mapStyle & photo markers based on theme change
   useEffect(() => {
@@ -77,7 +82,7 @@ const PokemonLocations = ({pokemonIds}) => {
       return;
     }
 
-    if (haversine(pokemon.coordinate, location.coords) > 100) {
+    if (haversine(pokemon.coordinate, location.coords) > 50) {
       Alert.alert(t('locations.outOfReachTitle', language), t('locations.outOfReachMessage', language), [
         {
           text: t('locations.ourOfReachRoute', language, {name: pokemon.names[language] ?? pokemon.names['en']}),
@@ -90,7 +95,21 @@ const PokemonLocations = ({pokemonIds}) => {
       ]);
       return;
     }
-    setActivePokemon(pokemon);
+
+    Alert.alert(t('locations.pokemonClickTitle', language, {name: pokemon.names[language] ?? pokemon.names['en']}), t('locations.pokemonClickMessage', language), [
+      {
+        text: t('locations.pokemonClickDetail', language, {name: pokemon.names[language] ?? pokemon.names['en']}),
+        onPress: () => setActivePokemon(pokemon),
+      },
+      {
+        text: t('locations.pokemonClickCatch', language, {name: pokemon.names[language] ?? pokemon.names['en']}),
+        onPress: () => setCatches((currentCatches) => [{id: pokemon.id, date: Date.now(), location: pokemon.coordinate, spawnId: pokemon.spawnId}, ...currentCatches]),
+      },
+      {
+        text: t('locations.ourOfReachCancel', language),
+        style: 'cancel',
+      }
+    ]);
   };
 
   const handleModalClosed = () => {
@@ -121,6 +140,13 @@ const PokemonLocations = ({pokemonIds}) => {
     }
   };
 
+  const activeCaughtPokemonLoaded = () => {
+    markers.current.activeCaughtPokemon.showCallout();
+    if (Platform.OS === 'android') {
+      markers.current.activeCaughtPokemon.redraw();
+    }
+  };
+
   const userPhotoModalClosed = () => {
     setActiveUserMapPhoto(null);
   };
@@ -141,7 +167,7 @@ const PokemonLocations = ({pokemonIds}) => {
         ref={ref => map.current = ref}
         moveOnMarkerPress={false}>
         <>
-          {showPokemon && spawnPokemon.map((pokemon) => <Marker
+          {showPokemon && spawnPokemon.filter((p) => !catches.find((c) => c.spawnId === p.spawnId && c.id === p.id)).map((pokemon) => <Marker
             identifier={`p-${pokemon.spawnId}`}
             key={pokemon.spawnId}
             coordinate={pokemon.coordinate}
@@ -180,6 +206,21 @@ const PokemonLocations = ({pokemonIds}) => {
             />
           </>
         ) : <></>}
+        {activeCaughtPokemon && (<Marker
+          identifier={`caught-pokemon`}
+          key={'caught-pokemon'}
+          coordinate={activeCaughtPokemon.location}
+          ref={(ref) => markers.current.activeCaughtPokemon = ref}
+          onPress={() => setParams({caughtPokemon: null})}
+          tracksInfoWindowChanges={false}
+          tracksViewChanges={false}>
+          <Image fadeDuration={0} source={{uri: pokemonList.find((p) => p.id === activeCaughtPokemon.id).image_thumb}} style={{height: 45, width: 45}} onLoadEnd={() => activeCaughtPokemonLoaded()}/>
+          <Callout onPress={() => setParams({caughtPokemon: null})}>
+            <View className="w-24 h-20 flex justify-center items-center self-center">
+              <Text className="text-center font-bold">{t('locations.activeCaughtPokemonMarker', language, {date: dateFormatted(activeCaughtPokemon.date)})}</Text>
+            </View>
+          </Callout>
+        </Marker>)}
       </MapView>
       <MapActions
         location={location}

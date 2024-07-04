@@ -8,7 +8,9 @@
       "typeAll": "جميع الأنواع",
       "backToOverview": "العودة إلى النظرة العامة"
     },
-    "loading": "جارٍ تحميل بوكيمون..."
+    "loading": "جارٍ تحميل البيانات من الخادم، قد يستغرق ذلك بعض الوقت...",
+    "notLoadedTitle": "البيانات على وشك الوصول!",
+    "notLoadedDescription": "يرجى الانتظار حتى يتم تنزيل البيانات قبل المتابعة"
   },
   "detailModal": {
     "addFavorite": "إضافة إلى المفضلة",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "اضغط على الزر لفتح وتعديل الملاحظات الخاصة بك",
     "close": "إغلاق"
   },
+  "caught": {
+    "title": "البوكيمونات التي تم اصطيادها",
+    "tabTitle": "الاصطيادات"
+  },
   "locations": {
-    "title": "مواقع بوكيمون",
-    "tabTitle": "المواقع",
+    "title": "ظهور البوكيمونات",
+    "tabTitle": "ظهور",
     "iconAllPokemon": "كل البوكيمون",
     "iconMyLocation": "موقعي",
     "iconTakePhoto": "التقاط صورة",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "جاري تحميل الموقع!",
     "locationLoadingMessage": "التطبيق مازال يعمل على استرداد موقعك الحالي، يرجى الانتظار قليلاً!",
     "outOfReachTitle": "تحرك قربًا!",
-    "outOfReachMessage": "أنت لست على بُعد 100 متر من هذا البوكيمون، تحرك قربًا!",
+    "outOfReachMessage": "أنت لست على بُعد 50 متر من هذا البوكيمون، تحرك قربًا!",
     "ourOfReachRoute": "التنقل إلى %{name}",
     "ourOfReachTravelTime": "إجمالي وقت السفر: %{time}",
-    "ourOfReachCancel": "العودة إلى الخريطة"
+    "ourOfReachCancel": "العودة إلى الخريطة",
+    "pokemonClickTitle": "لقد وجدت %{name}",
+    "pokemonClickMessage": "اختر الإجراء الذي ترغب في اتخاذه",
+    "pokemonClickDetail": "عرض تفاصيل %{name}",
+    "pokemonClickCatch": "امسك %{name}!",
+    "activeCaughtPokemonMarker": "تم اصطياده في %{date}"
   },
   "settings": {
     "title": "الإعدادات",

@@ -8,7 +8,9 @@
       "typeAll": "सभी प्रकार",
       "backToOverview": "समीक्षा पर वापस जाएं"
     },
-    "loading": "पोकेमॉन लोड हो रहा है..."
+    "loading": "सर्वर से डेटा लोड हो रहा है, इसमें कुछ समय लग सकता है...",
+    "notLoadedTitle": "डेटा लगभग यहाँ है!",
+    "notLoadedDescription": "कृपया जारी रखने से पहले डेटा डाउनलोड होने की प्रतीक्षा करें"
   },
   "detailModal": {
     "addFavorite": "पसंदीदा में जोड़ें",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "अपने नोट्स अनलॉक और संपादित करने के लिए बटन दबाएं",
     "close": "बंद करें"
   },
+  "caught": {
+    "title": "पकड़े गए पोकेमोन",
+    "tabTitle": "पकड़"
+  },
   "locations": {
-    "title": "पोकेमॉन स्थान",
-    "tabTitle": "स्थान",
+    "title": "पोकेमोन स्पॉन",
+    "tabTitle": "स्पॉन",
     "iconAllPokemon": "सभी पोकेमॉन",
     "iconMyLocation": "मेरा स्थान",
     "iconTakePhoto": "फोटो लें",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "स्थान लोड हो रहा है!",
     "locationLoadingMessage": "ऐप अभी भी आपका वर्तमान स्थान प्राप्त कर रहा है, कृपया थोड़ा धैर्य रखें!",
     "outOfReachTitle": "और करीब जाएं!",
-    "outOfReachMessage": "आप इस पोकेमॉन के 100 मीटर के भीतर नहीं हैं, और करीब जाएं!",
+    "outOfReachMessage": "आप इस पोकेमॉन के 50 मीटर के भीतर नहीं हैं, और करीब जाएं!",
     "ourOfReachRoute": "%{name} की ओर नेविगेट करें",
     "ourOfReachTravelTime": "कुल यात्रा समय: %{time}",
-    "ourOfReachCancel": "मानचित्र पर वापस जाएं"
+    "ourOfReachCancel": "मानचित्र पर वापस जाएं",
+    "pokemonClickTitle": "आपने %{name} पाया",
+    "pokemonClickMessage": "जिस कार्रवाई को आप लेना चाहते हैं उसे चुनें",
+    "pokemonClickDetail": "%{name} के विवरण देखें",
+    "pokemonClickCatch": "%{name} को पकड़ो!",
+    "activeCaughtPokemonMarker": "%{date} को पकड़ा गया"
   },
   "settings": {
     "title": "सेटिंग्स",

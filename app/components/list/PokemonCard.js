@@ -3,24 +3,21 @@ import { memo, useContext, useEffect, useState } from 'react';
 import { Text, View, Pressable } from 'react-native';
 import { Shadow } from 'react-native-shadow-2';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
-import { OnlineContext } from '../../utils/context/Online';
 import { UserDataContext } from '../../utils/context/UserData';
 import { SettingsContext } from '../../utils/context/Settings';
 
 /**
  * @param {Object} pokemon
  * @param {boolean} favorite
- * @param {function} mapClickHandler
  * @param {function} shinyDetailHandler
  * @param {function} favoriteHandler
  * @param {number} listIndex
  * @returns {JSX.Element}
  * @constructor
  */
-const PokemonCard = ({pokemon, favorite, mapClickHandler, shinyDetailHandler, favoriteHandler, listIndex}) => {
+const PokemonCard = ({pokemon, favorite, shinyDetailHandler, favoriteHandler, listIndex}) => {
   //Set state variables
   const {favorites} = useContext(UserDataContext);
-  const {isOnline} = useContext(OnlineContext);
   const {theme, language} = useContext(SettingsContext);
   const [isFavorite, setIsFavorite] = useState(favorite);
 
@@ -30,7 +27,6 @@ const PokemonCard = ({pokemon, favorite, mapClickHandler, shinyDetailHandler, fa
   }, [favorites]);
 
   //Handle the clicks on buttons
-  const mapClick = () => mapClickHandler(pokemon.id);
   const shinyClick = () => shinyDetailHandler(pokemon);
   const favoriteClick = () => {
     favoriteHandler(isFavorite, pokemon.id);
@@ -56,17 +52,12 @@ const PokemonCard = ({pokemon, favorite, mapClickHandler, shinyDetailHandler, fa
             entering={enterZoomInRotate(500, 500)}
           />
           <View className="flex-row justify-center my-1.5">
-            <Animated.View className={`flex-1 mx-1.5 p-3 ${!isOnline ? 'bg-gray-300' : 'bg-yellow-400'} rounded-2xl items-center`} entering={enterZoomIn(250, 700)}>
-              <Pressable onPress={mapClick} disabled={!isOnline}>
-                <Feather name="map-pin" size={24} color="black"/>
-              </Pressable>
-            </Animated.View>
-            <Animated.View className="flex-1 p-3 bg-blue-400 rounded-2xl items-center" entering={enterZoomIn(250, 900)}>
+            <Animated.View className="flex-1 ml-1.5 p-3 bg-blue-400 rounded-2xl items-center" entering={enterZoomIn(250, 700)}>
               <Pressable onPress={shinyClick}>
                 <Feather name="zap" size={24} color="black"/>
               </Pressable>
             </Animated.View>
-            <Animated.View className={`flex-1 mx-1.5 p-3 bg-green-700 rounded-2xl items-center ${isFavorite ? 'bg-orange-700' : ''}`} entering={enterZoomIn(250, 1100)}>
+            <Animated.View className={`flex-1 mx-1.5 p-3 bg-green-700 rounded-2xl items-center ${isFavorite ? 'bg-orange-700' : ''}`} entering={enterZoomIn(250, 900)}>
               <Pressable onPress={favoriteClick}>
                 <MaterialIcons name={isFavorite ? 'favorite' : 'favorite-border'} size={24} color="white"/>
               </Pressable>

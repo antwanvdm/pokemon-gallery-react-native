@@ -63,7 +63,7 @@ const Navigation = () => {
                             Alert.alert(t('gallery.notLoadedTitle', language), t('gallery.notLoadedDescription', language));
                             e.preventDefault();
                           }
-                          navigation.setParams({pokemonIds: null});
+                          navigation.setParams({caughtPokemon: null});
                         },
                       })}
                       options={{

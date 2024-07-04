@@ -8,7 +8,9 @@
       "typeAll": "Всі типи",
       "backToOverview": "Повернутися до огляду"
     },
-    "loading": "Завантаження Pokémon..."
+    "loading": "Завантаження даних з сервера, це може зайняти деякий час...",
+    "notLoadedTitle": "Дані майже тут!",
+    "notLoadedDescription": "Будь ласка, зачекайте, поки дані завантажаться, перш ніж продовжити"
   },
   "detailModal": {
     "addFavorite": "Додати до улюблених",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "Натисніть кнопку, щоб розблокувати та редагувати свої нотатки",
     "close": "Закрити"
   },
+  "caught": {
+    "title": "Зловлені Покемони",
+    "tabTitle": "Влови"
+  },
   "locations": {
-    "title": "Місцезнаходження Pokémon",
-    "tabTitle": "Місцезнаходження",
+    "title": "Появи Покемонів",
+    "tabTitle": "Появи",
     "iconAllPokemon": "Всі Pokémon",
     "iconMyLocation": "Моє місцезнаходження",
     "iconTakePhoto": "Зробити фото",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "Завантаження місцезнаходження!",
     "locationLoadingMessage": "Додаток все ще намагається отримати ваше поточне місцезнаходження, трохи терпіння!",
     "outOfReachTitle": "Підійдіть ближче!",
-    "outOfReachMessage": "Ви не перебуваєте в межах 100 метрів від цього Pokémon, підійдіть ближче!",
+    "outOfReachMessage": "Ви не перебуваєте в межах 50 метрів від цього Pokémon, підійдіть ближче!",
     "ourOfReachRoute": "Навігація до %{name}",
     "ourOfReachTravelTime": "Загальний час подорожі: %{time}",
-    "ourOfReachCancel": "Повернутися до карти"
+    "ourOfReachCancel": "Повернутися до карти",
+    "pokemonClickTitle": "Ви знайшли %{name}",
+    "pokemonClickMessage": "Виберіть дію, яку ви хочете виконати",
+    "pokemonClickDetail": "Переглянути деталі %{name}",
+    "pokemonClickCatch": "Зловити %{name}!",
+    "activeCaughtPokemonMarker": "Зловлено %{date}"
   },
   "settings": {
     "title": "Налаштування",

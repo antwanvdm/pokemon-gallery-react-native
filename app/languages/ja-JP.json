@@ -8,7 +8,9 @@
       "typeAll": "全てのタイプ",
       "backToOverview": "概要に戻る"
     },
-    "loading": "ポケモンを読み込んでいます..."
+    "loading": "サーバーからデータを読み込んでいます。少し時間がかかることがあります...",
+    "notLoadedTitle": "データはほぼ届いています！",
+    "notLoadedDescription": "続行する前にデータがダウンロードされるのをお待ちください"
   },
   "detailModal": {
     "addFavorite": "お気に入りに追加",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "ボタンを押してノートをロック解除し、編集します",
     "close": "閉じる"
   },
+  "caught": {
+    "title": "捕まえたポケモン",
+    "tabTitle": "捕獲"
+  },
   "locations": {
-    "title": "ポケモンの位置情報",
-    "tabTitle": "位置情報",
+    "title": "ポケモンの出現場所",
+    "tabTitle": "出現場所",
     "iconAllPokemon": "すべてのポケモン",
     "iconMyLocation": "現在地",
     "iconTakePhoto": "写真を撮る",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "位置を読み込んでいます！",
     "locationLoadingMessage": "アプリはまだ現在の位置を取得中です。少々お待ちください！",
     "outOfReachTitle": "もっと近づいてください！",
-    "outOfReachMessage": "このポケモンから100メートル以内にいません。もっと近くに移動してください！",
+    "outOfReachMessage": "このポケモンから50メートル以内にいません。もっと近くに移動してください！",
     "ourOfReachRoute": "%{name} へのルート",
     "ourOfReachTravelTime": "総旅行時間: %{time}",
-    "ourOfReachCancel": "マップに戻る"
+    "ourOfReachCancel": "マップに戻る",
+    "pokemonClickTitle": "%{name}を見つけました",
+    "pokemonClickMessage": "実行したいアクションを選択してください",
+    "pokemonClickDetail": "%{name}の詳細を表示",
+    "pokemonClickCatch": "%{name}を捕まえよう！",
+    "activeCaughtPokemonMarker": "%{date}に捕獲"
   },
   "settings": {
     "title": "設定",

@@ -10,12 +10,13 @@ import { AppDataContext } from '../../utils/context/AppData';
  * @constructor
  */
 const ClearStorage = () => {
-  const {setFavorites, setNotes, setUserMapPhotos} = useContext(UserDataContext);
+  const {setFavorites, setCatches, setNotes, setUserMapPhotos} = useContext(UserDataContext);
   const {language} = useContext(SettingsContext);
 
   //Bye data!
   const clearAll = () => {
     setFavorites([]);
+    setCatches([]);
     setNotes({});
     setUserMapPhotos([]);
     Alert.alert(t('settings.clear', language), t('settings.clearSuccess', language));

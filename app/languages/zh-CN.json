@@ -8,7 +8,9 @@
       "typeAll": "所有类型",
       "backToOverview": "返回概览"
     },
-    "loading": "正在加载宝可梦..."
+    "loading": "正在从服务器加载数据，这可能需要一段时间...",
+    "notLoadedTitle": "数据快到了！",
+    "notLoadedDescription": "请等待数据下载完成后再继续"
   },
   "detailModal": {
     "addFavorite": "添加收藏",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "按下按钮以解锁并编辑您的笔记",
     "close": "关闭"
   },
+  "caught": {
+    "title": "捕获的宝可梦",
+    "tabTitle": "捕获"
+  },
   "locations": {
-    "title": "宝可梦位置",
-    "tabTitle": "位置",
+    "title": "宝可梦刷新点",
+    "tabTitle": "刷新点",
     "iconAllPokemon": "所有宝可梦",
     "iconMyLocation": "我的位置",
     "iconTakePhoto": "拍照",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "位置加载中！",
     "locationLoadingMessage": "应用程序仍在忙于获取您的当前位置，请稍等片刻！",
     "outOfReachTitle": "靠近一点！",
-    "outOfReachMessage": "您距离该宝可梦超过100米，请靠近！",
+    "outOfReachMessage": "您距离该宝可梦超过50米，请靠近！",
     "ourOfReachRoute": "导航到 %{name}",
     "ourOfReachTravelTime": "总旅行时间：%{time}",
-    "ourOfReachCancel": "返回地图"
+    "ourOfReachCancel": "返回地图",
+    "pokemonClickTitle": "你发现了%{name}",
+    "pokemonClickMessage": "选择您想采取的操作",
+    "pokemonClickDetail": "查看%{name}的详细信息",
+    "pokemonClickCatch": "捕捉%{name}！",
+    "activeCaughtPokemonMarker": "于%{date}捕获"
   },
   "settings": {
     "title": "设置",

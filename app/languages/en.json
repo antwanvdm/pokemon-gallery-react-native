@@ -8,7 +8,9 @@
       "typeAll": "All types",
       "backToOverview": "Back to overview"
     },
-    "loading": "Loading Pokémon..."
+    "loading": "Loading data from the server, this can take a while...",
+    "notLoadedTitle": "Data is almost here!",
+    "notLoadedDescription": "Please wait for the data to be downloaded before you move on"
   },
   "detailModal": {
     "addFavorite": "Add favorite",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "Press the button to unlock and edit your notes",
     "close": "Close"
   },
+  "caught": {
+    "title": "Caught Pokémon",
+    "tabTitle": "Catches"
+  },
   "locations": {
-    "title": "Pokémon Locations",
-    "tabTitle": "Locations",
+    "title": "Pokémon Spawns",
+    "tabTitle": "Spawns",
     "iconAllPokemon": "All Pokémon",
     "iconMyLocation": "My Location",
     "iconTakePhoto": "Take Photo",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "Location loading!",
     "locationLoadingMessage": "The app is still busy retrieving your current location, have a little patience!",
     "outOfReachTitle": "Move closer!",
-    "outOfReachMessage": "You are not within 100 meters of this Pokémon, move closer!",
+    "outOfReachMessage": "You are not within 50 meters of this Pokémon, move closer!",
     "ourOfReachRoute": "Navigate to %{name}",
     "ourOfReachTravelTime": "Total travel time: %{time}",
-    "ourOfReachCancel": "Go back to map"
+    "ourOfReachCancel": "Go back to map",
+    "pokemonClickTitle": "You found %{name}",
+    "pokemonClickMessage": "Select the action you would like to take",
+    "pokemonClickDetail": "View %{name} details",
+    "pokemonClickCatch": "Catch %{name}!",
+    "activeCaughtPokemonMarker": "Caught on %{date}"
   },
   "settings": {
     "title": "Settings",

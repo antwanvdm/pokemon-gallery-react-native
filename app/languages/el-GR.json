@@ -8,7 +8,9 @@
       "typeAll": "Όλοι οι τύποι",
       "backToOverview": "Επιστροφή στην επισκόπηση"
     },
-    "loading": "Φόρτωση Pokémon..."
+    "loading": "Φόρτωση δεδομένων από τον διακομιστή, αυτό μπορεί να πάρει λίγο χρόνο...",
+    "notLoadedTitle": "Τα δεδομένα είναι σχεδόν εδώ!",
+    "notLoadedDescription": "Παρακαλώ περιμένετε να κατεβούν τα δεδομένα πριν προχωρήσετε"
   },
   "detailModal": {
     "addFavorite": "Προσθήκη στα αγαπημένα",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "Πατήστε το κουμπί για να ξεκλειδώσετε και να επεξεργαστείτε τις σημειώσεις σας",
     "close": "Κλείσιμο"
   },
+  "caught": {
+    "title": "Πιασμένα Πόκεμον",
+    "tabTitle": "Αναλήψεις"
+  },
   "locations": {
-    "title": "Τοποθεσίες Pokémon",
-    "tabTitle": "Τοποθεσίες",
+    "title": "Εμφανίσεις Πόκεμον",
+    "tabTitle": "Εμφανίσεις",
     "iconAllPokemon": "Όλα τα Pokémon",
     "iconMyLocation": "Η τοποθεσία μου",
     "iconTakePhoto": "Λήψη φωτογραφίας",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "Φόρτωση τοποθεσίας!",
     "locationLoadingMessage": "Η εφαρμογή είναι ακόμα απασχολημένη με την ανάκτηση της τρέχουσας τοποθεσίας σας, κάντε λίγη υπομονή!",
     "outOfReachTitle": "Μετακινηθείτε πιο κοντά!",
-    "outOfReachMessage": "Δεν είστε εντός 100 μέτρων από αυτό το Pokémon, μετακινηθείτε πιο κοντά!",
+    "outOfReachMessage": "Δεν είστε εντός 50 μέτρων από αυτό το Pokémon, μετακινηθείτε πιο κοντά!",
     "ourOfReachRoute": "Πλοήγηση προς %{name}",
     "ourOfReachTravelTime": "Συνολικός χρόνος ταξιδιού: %{time}",
-    "ourOfReachCancel": "Επιστροφή στον χάρτη"
+    "ourOfReachCancel": "Επιστροφή στον χάρτη",
+    "pokemonClickTitle": "Βρήκατε το %{name}",
+    "pokemonClickMessage": "Επιλέξτε τη δράση που θέλετε να κάνετε",
+    "pokemonClickDetail": "Προβολή λεπτομερειών %{name}",
+    "pokemonClickCatch": "Πιάστε το %{name}!",
+    "activeCaughtPokemonMarker": "Πιασμένο στις %{date}"
   },
   "settings": {
     "title": "Ρυθμίσεις",

@@ -8,7 +8,9 @@
       "typeAll": "Tous les types",
       "backToOverview": "Retour à l'aperçu"
     },
-    "loading": "Chargement des Pokémon..."
+    "loading": "Chargement des données depuis le serveur, cela peut prendre un certain temps...",
+    "notLoadedTitle": "Les données sont presque là!",
+    "notLoadedDescription": "Veuillez attendre que les données soient téléchargées avant de continuer"
   },
   "detailModal": {
     "addFavorite": "Ajouter aux favoris",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "Appuyez sur le bouton pour déverrouiller et modifier vos notes",
     "close": "Fermer"
   },
+  "caught": {
+    "title": "Pokémon Capturés",
+    "tabTitle": "Captures"
+  },
   "locations": {
-    "title": "Emplacements des Pokémon",
-    "tabTitle": "Emplacements",
+    "title": "Apparitions de Pokémon",
+    "tabTitle": "Apparitions",
     "iconAllPokemon": "Tous les Pokémon",
     "iconMyLocation": "Ma Position",
     "iconTakePhoto": "Prendre une photo",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "Chargement de la localisation !",
     "locationLoadingMessage": "L'application est toujours en train de récupérer votre position actuelle, veuillez patienter un peu !",
     "outOfReachTitle": "Approchez-vous !",
-    "outOfReachMessage": "Vous n'êtes pas à moins de 100 mètres de ce Pokémon, approchez-vous !",
+    "outOfReachMessage": "Vous n'êtes pas à moins de 50 mètres de ce Pokémon, approchez-vous !",
     "ourOfReachRoute": "Naviguer vers %{name}",
     "ourOfReachTravelTime": "Temps de trajet total : %{time}",
-    "ourOfReachCancel": "Revenir à la carte"
+    "ourOfReachCancel": "Retourner à la carte",
+    "pokemonClickTitle": "Vous avez trouvé %{name}",
+    "pokemonClickMessage": "Sélectionnez l'action que vous souhaitez entreprendre",
+    "pokemonClickDetail": "Voir les détails de %{name}",
+    "pokemonClickCatch": "Attrapez %{name}!",
+    "activeCaughtPokemonMarker": "Capturé le %{date}"
   },
   "settings": {
     "title": "Paramètres",

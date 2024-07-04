@@ -8,7 +8,9 @@
       "typeAll": "Tüm Türler",
       "backToOverview": "Genel Bakışa Geri Dön"
     },
-    "loading": "Pokémon Yükleniyor..."
+    "loading": "Sunucudan veri yükleniyor, bu biraz zaman alabilir...",
+    "notLoadedTitle": "Veriler neredeyse burada!",
+    "notLoadedDescription": "Devam etmeden önce verilerin indirilmesini bekleyin"
   },
   "detailModal": {
     "addFavorite": "Favorilere Ekle",
@@ -17,9 +19,13 @@
     "unlockNotesPlaceholder": "Notlarınızı kilitlemek ve düzenlemek için düğmeye basın",
     "close": "Kapat"
   },
+  "caught": {
+    "title": "Yakalanan Pokémon",
+    "tabTitle": "Yakalamalar"
+  },
   "locations": {
-    "title": "Pokémon Konumları",
-    "tabTitle": "Konumlar",
+    "title": "Pokémon Görünüm Noktaları",
+    "tabTitle": "Görünümler",
     "iconAllPokemon": "Tüm Pokémonlar",
     "iconMyLocation": "Benim Konumum",
     "iconTakePhoto": "Fotoğraf Çek",
@@ -34,10 +40,15 @@
     "locationLoadingTitle": "Konum Yükleniyor!",
     "locationLoadingMessage": "Uygulama hala güncel konumunuzu almakla meşgul, biraz sabırlı olun!",
     "outOfReachTitle": "Daha Yakına Gelin!",
-    "outOfReachMessage": "Bu Pokémon'un 100 metre içinde değilsiniz, daha yakına gelin!",
+    "outOfReachMessage": "Bu Pokémon'un 50 metre içinde değilsiniz, daha yakına gelin!",
     "ourOfReachRoute": "%{name} rotasına git",
     "ourOfReachTravelTime": "Toplam seyahat süresi: %{time}",
-    "ourOfReachCancel": "Haritaya geri dön"
+    "ourOfReachCancel": "Haritaya geri dön",
+    "pokemonClickTitle": "%{name} buldunuz",
+    "pokemonClickMessage": "Yapmak istediğiniz işlemi seçin",
+    "pokemonClickDetail": "%{name} detaylarını görüntüle",
+    "pokemonClickCatch": "%{name} yakala!",
+    "activeCaughtPokemonMarker": "%{date} tarihinde yakalandı"
   },
   "settings": {
     "title": "Ayarlar",

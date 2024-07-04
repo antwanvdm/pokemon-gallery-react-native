@@ -4,7 +4,7 @@ import PokemonCard from './PokemonCard';
 import DetailModal from '../detail/DetailModal';
 import { applyPokemonFilters } from '../../utils/pokemonData';
 import { t } from '../../utils/translator';
-import { useNavigation, useScrollToTop } from '@react-navigation/native';
+import { useScrollToTop } from '@react-navigation/native';
 import { SettingsContext } from '../../utils/context/Settings';
 import { AppDataContext } from '../../utils/context/AppData';
 import { UserDataContext } from '../../utils/context/UserData';
@@ -16,7 +16,6 @@ import { UserDataContext } from '../../utils/context/UserData';
  * @constructor
  */
 const PokemonGallery = ({filters}) => {
-  const navigation = useNavigation();
   const listRef = useRef();
   const {pokemonList} = useContext(AppDataContext);
   const {favorites, setFavorites} = useContext(UserDataContext);
@@ -48,13 +47,6 @@ const PokemonGallery = ({filters}) => {
     setActivePokemon(null);
   };
 
-  //Navigate to map view with clicked ID
-  const mapClicked = (pokemonId) => {
-    navigation.navigate('locations', {
-      pokemonIds: [pokemonId],
-    });
-  };
-
   //Let's update our local favorites when one is clicked
   const favoriteClicked = (isCurrentFavorite, pokemonId) => {
     if (isCurrentFavorite) {
@@ -70,7 +62,6 @@ const PokemonGallery = ({filters}) => {
         listIndex={index}
         pokemon={item}
         favorite={favorites.includes(item.id)}
-        mapClickHandler={mapClicked}
         shinyDetailHandler={shinyClicked}
         favoriteHandler={favoriteClicked}
       />
