@@ -5,14 +5,14 @@ import * as Notifications from 'expo-notifications';
 import haversine from 'haversine-distance';
 import * as Location from 'expo-location';
 import { SettingsContext } from '../../utils/context/Settings';
-import { AppDataContext } from '../../utils/context/AppData';
+import { WebSocketContext } from '../../utils/context/WebSocket';
 
 /**
  * @returns {JSX.Element}
  * @constructor
  */
 const TestNotification = () => {
-  const {pokemonList} = useContext(AppDataContext);
+  const {spawnPokemon} = useContext(WebSocketContext);
   const {theme, language} = useContext(SettingsContext);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +21,7 @@ const TestNotification = () => {
     setIsLoading(true);
     let location = await Location.getCurrentPositionAsync({});
 
-    const closeByPokemon = pokemonList.filter((pokemon) => haversine(location.coords, pokemon.coordinate) < 150);
+    const closeByPokemon = spawnPokemon.filter((pokemon) => haversine(location.coords, pokemon.coordinate) < 100);
     const pokemonString = closeByPokemon.map(pokemon => pokemon.names[language] ?? pokemon.names['en']).join(', ');
     console.log('pokemonString, ready to send notifications', pokemonString);
 

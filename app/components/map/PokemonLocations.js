@@ -52,13 +52,13 @@ const PokemonLocations = () => {
 
   //If a new Pokémon was clicked from the list view, snap to this location
   useEffect(() => {
+    //I need a timeout, else the first time the map will be zoomed out to the default region..
     if (params?.caughtPokemon) {
       setActiveCaughtPokemon(params.caughtPokemon);
-      //I need a timeout, else the first time the map will be zoomed out a lot.
       setTimeout(() => map.current.animateToRegion({latitude: params.caughtPokemon.location.latitude, longitude: params.caughtPokemon.location.longitude, latitudeDelta: 0.001, longitudeDelta: 0.001}), 80);
     } else {
       setActiveCaughtPokemon(null);
-      focusToLocation();
+      setTimeout(() => focusToLocation(), 80);
     }
   }, [params]);
 

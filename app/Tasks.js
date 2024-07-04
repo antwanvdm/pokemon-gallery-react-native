@@ -10,8 +10,8 @@ import { useNavigation } from '@react-navigation/native';
 import { t } from './utils/translator';
 import { Alert, Platform } from 'react-native';
 import { SettingsContext } from './utils/context/Settings';
-import { AppDataContext } from './utils/context/AppData';
 import { OnlineContext } from './utils/context/Online';
+import { WebSocketContext } from './utils/context/WebSocket';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -26,7 +26,7 @@ Notifications.setNotificationHandler({
  * @constructor
  */
 const Tasks = () => {
-  const {pokemonList} = useContext(AppDataContext);
+  const {spawnPokemon} = useContext(WebSocketContext);
   const {isOnline} = useContext(OnlineContext);
   const {notifications, language} = useContext(SettingsContext);
   const [expoPushToken, setExpoPushToken] = useState('');
@@ -94,7 +94,7 @@ const Tasks = () => {
   }, [notifications]);
 
   registerTasks(async (locations) => {
-    const closeByPokemon = pokemonList.filter((pokemon) => haversine(locations[0].coords, pokemon.coordinate) < 150);
+    const closeByPokemon = spawnPokemon.filter((pokemon) => haversine(locations[0].coords, pokemon.coordinate) < 100);
     const pokemonIdsString = JSON.stringify(closeByPokemon.map(pokemon => pokemon.id));
     if (closeByPokemon.length > 0 && lastNotificationPokemonIds.current !== pokemonIdsString) {
       if (Device.isDevice) {
