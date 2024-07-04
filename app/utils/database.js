@@ -46,8 +46,8 @@ export async function checkTableExists(tableName) {
 export async function addPokemon(pokemon, allTypes) {
   const db = await getDB();
 
-  const query = `INSERT INTO pokemon (id, name, image_default, image_shiny, image_thumb)
-                 VALUES ($id, $name, $image_default, $image_shiny, $image_thumb)`;
+  const query = `INSERT INTO pokemon (id, name, image_default, image_shiny, image_thumb, image_gif)
+                 VALUES ($id, $name, $image_default, $image_shiny, $image_thumb, $image_gif)`;
   const statement = await db.prepareAsync(query);
   try {
     const result = await statement.executeAsync({
@@ -55,7 +55,8 @@ export async function addPokemon(pokemon, allTypes) {
       $name: pokemon.name,
       $image_default: pokemon.images.default,
       $image_shiny: pokemon.images.shiny,
-      $image_thumb: pokemon.images.thumb
+      $image_thumb: pokemon.images.thumb,
+      $image_gif: pokemon.images.gif
     });
 
     for (const [language, name] of Object.entries(pokemon.names)) {
@@ -104,6 +105,7 @@ export async function getPokemon() {
                                             p.image_default,
                                             p.image_shiny,
                                             p.image_thumb,
+                                            p.image_gif,
                                             '{' || GROUP_CONCAT(DISTINCT '"' || pn.language || '": "' || pn.name || '"') || '}' AS names,
                                             '[' || GROUP_CONCAT(DISTINCT pt.type_id) || ']' AS types
                                      FROM pokemon AS p

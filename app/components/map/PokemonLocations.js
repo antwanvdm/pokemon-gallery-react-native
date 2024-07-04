@@ -1,4 +1,5 @@
-import { Alert, Dimensions, Image, Platform, View, Text } from 'react-native';
+import { Alert, Dimensions, Platform, View, Text } from 'react-native';
+import { Image } from 'expo-image';
 import Constants from 'expo-constants';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
@@ -173,9 +174,8 @@ const PokemonLocations = () => {
             coordinate={pokemon.coordinate}
             ref={(ref) => markers.current.pokemon[pokemon.spawnId] = ref}
             onPress={(e) => markerPressed(pokemon, e)}
-            tracksInfoWindowChanges={false}
-            tracksViewChanges={false}>
-            <Image fadeDuration={0} source={{uri: pokemon.image_thumb}} style={{height: 45, width: 45}} onLoadEnd={() => redrawMarker(pokemon.spawnId)}/>
+            tracksInfoWindowChanges={false}>
+            <Image contentFit="contain" autoplay={true} source={{uri: pokemon.image_gif}} style={{height: 45, width: 45}} onLoadEnd={() => redrawMarker(pokemon.spawnId)}/>
           </Marker>)}
         </>
         <>
@@ -214,7 +214,7 @@ const PokemonLocations = () => {
           onPress={() => setParams({caughtPokemon: null})}
           tracksInfoWindowChanges={false}
           tracksViewChanges={false}>
-          <Image fadeDuration={0} source={{uri: pokemonList.find((p) => p.id === activeCaughtPokemon.id).image_thumb}} style={{height: 45, width: 45}} onLoadEnd={() => activeCaughtPokemonLoaded()}/>
+          <Image source={{uri: pokemonList.find((p) => p.id === activeCaughtPokemon.id).image_thumb}} style={{height: 60, width: 60}} onLoadEnd={() => activeCaughtPokemonLoaded()}/>
           <Callout onPress={() => setParams({caughtPokemon: null})}>
             <View className="w-24 h-20 flex justify-center items-center self-center">
               <Text className="text-center font-bold">{t('locations.activeCaughtPokemonMarker', language, {date: dateFormatted(activeCaughtPokemon.date)})}</Text>

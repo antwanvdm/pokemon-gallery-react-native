@@ -39,12 +39,12 @@ const CaughtCard = ({caughtPokemon, mapClickHandler, listIndex}) => {
                 source={{uri: pokemonList.find((p)=> p.id === caughtPokemon.id).image_default}}
                 className="self-center items-center"
                 style={{width: 30, height: 30}}
-                entering={enterZoomIn(250, 500)}
+                entering={enterZoomIn(200, 400)}
               />
-              <Animated.View className={`self-center items-center`} entering={enterZoomIn(250, 700)}>
+              <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 600)}>
                 <Text className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>{dateFormatted(caughtPokemon.date)}</Text>
               </Animated.View>
-              <Animated.View className={`self-center items-center`} entering={enterZoomIn(250, 900)}>
+              <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 800)}>
                 <Feather name="map-pin" size={24} color={theme === 'dark' ? 'white' : 'black'}/>
               </Animated.View>
             </View>

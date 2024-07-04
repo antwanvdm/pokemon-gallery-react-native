@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS pokemon
     name          VARCHAR(100)        NOT NULL,
     image_default VARCHAR(200)        NOT NULL,
     image_shiny   VARCHAR(200)        NOT NULL,
-    image_thumb   VARCHAR(200)        NOT NULL
+    image_thumb   VARCHAR(200)        NOT NULL,
+    image_gif     VARCHAR(200)        NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS pokemon_names

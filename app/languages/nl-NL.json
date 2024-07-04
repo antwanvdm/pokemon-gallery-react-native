@@ -24,8 +24,8 @@
     "tabTitle": "Vangsten"
   },
   "locations": {
-    "title": "Pokémon Verschijningen",
-    "tabTitle": "Verschijningen",
+    "title": "Pokémon Spawns",
+    "tabTitle": "Spawns",
     "iconAllPokemon": "Alle Pokémon",
     "iconMyLocation": "Mijn Locatie",
     "iconTakePhoto": "Foto maken",
