@@ -19,7 +19,10 @@ const LocationContextProvider = ({children}) => {
 
     try {
       //Before this moment I used getCurrentPositionAsync, which had timeout issues. This seems to be stable AND updates my actual location :)
-      await Location.watchPositionAsync({}, (location) => setLocation(location));
+      await Location.watchPositionAsync({
+        accuracy: Location.Accuracy.High,
+        distanceInterval: 10
+      }, (location) => setLocation(location));
     } catch (e) {
       console.log(e);
     }

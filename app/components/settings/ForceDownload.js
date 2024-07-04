@@ -17,7 +17,6 @@ const ForceDownload = () => {
   const {theme, language} = useContext(SettingsContext);
   const [isLoading, setIsLoading] = useState(false);
 
-  //TODO SOMETHING GOES WRONG HERE!!!!!
   const downloadPokemon = async () => {
     setIsLoading(true);
     await dropTables();

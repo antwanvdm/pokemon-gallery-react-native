@@ -12,22 +12,23 @@ const WebSocketContextProvider = ({children}) => {
   const [spawnPokemon, setSpawnPokemon] = useState([]);
   const ws = useRef();
   const socketId = useRef(uuidv4());
+  const reconnectInterval = useRef(null);
 
-  //OK....
+  //Make sure latest information of pokemonList is available here
   const pokemonListRef = useRef(pokemonList);
   useEffect(() => {
     pokemonListRef.current = pokemonList;
   }, [pokemonList]);
 
-  useEffect(() => {
-    //Prevent start of websocket if data is unavailable
-    if (dataIsLoaded === false) {
+  const connect = () => {
+    if (ws.current && (ws.current.readyState === WebSocket.OPEN || ws.current.readyState === WebSocket.CONNECTING)) {
       return;
     }
+
     ws.current = new WebSocket('wss://adventure-go.antwan.eu');
 
     ws.current.onopen = () => {
-      console.log('open');
+      console.log('WebSocket opened');
       if (location) {
         ws.current.send(JSON.stringify({
           id: socketId.current,
@@ -39,14 +40,12 @@ const WebSocketContextProvider = ({children}) => {
     };
 
     ws.current.onerror = (error) => {
-      console.log('SOCKET ERROR');
-      console.log(error);
+      console.log('WebSocket error', error);
     };
 
-    //TODO Make websocket component & handle reconnection.
     ws.current.onclose = (error) => {
       console.log('Websocket is closed, reconnecting');
-      setInterval(() => ws.current = new WebSocket('wss://adventure-go.antwan.eu'), 2000);
+      reconnect();
     };
 
     ws.current.onmessage = (event) => {
@@ -71,10 +70,36 @@ const WebSocketContextProvider = ({children}) => {
         setSpawnPokemon(newList);
       }
     };
+  };
 
+  const reconnect = () => {
+    if (reconnectInterval.current) {
+      clearInterval(reconnectInterval.current);
+    }
+
+    reconnectInterval.current = setInterval(() => {
+      if (!ws.current || ws.current.readyState === WebSocket.CLOSED) {
+        connect();
+      }
+    }, 2000);
+  };
+
+
+  useEffect(() => {
+    //Prevent start of websocket if data is unavailable
+    if (dataIsLoaded === false) {
+      return;
+    }
+
+    connect();
+
+    //Make sure websocket & interval are cleared on unmount
     return () => {
-      if (ws.current.readyState === WebSocket.OPEN) {
+      if (ws.current) {
         ws.current.close();
+      }
+      if (reconnectInterval.current) {
+        clearInterval(reconnectInterval.current);
       }
     };
   }, [dataIsLoaded]);
@@ -88,7 +113,7 @@ const WebSocketContextProvider = ({children}) => {
         lng: location.coords.longitude
       }));
     }
-  }, [location]);
+  }, [location, dataIsLoaded]);
 
   return (
     <WebSocketContext.Provider value={{spawnPokemon}}>

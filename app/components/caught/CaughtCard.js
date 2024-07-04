@@ -24,8 +24,8 @@ const CaughtCard = ({caughtPokemon, mapClickHandler, listIndex}) => {
   //Handle the click on button
   const mapClick = () => mapClickHandler(caughtPokemon);
 
-  const enterZoomInRotate = (duration, delay) => listIndex < 31 ? ZoomInRotate.duration(duration).delay(delay + (listIndex * 50)) : null;
-  const enterZoomIn = (duration, delay) => listIndex < 31 ? ZoomIn.duration(duration).delay(delay + (listIndex * 50)) : null;
+  const enterZoomInRotate = (duration, delay) => listIndex < 35 ? ZoomInRotate.duration(duration).delay(delay + (listIndex * 30)) : null;
+  const enterZoomIn = (duration, delay) => listIndex < 35 ? ZoomIn.duration(duration).delay(delay + (listIndex * 30)) : null;
 
   return (
     <Animated.View className={`w-1/2 p-1.5 ${!isOnline ? 'bg-gray-300' : ''}`} entering={enterZoomInRotate(300, 100)}>
