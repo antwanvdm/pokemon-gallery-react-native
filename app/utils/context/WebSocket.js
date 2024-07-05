@@ -1,17 +1,14 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import 'react-native-get-random-values';
-import { v4 as uuidv4 } from 'uuid';
 import { LocationContext } from './Location';
 import { AppDataContext } from './AppData';
 
 const WebSocketContext = createContext();
 
 const WebSocketContextProvider = ({children}) => {
-  const {pokemonList, dataIsLoaded} = useContext(AppDataContext);
+  const {appId, pokemonList, dataIsLoaded} = useContext(AppDataContext);
   const {location} = useContext(LocationContext);
   const [spawnPokemon, setSpawnPokemon] = useState([]);
   const ws = useRef();
-  const socketId = useRef(uuidv4());
   const reconnectInterval = useRef(null);
 
   //Make sure latest information of pokemonList is available here
@@ -31,7 +28,7 @@ const WebSocketContextProvider = ({children}) => {
       console.log('WebSocket opened');
       if (location) {
         ws.current.send(JSON.stringify({
-          id: socketId.current,
+          id: appId,
           type: 'POSITION',
           lat: location.coords.latitude,
           lng: location.coords.longitude
@@ -49,7 +46,6 @@ const WebSocketContextProvider = ({children}) => {
     };
 
     ws.current.onmessage = (event) => {
-      console.log('new event');
       let data = JSON.parse(event.data);
 
       if (typeof data.type === 'undefined' || typeof data.content === 'undefined') {
@@ -84,10 +80,9 @@ const WebSocketContextProvider = ({children}) => {
     }, 2000);
   };
 
-
   useEffect(() => {
     //Prevent start of websocket if data is unavailable
-    if (dataIsLoaded === false) {
+    if (dataIsLoaded === false || appId === null) {
       return;
     }
 
@@ -102,18 +97,18 @@ const WebSocketContextProvider = ({children}) => {
         clearInterval(reconnectInterval.current);
       }
     };
-  }, [dataIsLoaded]);
+  }, [dataIsLoaded, appId]);
 
   useEffect(() => {
-    if (dataIsLoaded === true && location !== null && ws.current.readyState === WebSocket.OPEN) {
+    if (dataIsLoaded === true && appId !== null && location !== null && ws.current.readyState === WebSocket.OPEN) {
       ws.current.send(JSON.stringify({
-        id: socketId.current,
+        id: appId,
         type: 'POSITION',
         lat: location.coords.latitude,
         lng: location.coords.longitude
       }));
     }
-  }, [location, dataIsLoaded]);
+  }, [location, dataIsLoaded, appId]);
 
   return (
     <WebSocketContext.Provider value={{spawnPokemon}}>
