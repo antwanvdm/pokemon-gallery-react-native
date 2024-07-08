@@ -13,6 +13,7 @@ import { SettingsContext } from './utils/context/Settings';
 import { OnlineContext } from './utils/context/Online';
 import { AppDataContext } from './utils/context/AppData';
 import CaughtScreen from './screens/CaughtScreen';
+import { LocationContext } from './utils/context/Location';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +26,7 @@ const Tab = createBottomTabNavigator();
 const Navigation = () => {
   const {dataIsLoaded} = useContext(AppDataContext);
   const {theme, language} = useContext(SettingsContext);
+  const {location} = useContext(LocationContext);
   const {isOnline} = useContext(OnlineContext);
   const navigationTheme = theme === 'dark' ? DarkTheme : DefaultTheme;
 
@@ -57,6 +59,10 @@ const Navigation = () => {
                         tabPress: (e) => {
                           if (!isOnline) {
                             Alert.alert(t('offline.title', language), t('offline.map', language));
+                            e.preventDefault();
+                          }
+                          if (!location) {
+                            Alert.alert(t('gallery.noLocationTitle', language), t('gallery.noLocationDescription', language));
                             e.preventDefault();
                           }
                           if (!dataIsLoaded) {

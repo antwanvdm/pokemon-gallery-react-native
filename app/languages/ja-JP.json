@@ -10,7 +10,9 @@
     },
     "loading": "サーバーからデータを読み込んでいます。少し時間がかかることがあります...",
     "notLoadedTitle": "データはほぼ届いています！",
-    "notLoadedDescription": "続行する前にデータがダウンロードされるのをお待ちください"
+    "notLoadedDescription": "続行する前にデータがダウンロードされるのをお待ちください",
+    "noLocationTitle": "位置情報を読み込んでいます...",
+    "noLocationDescription": "位置情報が読み込まれるまでお待ちください。位置情報のアクセスを拒否した場合は、アプリ設定で手動で有効にしてください！"
   },
   "detailModal": {
     "addFavorite": "お気に入りに追加",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "写真を表示",
     "iconPhotosHide": "写真を非表示",
     "deletePhoto": "写真を削除",
-    "noAccess": "この機能には位置情報へのアクセスが必要です。アプリ設定で有効にしてください！",
+    "noAccess": "地図を使用するには位置情報へのアクセスが必要です。アプリ設定で有効にしてください！",
     "cameraDenied": "この機能にはカメラへのアクセスが必要です。アプリ設定で有効にしてください！",
     "libraryDenied": "この機能にはメディアライブラリへのアクセスが必要です。アプリ設定で有効にしてください！",
     "locationLoadingTitle": "位置を読み込んでいます！",

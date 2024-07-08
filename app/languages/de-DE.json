@@ -10,7 +10,9 @@
     },
     "loading": "Daten werden vom Server geladen, dies kann eine Weile dauern...",
     "notLoadedTitle": "Daten sind fast da!",
-    "notLoadedDescription": "Bitte warten Sie, bis die Daten heruntergeladen wurden, bevor Sie fortfahren"
+    "notLoadedDescription": "Bitte warten Sie, bis die Daten heruntergeladen wurden, bevor Sie fortfahren",
+    "noLocationTitle": "Standort wird geladen...",
+    "noLocationDescription": "Bitte warten Sie, bis der Standort geladen ist. Wenn Sie den Standortzugriff verweigert haben, aktivieren Sie ihn bitte manuell in den App-Einstellungen!"
   },
   "detailModal": {
     "addFavorite": "Zu Favoriten hinzufügen",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Fotos anzeigen",
     "iconPhotosHide": "Fotos verbergen",
     "deletePhoto": "Foto löschen",
-    "noAccess": "Sie benötigen Standortzugriff für diese Funktion, bitte aktivieren Sie es in Ihren App-Einstellungen!",
+    "noAccess": "Sie benötigen Standortzugriff, um die Karte zu verwenden. Bitte aktivieren Sie diesen in den App-Einstellungen!",
     "cameraDenied": "Sie benötigen Kamerazugriff für diese Funktion, bitte aktivieren Sie es in Ihren App-Einstellungen!",
     "libraryDenied": "Sie benötigen Zugriff auf die Medienbibliothek für diese Funktion, bitte aktivieren Sie es in Ihren App-Einstellungen!",
     "locationLoadingTitle": "Standort wird geladen!",

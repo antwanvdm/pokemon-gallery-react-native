@@ -10,7 +10,9 @@
     },
     "loading": "Gegevens worden geladen van de server, dit kan even duren...",
     "notLoadedTitle": "Gegevens zijn bijna hier!",
-    "notLoadedDescription": "Wacht alstublieft tot de gegevens zijn gedownload voordat u verder gaat"
+    "notLoadedDescription": "Wacht alstublieft tot de gegevens zijn gedownload voordat u verder gaat",
+    "noLocationTitle": "Locatie wordt geladen...",
+    "noLocationDescription": "Wacht alstublieft tot de locatie is geladen. Als u de locatie-toegang heeft geweigerd, schakel deze dan handmatig in via de app-instellingen!"
   },
   "detailModal": {
     "addFavorite": "Voeg favoriet toe",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Toon foto's",
     "iconPhotosHide": "Verberg foto's",
     "deletePhoto": "Foto verwijderen",
-    "noAccess": "Je hebt locatie toegang nodig voor deze functie, schakel het in je app-instellingen in!",
+    "noAccess": "U heeft locatie-toegang nodig om de kaart te gebruiken, schakel deze in via de app-instellingen!",
     "cameraDenied": "Je hebt camera toegang nodig voor deze functie, schakel het in je app-instellingen in!",
     "libraryDenied": "Je hebt toegang tot de mediatheek nodig voor deze functie, schakel het in je app-instellingen in!",
     "locationLoadingTitle": "Locatie laden!",

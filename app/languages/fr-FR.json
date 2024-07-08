@@ -10,7 +10,9 @@
     },
     "loading": "Chargement des données depuis le serveur, cela peut prendre un certain temps...",
     "notLoadedTitle": "Les données sont presque là!",
-    "notLoadedDescription": "Veuillez attendre que les données soient téléchargées avant de continuer"
+    "notLoadedDescription": "Veuillez attendre que les données soient téléchargées avant de continuer",
+    "noLocationTitle": "Chargement de la localisation...",
+    "noLocationDescription": "Veuillez attendre que la localisation soit chargée. Si vous avez refusé l'accès à la localisation, veuillez l'activer manuellement dans les paramètres de votre application !"
   },
   "detailModal": {
     "addFavorite": "Ajouter aux favoris",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Afficher les photos",
     "iconPhotosHide": "Cacher les photos",
     "deletePhoto": "Supprimer la photo",
-    "noAccess": "Vous avez besoin de l'accès à la localisation pour cette fonctionnalité, veuillez l'activer dans les paramètres de votre application !",
+    "noAccess": "Vous avez besoin de l'accès à la localisation pour utiliser la carte, veuillez l'activer dans les paramètres de votre application !",
     "cameraDenied": "Vous avez besoin de l'accès à la caméra pour cette fonctionnalité, veuillez l'activer dans les paramètres de votre application !",
     "libraryDenied": "Vous avez besoin de l'accès à la bibliothèque multimédia pour cette fonctionnalité, veuillez l'activer dans les paramètres de votre application !",
     "locationLoadingTitle": "Chargement de la localisation !",

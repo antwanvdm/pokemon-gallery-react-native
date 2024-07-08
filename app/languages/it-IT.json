@@ -10,7 +10,9 @@
     },
     "loading": "Caricamento dati dal server, potrebbe volerci un po'...",
     "notLoadedTitle": "I dati stanno quasi arrivando!",
-    "notLoadedDescription": "Attendi il download dei dati prima di procedere"
+    "notLoadedDescription": "Attendi il download dei dati prima di procedere",
+    "noLocationTitle": "Caricamento della posizione...",
+    "noLocationDescription": "Attendere che la posizione venga caricata. Se hai negato l'accesso alla posizione, attivalo manualmente nelle impostazioni dell'app!"
   },
   "detailModal": {
     "addFavorite": "Aggiungi ai preferiti",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Mostra foto",
     "iconPhotosHide": "Nascondi foto",
     "deletePhoto": "Elimina foto",
-    "noAccess": "Hai bisogno dell'accesso alla posizione per questa funzione, per favore attivalo nelle impostazioni dell'app!",
+    "noAccess": "È necessario l'accesso alla posizione per utilizzare la mappa. Si prega di abilitarlo nelle impostazioni dell'app!",
     "cameraDenied": "Hai bisogno dell'accesso alla fotocamera per questa funzione, per favore attivalo nelle impostazioni dell'app!",
     "libraryDenied": "Hai bisogno dell'accesso alla libreria multimediale per questa funzione, per favore attivalo nelle impostazioni dell'app!",
     "locationLoadingTitle": "Caricamento posizione!",

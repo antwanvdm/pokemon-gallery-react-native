@@ -10,7 +10,9 @@
     },
     "loading": "Loading data from the server, this can take a while...",
     "notLoadedTitle": "Data is almost here!",
-    "notLoadedDescription": "Please wait for the data to be downloaded before you move on"
+    "notLoadedDescription": "Please wait for the data to be downloaded before you move on",
+    "noLocationTitle": "Location is loading...",
+    "noLocationDescription": "Please wait for the location to be loaded. If you denied location access, please manually enable it in your app settings!"
   },
   "detailModal": {
     "addFavorite": "Add favorite",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Show Photos",
     "iconPhotosHide": "Hide Photos",
     "deletePhoto": "Delete Photo",
-    "noAccess": "You need location access for this feature, please enable it in your app settings!",
+    "noAccess": "You need location access to use the map, please enable it in your app settings!",
     "cameraDenied": "You need camera access for this feature, please enable it in your app settings!",
     "libraryDenied": "You need media library access for this feature, please enable it in your app settings!",
     "locationLoadingTitle": "Location loading!",

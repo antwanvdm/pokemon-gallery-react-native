@@ -10,7 +10,9 @@
     },
     "loading": "Sunucudan veri yükleniyor, bu biraz zaman alabilir...",
     "notLoadedTitle": "Veriler neredeyse burada!",
-    "notLoadedDescription": "Devam etmeden önce verilerin indirilmesini bekleyin"
+    "notLoadedDescription": "Devam etmeden önce verilerin indirilmesini bekleyin",
+    "noLocationTitle": "Konum yükleniyor...",
+    "noLocationDescription": "Lütfen konumun yüklenmesini bekleyin. Konum erişimini reddettiyseniz, lütfen uygulama ayarlarından manuel olarak etkinleştirin!"
   },
   "detailModal": {
     "addFavorite": "Favorilere Ekle",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Fotoğrafları Göster",
     "iconPhotosHide": "Fotoğrafları Gizle",
     "deletePhoto": "Fotoğrafı Sil",
-    "noAccess": "Bu özellik için konum erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
+    "noAccess": "Haritayı kullanmak için konum erişimine ihtiyacınız var, lütfen uygulama ayarlarından etkinleştirin!",
     "cameraDenied": "Bu özellik için kamera erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
     "libraryDenied": "Bu özellik için ortam kitaplığı erişimine ihtiyacınız var, lütfen uygulama ayarlarınızda etkinleştirin!",
     "locationLoadingTitle": "Konum Yükleniyor!",

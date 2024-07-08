@@ -10,7 +10,9 @@
     },
     "loading": "Cargando datos del servidor, esto puede tardar un tiempo...",
     "notLoadedTitle": "¡Los datos están casi aquí!",
-    "notLoadedDescription": "Espere a que los datos se descarguen antes de continuar"
+    "notLoadedDescription": "Espere a que los datos se descarguen antes de continuar",
+    "noLocationTitle": "Cargando ubicación...",
+    "noLocationDescription": "Por favor, espere a que se cargue la ubicación. Si ha denegado el acceso a la ubicación, actívelo manualmente en la configuración de su aplicación!"
   },
   "detailModal": {
     "addFavorite": "Agregar a favoritos",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "Mostrar fotos",
     "iconPhotosHide": "Ocultar fotos",
     "deletePhoto": "Eliminar foto",
-    "noAccess": "Necesitas acceso a la ubicación para esta función, por favor actívalo en la configuración de tu aplicación!",
+    "noAccess": "Necesita acceso a la ubicación para usar el mapa, por favor actívelo en la configuración de su aplicación!",
     "cameraDenied": "Necesitas acceso a la cámara para esta función, por favor actívalo en la configuración de tu aplicación!",
     "libraryDenied": "Necesitas acceso a la biblioteca multimedia para esta función, por favor actívalo en la configuración de tu aplicación!",
     "locationLoadingTitle": "¡Cargando ubicación!",

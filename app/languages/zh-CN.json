@@ -10,7 +10,9 @@
     },
     "loading": "正在从服务器加载数据，这可能需要一段时间...",
     "notLoadedTitle": "数据快到了！",
-    "notLoadedDescription": "请等待数据下载完成后再继续"
+    "notLoadedDescription": "请等待数据下载完成后再继续",
+    "noLocationTitle": "正在加载位置...",
+    "noLocationDescription": "请等待位置加载完成。如果您拒绝了位置访问，请在应用设置中手动启用它！"
   },
   "detailModal": {
     "addFavorite": "添加收藏",
@@ -34,7 +36,7 @@
     "iconPhotosShow": "显示照片",
     "iconPhotosHide": "隐藏照片",
     "deletePhoto": "删除照片",
-    "noAccess": "此功能需要位置访问权限，请在您的应用设置中启用它！",
+    "noAccess": "您需要位置访问权限才能使用地图，请在应用设置中启用它！",
     "cameraDenied": "此功能需要相机访问权限，请在您的应用设置中启用它！",
     "libraryDenied": "此功能需要媒体库访问权限，请在您的应用设置中启用它！",
     "locationLoadingTitle": "位置加载中！",
