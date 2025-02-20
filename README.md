@@ -84,8 +84,8 @@ technical description:
   the Google Cloud console to do API calls. Building the View was more difficult as I
   wanted to have the BottomSheet like in the native Google Maps app. I ended up using the
   [BottomSheet package](https://ui.gorhom.dev/components/bottom-sheet/), combined with
-  [WebView](https://github.com/react-native-webview/react-native-webview) and
-  [AutoHeightWebView](https://www.npmjs.com/package/react-native-autoheight-webview) to
+  [React Native Render HTML](https://www.npmjs.com/package/@builder.io/react-native-render-html)
+  (yes a specific fork as the original seems abandoned and didn't fix a crucial issue) to
   display the HTML instructions from the API
 - While adventuring you can take your own photos with the camera, and they are placed on 
   the map. I used [Image Picker](https://docs.expo.dev/versions/latest/sdk/imagepicker/)
@@ -100,7 +100,7 @@ technical description:
   [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/) with
   [Expo Location](https://docs.expo.dev/versions/latest/sdk/location/) (make sure to
   configure the right permissions in the config)
-- The performance was also a thing for the Flatlist. It's a list with 251 items,
+- The performance was also a thing for the Flatlist. It's a list with 600+ items,
   which could eventually become more. Updating 1 detail in 1 component shouldn't
   update every instance of the component. I eventually used the React Memo
   functionality (`export default memo(PokemonCard, areEqual);`) to always check if a
