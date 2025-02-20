@@ -5,6 +5,8 @@ export default {
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
+    userInterfaceStyle: "automatic",
+    newArchEnabled: true,
     splash: {
       image: './assets/splash.png',
       resizeMode: 'contain',
@@ -56,7 +58,8 @@ export default {
       ]
     ],
     web: {
-      favicon: './assets/favicon.png'
+      favicon: './assets/favicon.png',
+      bundler: 'metro'
     },
     extra: {
       eas: {

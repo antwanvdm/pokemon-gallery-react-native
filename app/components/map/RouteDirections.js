@@ -30,6 +30,7 @@ const RouteDirections = ({activeRoute, pokemon, onClose}) => {
         <AutoHeightWebView
           className="ml-4 w-full"
           style={{opacity: 0.99, minHeight: 1}}
+          overScrollMode="never"
           customStyle={`* { word-wrap: break-word; overflow-wrap: break-word; color: ${theme === 'dark' ? 'white' : 'black'}; body { font-size: 120%; padding-right: 15px; user-select: none; }`}
           source={{html: `<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></head><body>${item.html_instructions}</body></html>`}}/>
       </View>
