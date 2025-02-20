@@ -136,14 +136,14 @@ const PokemonLocations = () => {
 
   //This is a horrible hack to prevent performance loss @link https://github.com/react-native-maps/react-native-maps/issues/3339
   const redrawMarker = (pokemonId) => {
-    if (Platform.OS === 'android') {
+    if (Platform.OS === 'android' && typeof markers.current.pokemon[pokemonId] !== 'undefined') {
       markers.current.pokemon[pokemonId].redraw();
     }
   };
 
   const activeCaughtPokemonLoaded = () => {
     markers.current.activeCaughtPokemon.showCallout();
-    if (Platform.OS === 'android') {
+    if (Platform.OS === 'android' && typeof markers.current.activeCaughtPokemon !== 'undefined') {
       markers.current.activeCaughtPokemon.redraw();
     }
   };
@@ -175,7 +175,7 @@ const PokemonLocations = () => {
             ref={(ref) => markers.current.pokemon[pokemon.spawnId] = ref}
             onPress={(e) => markerPressed(pokemon, e)}
             tracksInfoWindowChanges={false}>
-            <Image contentFit="contain" autoplay={true} source={{uri: pokemon.image_gif}} style={{height: 45, width: 45}} onLoadEnd={() => redrawMarker(pokemon.spawnId)}/>
+            <Image contentFit="contain" autoplay={true} source={{uri: pokemon.image_gif}} style={{height: 30, width: 30, backgroundColor:'transparant'}} onLoadEnd={() => redrawMarker(pokemon.spawnId)}/>
           </Marker>)}
         </>
         <>
@@ -186,7 +186,7 @@ const PokemonLocations = () => {
             ref={(ref) => markers.current.photos[userMapPhoto.id] = ref}
             onPress={() => setActiveUserMapPhoto(userMapPhoto)}
             tracksInfoWindowChanges={false}
-            tracksViewChanges={false}>
+            tracksViewChanges={true}>
             <MaterialIcons name="linked-camera" size={24} color={theme === 'dark' ? 'yellow' : 'blue'}/>
           </Marker>)}
         </>
@@ -214,9 +214,10 @@ const PokemonLocations = () => {
           onPress={() => setParams({caughtPokemon: null})}
           tracksInfoWindowChanges={false}
           tracksViewChanges={false}>
-          <Image source={{uri: pokemonList.find((p) => p.id === activeCaughtPokemon.id).image_thumb}} style={{height: 60, width: 60}} onLoadEnd={() => activeCaughtPokemonLoaded()}/>
+          <Image contentFit="contain" source={{uri: pokemonList.find((p) => p.id === activeCaughtPokemon.id).image_thumb}} style={{height: 30, width: 30}} onLoadEnd={() => activeCaughtPokemonLoaded()}/>
           <Callout onPress={() => setParams({caughtPokemon: null})}>
-            <View className="w-24 h-20 flex justify-center items-center self-center">
+            <View className="w-24 h-20 flex justify-center items-center self-center"
+                  style={{ minWidth: 120, minHeight: 60, pointerEvents: "box-none" }}>
               <Text className="text-center font-bold">{t('locations.activeCaughtPokemonMarker', language, {date: dateFormatted(activeCaughtPokemon.date)})}</Text>
             </View>
           </Callout>

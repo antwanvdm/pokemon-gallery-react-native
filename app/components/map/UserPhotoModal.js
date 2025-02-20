@@ -1,6 +1,5 @@
 import ReactNativeModal from 'react-native-modal';
 import { Image, Pressable, Text, View } from 'react-native';
-import { Shadow } from 'react-native-shadow-2';
 import { t } from '../../utils/translator';
 import { useContext } from 'react';
 import * as MediaLibrary from 'expo-media-library';
@@ -39,10 +38,7 @@ const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
     >
       {userPhoto ? (
         <View className="flex-1 justify-center items-center">
-          <Shadow className="rounded-2xl self-stretch"
-                  distance={2}
-                  startColor={theme === 'dark' ? '#FFF' : '#000'} offset={[1, 1]}>
-            <View className={`rounded-2xl bg-white p-8 items-center shadow-black ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
+            <View className={`rounded-2xl border p-8 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
               <Image
                 source={{uri: userPhoto.uri}}
                 style={{width: 200, height: 260}}
@@ -54,7 +50,6 @@ const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
                 <Text className="text-white text-center font-bold">{t('detailModal.close', language)}</Text>
               </Pressable>
             </View>
-          </Shadow>
         </View>
       ) : (
         <Text>''</Text>

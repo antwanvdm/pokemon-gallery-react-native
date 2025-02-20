@@ -1,7 +1,6 @@
 import Animated, { ZoomIn, ZoomInRotate } from 'react-native-reanimated';
 import { useContext } from 'react';
 import { Text, View, Pressable } from 'react-native';
-import { Shadow } from 'react-native-shadow-2';
 import { Feather } from '@expo/vector-icons';
 import { OnlineContext } from '../../utils/context/Online';
 import { SettingsContext } from '../../utils/context/Settings';
@@ -30,26 +29,22 @@ const CaughtCard = ({caughtPokemon, mapClickHandler, listIndex}) => {
   return (
     <Animated.View className={`w-1/2 p-1.5 ${!isOnline ? 'bg-gray-300' : ''}`} entering={enterZoomInRotate(300, 100)}>
       <Pressable onPress={mapClick} disabled={!isOnline}>
-        <Shadow className="rounded-2xl self-stretch"
-                distance={2}
-                startColor={theme === 'dark' ? '#FFF' : '#000'} offset={[1, 1]}>
-          <View className={`rounded-2xl text-center ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-            <View className="flex-row justify-around py-1">
-              <Animated.Image
-                source={{uri: pokemonList.find((p)=> p.id === caughtPokemon.id).image_default}}
-                className="self-center items-center"
-                style={{width: 30, height: 30}}
-                entering={enterZoomIn(200, 400)}
-              />
-              <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 600)}>
-                <Text className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>{dateFormatted(caughtPokemon.date)}</Text>
-              </Animated.View>
-              <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 800)}>
-                <Feather name="map-pin" size={24} color={theme === 'dark' ? 'white' : 'black'}/>
-              </Animated.View>
-            </View>
+        <View className={`rounded-2xl border text-center ${theme === 'dark' ? 'bg-gray-800 border-white' : 'bg-white border-gray-800'}`}>
+          <View className="flex-row justify-around py-1">
+            <Animated.Image
+              source={{uri: pokemonList.find((p) => p.id === caughtPokemon.id).image_default}}
+              className="self-center items-center"
+              style={{width: 30, height: 30}}
+              entering={enterZoomIn(200, 400)}
+            />
+            <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 600)}>
+              <Text className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>{dateFormatted(caughtPokemon.date)}</Text>
+            </Animated.View>
+            <Animated.View className={`self-center items-center`} entering={enterZoomIn(200, 800)}>
+              <Feather name="map-pin" size={24} color={theme === 'dark' ? 'white' : 'black'}/>
+            </Animated.View>
           </View>
-        </Shadow>
+        </View>
       </Pressable>
     </Animated.View>
   );

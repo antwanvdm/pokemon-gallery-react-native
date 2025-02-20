@@ -37,7 +37,6 @@ const MapActions = ({location, focusToOverview, focusToLocation, showPokemon, sh
     }
 
     let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 0.7
     });
 

@@ -4,7 +4,6 @@ import { View, Pressable, Text } from 'react-native';
 import ReactNativeModal from 'react-native-modal';
 import FavoriteFilter from './FavoriteFilter';
 import TypeFilter from './TypeFilter';
-import { Shadow } from 'react-native-shadow-2';
 import { t } from '../../../utils/translator';
 import { SettingsContext } from '../../../utils/context/Settings';
 
@@ -47,10 +46,7 @@ const Filters = ({onChange}) => {
         onRequestClose={toggleModal}
       >
         <View className="flex-1 justify-center items-center">
-          <Shadow className="rounded-2xl self-stretch"
-                  distance={2}
-                  startColor={theme === 'dark' ? '#FFF' : '#000'} offset={[1, 1]}>
-            <View className={`rounded-2xl bg-white p-10 items-center shadow-black ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
+            <View className={`rounded-2xl border p-10 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
               <FavoriteFilter
                 onChange={handleFiltersChanged}
                 status={filters.favorites}
@@ -65,7 +61,6 @@ const Filters = ({onChange}) => {
                 <Text className="text-white text-center font-bold">{t('gallery.filters.backToOverview', language)}</Text>
               </Pressable>
             </View>
-          </Shadow>
         </View>
       </ReactNativeModal>
     </View>

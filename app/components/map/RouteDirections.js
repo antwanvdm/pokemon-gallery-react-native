@@ -1,8 +1,8 @@
 import { useCallback, useContext, useMemo, useRef } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, useWindowDimensions } from 'react-native';
 import BottomSheet, { BottomSheetFlatList, BottomSheetView } from '@gorhom/bottom-sheet';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import AutoHeightWebView from 'react-native-autoheight-webview';
+import RenderHtml from '@builder.io/react-native-render-html';
 import { t } from '../../utils/translator';
 import { formatMinutes } from '../../utils/numbers';
 import { SettingsContext } from '../../utils/context/Settings';
@@ -12,6 +12,7 @@ const RouteDirections = ({activeRoute, pokemon, onClose}) => {
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ['20%', '50%', '100%'], []);
   const iconColor = theme === 'dark' ? 'white' : 'black';
+  const {width} = useWindowDimensions();
 
   const maneuverIcons = {
     'ferry': <MaterialIcons name="directions-ferry" size={32} color={iconColor}/>,
@@ -27,12 +28,10 @@ const RouteDirections = ({activeRoute, pokemon, onClose}) => {
     ({item}) => (
       <View className="flex-row px-4 py-2">
         {item.maneuver ? maneuverIcons[item.maneuver] ?? <MaterialIcons name={item.maneuver} size={32} color={iconColor}/> : <MaterialCommunityIcons name="routes" size={32} color={iconColor}/>}
-        <AutoHeightWebView
-          className="ml-4 w-full"
-          style={{opacity: 0.99, minHeight: 1}}
-          overScrollMode="never"
-          customStyle={`* { word-wrap: break-word; overflow-wrap: break-word; color: ${theme === 'dark' ? 'white' : 'black'}; body { font-size: 120%; padding-right: 15px; user-select: none; }`}
-          source={{html: `<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></head><body>${item.html_instructions}</body></html>`}}/>
+        <RenderHtml
+          contentWidth={width * 0.8}
+          source={{html: `<style></style></head><body style="word-wrap: break-word; overflow-wrap: break-word; color: ${theme === 'dark' ? 'white' : 'black'}; padding: 0 10px;">${item.html_instructions}`}}
+        />
       </View>
     ),
     []
