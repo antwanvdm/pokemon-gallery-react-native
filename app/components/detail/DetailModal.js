@@ -51,7 +51,7 @@ const DetailModal = ({pokemon, closeCallback}) => {
     >
       {pokemon ? (
         <View className="flex-1 justify-center items-center">
-          <View className={`rounded-2xl border p-8 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
+          <View className={`w-9/12 rounded-2xl border p-8 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
             <Text className={`text-xl font-bold text-center ${isFavorite ? 'text-orange-700' : theme === 'dark' ? 'text-white' : ''}`}>
               {pokemon.names[language] ?? pokemon.names['en']} (#{pokemon.id})
             </Text>

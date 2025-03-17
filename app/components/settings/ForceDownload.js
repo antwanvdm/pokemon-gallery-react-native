@@ -31,8 +31,8 @@ const ForceDownload = () => {
   };
 
   return (
-    <View className="flex-row items-center mt-4 justify-evenly">
-      <Pressable className={`flex-row items-center mt-1 p-3 ${isLoading || !isOnline ? 'bg-gray-300' : 'bg-red-700'} rounded-2xl`}
+    <View className="w-9/12 flex-row items-center mt-4 justify-evenly">
+      <Pressable className={`w-full flex-row justify-center mt-1 p-3 ${isLoading || !isOnline ? 'bg-gray-300' : 'bg-red-700'} rounded-2xl`}
                  onPress={downloadPokemon}
                  disabled={isLoading || !isOnline}>
         <Text className="text-white text-center font-bold">{t('settings.download', language)}</Text>

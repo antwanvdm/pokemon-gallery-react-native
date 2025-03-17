@@ -38,7 +38,7 @@ const UserPhotoModal = ({userPhoto, onDelete, closeCallback}) => {
     >
       {userPhoto ? (
         <View className="flex-1 justify-center items-center">
-            <View className={`rounded-2xl border p-8 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
+            <View className={`w-9/12 rounded-2xl border p-8 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
               <Image
                 source={{uri: userPhoto.uri}}
                 style={{width: 200, height: 260}}

@@ -38,14 +38,14 @@ const TypeFilter = ({onChange, type}) => {
 
   if (isLoaded) {
     return (
-      <View className="mt-6 mb-6 z-10">
+      <View className="w-full mt-2 mb-4 z-10">
         <DropDownPicker
           open={open}
           setOpen={setOpen}
           items={allTypes}
           value={activeType}
           setValue={setActiveType}
-          containerStyle={{height: 40, width: 150}}
+          containerStyle={{height: 40}}
           zIndex={1000}
           listMode="MODAL"
           theme={theme.toUpperCase()}

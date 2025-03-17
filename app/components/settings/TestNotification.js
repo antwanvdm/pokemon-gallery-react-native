@@ -42,8 +42,8 @@ const TestNotification = () => {
   };
 
   return (
-    <View className="flex-row items-center mt-4 justify-evenly">
-      <Pressable className={`flex-row items-center mt-1 p-3 ${isLoading ? 'bg-gray-300' : 'bg-yellow-400'} rounded-2xl`} onPress={sendNotification} disabled={isLoading}>
+    <View className="w-9/12 flex-row items-center mt-4 justify-evenly">
+      <Pressable className={`w-full flex-row justify-center mt-1 p-3 ${isLoading ? 'bg-gray-300' : 'bg-yellow-400'} rounded-2xl`} onPress={sendNotification} disabled={isLoading}>
         <Text className="text-black text-center font-bold">{t('settings.testNotification', language)}</Text>
         {isLoading ?
           <ActivityIndicator className="ml-2" size="small" color={theme === 'dark' ? '#FFF' : '#000'}/>

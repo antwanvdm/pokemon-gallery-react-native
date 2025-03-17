@@ -37,8 +37,8 @@ const ClearStorage = () => {
   };
 
   return (
-    <View className="flex-row items-center mt-6">
-      <Pressable className="mt-1 p-3 bg-red-700 rounded-2xl" onPress={buttonPressed}>
+    <View className="w-9/12 flex-row items-center mt-6">
+      <Pressable className="w-full mt-1 p-3 bg-red-700 rounded-2xl" onPress={buttonPressed}>
         <Text className="text-white text-center font-bold">{t('settings.clear', language)}</Text>
       </Pressable>
     </View>

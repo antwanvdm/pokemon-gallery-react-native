@@ -105,11 +105,11 @@ const PokemonNotes = ({isOpen, pokemonId}) => {
   //Unfortunately NativeWind class doesn't get respected on TextInput, have to hardcode the width & textAlignVertical
   return (
     <>
-      <Pressable disabled={isUnlocked} className={`w-full mt-1 p-3 ${isUnlocked ? 'bg-gray-300' : 'bg-yellow-400'} rounded-2xl`} onPress={() => onNotedUnlockPressed()}>
+      <Pressable disabled={isUnlocked} className={`w-full mt-2 p-3 ${isUnlocked ? 'bg-gray-300' : 'bg-yellow-400'} rounded-2xl`} onPress={() => onNotedUnlockPressed()}>
         <Text className="text-black text-center font-bold">{t('detailModal.unlockNotesButton', language)}</Text>
       </Pressable>
-      <KeyboardAvoidingView>
-        <TextInput className="bg-white w-11/12 rounded-2xl h-20 mt-1.5 p-3 border-2"
+      <KeyboardAvoidingView className="w-full">
+        <TextInput className="bg-white w-full rounded-2xl h-20 mt-1.5 p-3 border-2"
                    editable={isUnlocked}
                    readOnly={!isUnlocked}
                    ref={ref => inputRef.current = ref}
@@ -117,7 +117,7 @@ const PokemonNotes = ({isOpen, pokemonId}) => {
                    placeholder={isUnlocked ? inputText : t('detailModal.unlockNotesPlaceholder', language)}
                    onChangeText={onChangeText}
                    multiline={true}
-                   style={{width: 180, textAlignVertical: 'top'}}/>
+                   style={{textAlignVertical: 'top'}}/>
       </KeyboardAvoidingView>
       {isUnlocked ? (
         <View className="flex-row justify-center my-1">

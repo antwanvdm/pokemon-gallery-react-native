@@ -46,17 +46,16 @@ const Filters = ({onChange}) => {
         onRequestClose={toggleModal}
       >
         <View className="flex-1 justify-center items-center">
-            <View className={`rounded-2xl border p-10 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
+            <View className={`w-9/12 rounded-2xl border p-10 items-center shadow-black ${theme === 'dark' ? 'bg-gray-800 text-white border-white' : 'bg-white text-black border-gray-800'}`}>
               <FavoriteFilter
                 onChange={handleFiltersChanged}
                 status={filters.favorites}
               />
               <TypeFilter onChange={handleFiltersChanged} type={filters.type}/>
               <Pressable
-                className="mt-2 p-3 pr-4 pl-4 bg-green-700 rounded-2xl"
+                className="w-full mt-2 p-3 pr-4 pl-4 bg-green-700 rounded-2xl"
                 onPress={toggleModal}
                 filters={filters}
-                title="Back to overview"
               >
                 <Text className="text-white text-center font-bold">{t('gallery.filters.backToOverview', language)}</Text>
               </Pressable>
